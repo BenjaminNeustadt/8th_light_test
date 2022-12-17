@@ -1,0 +1,7 @@
+Attributes that need to be displayed for our book list
+
+include the book's author, title, and publishing company
+
+Napkin idea:
+
+`list = [{ author:, title:, publishing company: }]`
