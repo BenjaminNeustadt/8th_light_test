@@ -1,0 +1,809 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 6033,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "TS9IDAAAQBAJ",
+      "etag": "jTL2dCxOEV8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/TS9IDAAAQBAJ",
+      "volumeInfo": {
+        "title": "The History Book",
+        "subtitle": "Big Ideas Simply Explained",
+        "authors": [
+          "DK"
+        ],
+        "publisher": "Dorling Kindersley Ltd",
+        "publishedDate": "2016-07-01",
+        "description": "Travel thousands of years into our past and discover the significant events that shaped the world as we know it. From the founding of Baghdad, and the colonisation of the Americas, to the inception of Buddhism, The History Book highlights key ideas, themes, and events of world history without complicated jargon, just short, pithy explanations. Part of DK's award-winning Big Ideas educational series that uses witty graphics and engaging descriptions to enlighten readers. Don't stop at British history, explore the world! Full of fun facts from the human story, going as far back as the origins of our species to space exploration today. Discover all things revolution, from the French to the digital, including the rise of the internet. Short and sweet biographies of some of the most important thinkers and leaders throughout history, such as Martin Luther King Jr, Charles Darwin, and Nelson Mandela. You'll learn who said famous historical quotes, and what they really meant when they said it. Big Historic Events Simply Explained Modern twist on the good old-fashioned encyclopedia, now easier to follow, with diagrams, mind maps, and timelines. Step-by-step diagrams will have you reviewing your ideas about history. Start from the very beginning: - Human Origins 200,000 years ago - 3500 BGE - Ancient Civilisations 6000 BGE - 500 CE - The Medieval World 500 - 1492 - Early Modern Era 1420 - 1795 - Changing Societies 1776 - 1914 - The Modern World 1914 - Present The Series Simply Explained With over 7 million copies sold worldwide to date, The History Book is part of the award-winning Big Ideas series from DK Books. It uses innovative graphics along with engaging writing to make complex subjects easier to understand.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780241282229"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0241282225"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 354,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "0.4.2.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=TS9IDAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=TS9IDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=TS9IDAAAQBAJ&printsec=frontcover&dq=history&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=TS9IDAAAQBAJ&dq=history&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_History_Book.html?hl=&id=TS9IDAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/The_History_Book-sample-pdf.acsm?id=TS9IDAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=TS9IDAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Start from the very beginning: - Human Origins 200,000 years ago - 3500 BGE - Ancient Civilisations 6000 BGE - 500 CE - The Medieval World 500 - 1492 - Early Modern Era 1420 - 1795 - Changing Societies 1776 - 1914 - The Modern World 1914 - ..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "3QZXvUhGwhAC",
+      "etag": "DEiL0eVF2xs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/3QZXvUhGwhAC",
+      "volumeInfo": {
+        "title": "A Short History of the World",
+        "authors": [
+          "John Morris Roberts"
+        ],
+        "publisher": "Oxford University Press, USA",
+        "publishedDate": "1997",
+        "description": "Chronologically discusses the events of history beginning with the evolution of man and ending with the restructuring of Western Europe in 1993.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "019511504X"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780195115048"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "pageCount": 564,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.2.5.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=3QZXvUhGwhAC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=3QZXvUhGwhAC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=3QZXvUhGwhAC&dq=history&hl=&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=3QZXvUhGwhAC&dq=history&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/A_Short_History_of_the_World.html?hl=&id=3QZXvUhGwhAC"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true
+        },
+        "pdf": {
+          "isAvailable": true
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=3QZXvUhGwhAC&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Chronologically discusses the events of history beginning with the evolution of man and ending with the restructuring of Western Europe in 1993."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "W7MAjwEACAAJ",
+      "etag": "UkRcUPgL6zs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/W7MAjwEACAAJ",
+      "volumeInfo": {
+        "title": "The History Book",
+        "authors": [
+          "Dorling Kindersley"
+        ],
+        "publishedDate": "2016-06-27",
+        "description": "The History Book tackles big historical ideas with stunning visuals, key quotes, and important themes that are woven throughout world history. Discover events from the assassination of Caesar to World War I and see the people and events come to life with The History Book, perfect for students, adults, or anyone who wants to understand our fascinating past.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0241225922"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780241225929"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 352,
+        "printType": "BOOK",
+        "categories": [
+          "Civilization, Ancient"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=W7MAjwEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=W7MAjwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=W7MAjwEACAAJ&dq=history&hl=&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=W7MAjwEACAAJ&dq=history&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_History_Book.html?hl=&id=W7MAjwEACAAJ"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=W7MAjwEACAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Welcome to the complete history of the world. From the dawn of civilisation to the 21st century, the course of time is captured in all its glory inside this stunning graphic guide."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "B7_1DwAAQBAJ",
+      "etag": "9fiwRacBtDc",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/B7_1DwAAQBAJ",
+      "volumeInfo": {
+        "title": "The Oxford Illustrated History of the Book",
+        "authors": [
+          "James Raven"
+        ],
+        "publisher": "Oxford University Press, USA",
+        "publishedDate": "2020",
+        "description": "In 14 original essays, this book reveals the history of books in all their various forms, from the ancient world to the digital present",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780198702986"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0198702981"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 468,
+        "printType": "BOOK",
+        "categories": [
+          "Language Arts & Disciplines"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=B7_1DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=B7_1DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=B7_1DwAAQBAJ&printsec=frontcover&dq=history&hl=&cd=4&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=B7_1DwAAQBAJ&dq=history&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Oxford_Illustrated_History_of_the_Bo.html?hl=&id=B7_1DwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/The_Oxford_Illustrated_History_of_the_Bo-sample-pdf.acsm?id=B7_1DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=B7_1DwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "In 14 original essays, this book reveals the history of books in all their various forms, from the ancient world to the digital present"
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "N2C6BAAAQBAJ",
+      "etag": "+CTNAW12Tw8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/N2C6BAAAQBAJ",
+      "volumeInfo": {
+        "title": "A Little History of the World",
+        "subtitle": "Illustrated Edition",
+        "authors": [
+          "E. H. Gombrich"
+        ],
+        "publisher": "Yale University Press",
+        "publishedDate": "2014-10-01",
+        "description": "E. H. Gombrich's Little History of the World, though written in 1935, has become one of the treasures of historical writing since its first publication in English in 2005. The Yale edition alone has now sold over half a million copies, and the book is available worldwide in almost thirty languages. Gombrich was of course the best-known art historian of his time, and his text suggests illustrations on every page. This illustrated edition of the Little History brings together the pellucid humanity of his narrative with the images that may well have been in his mind's eye as he wrote the book. The two hundred illustrations—most of them in full color—are not simple embellishments, though they are beautiful. They emerge from the text, enrich the author's intention, and deepen the pleasure of reading this remarkable work. For this edition the text is reset in a spacious format, flowing around illustrations that range from paintings to line drawings, emblems, motifs, and symbols. The book incorporates freshly drawn maps, a revised preface, and a new index. Blending high-grade design, fine paper, and classic binding, this is both a sumptuous gift book and an enhanced edition of a timeless account of human history.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780300213973"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0300213972"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 461,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "averageRating": 4,
+        "ratingsCount": 29,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.3.3.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=N2C6BAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=N2C6BAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=N2C6BAAAQBAJ&pg=PP1&dq=history&hl=&cd=5&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=N2C6BAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=N2C6BAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 16.99,
+          "currencyCode": "GBP"
+        },
+        "retailPrice": {
+          "amount": 16.99,
+          "currencyCode": "GBP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=N2C6BAAAQBAJ&rdid=book-N2C6BAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 16990000,
+              "currencyCode": "GBP"
+            },
+            "retailPrice": {
+              "amountInMicros": 16990000,
+              "currencyCode": "GBP"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/A_Little_History_of_the_World-sample-epub.acsm?id=N2C6BAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/A_Little_History_of_the_World-sample-pdf.acsm?id=N2C6BAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=N2C6BAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "For this edition the text is reset in a spacious format, flowing around illustrations that range from paintings to line drawings, emblems, motifs, and symbols. The book incorporates freshly drawn maps, a revised preface, and a new index."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "ZKwPBgAAQBAJ",
+      "etag": "kRAKPXw1tPw",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/ZKwPBgAAQBAJ",
+      "volumeInfo": {
+        "title": "The Cambridge Companion to the History of the Book",
+        "authors": [
+          "Leslie Howsam"
+        ],
+        "publisher": "Cambridge University Press",
+        "publishedDate": "2015",
+        "description": "An accessible and wide-ranging study of the history of the book within local, national and global contexts.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781107023734"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1107023734"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 301,
+        "printType": "BOOK",
+        "categories": [
+          "Language Arts & Disciplines"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=ZKwPBgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=ZKwPBgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=ZKwPBgAAQBAJ&printsec=frontcover&dq=history&hl=&cd=6&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=ZKwPBgAAQBAJ&dq=history&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Cambridge_Companion_to_the_History_o.html?hl=&id=ZKwPBgAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/The_Cambridge_Companion_to_the_History_o-sample-pdf.acsm?id=ZKwPBgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=ZKwPBgAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "An accessible and wide-ranging study of the history of the book within local, national and global contexts."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "JGs4EAAAQBAJ",
+      "etag": "yWvPb4FS1oU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/JGs4EAAAQBAJ",
+      "volumeInfo": {
+        "title": "The Black History Book",
+        "subtitle": "Big Ideas Simply Explained",
+        "authors": [
+          "DK"
+        ],
+        "publisher": "Dorling Kindersley Ltd",
+        "publishedDate": "2021-10-07",
+        "description": "Learn about the most important milestones in Black history in The Black History Book. Part of the fascinating Big Ideas series, this book tackles tricky topics and themes in a simple and easy to follow format. Learn about Black History in this overview guide to the subject, brilliant for novices looking to find out more and experts wishing to refresh their knowledge alike! The Black History Book brings a fresh and vibrant take on the topic through eye-catching graphics and diagrams to immerse yourself in. This captivating book will broaden your understanding of Black History, with: - Covers the most important milestones in Black and African history - Packed with facts, charts, timelines and graphs to help explain core concepts - A visual approach to big subjects with striking illustrations and graphics throughout - Easy to follow text makes topics accessible for people at any level of understanding The Black History Book is a captivating introduction to the key milestones in Black History, culture, and society across the globe - from the ancient world to the present, aimed at adults with an interest in the subject and students wanting to gain more of an overview. Explore the rich history of the peoples of Africa and the African diaspora, and the struggles and triumphs of Black communities around the world, all through engaging text and bold graphics. Your Black History Questions, Simply Explained Which were the most powerful African empires? Who were the pioneers of jazz? What sparked the Black Lives Matter movement? If you thought it was difficult to learn about the legacy of African-American history, The Black History Book presents crucial information in a clear layout. Learn about the earliest human migrations to modern Black communities, stories of the early kingdoms of Ancient Egypt and Nubia; the powerful medieval and early modern empires; and the struggle against colonization. This book also explores Black history beyond the African continent, like the Atlantic slave trade and slave resistance settlements; the Harlem Renaissance and Jazz Age; the Windrush migration; civil rights and Black feminist movements. The Big Ideas Series With millions of copies sold worldwide, The Black History Book is part of the award-winning Big Ideas series from DK. The series uses striking graphics along with engaging writing, making big topics easy to understand.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9780241555620"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "0241555620"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 756,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.7.7.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=JGs4EAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=JGs4EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=JGs4EAAAQBAJ&printsec=frontcover&dq=history&hl=&cd=7&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=JGs4EAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=JGs4EAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 7.99,
+          "currencyCode": "GBP"
+        },
+        "retailPrice": {
+          "amount": 7.99,
+          "currencyCode": "GBP"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=JGs4EAAAQBAJ&rdid=book-JGs4EAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 7990000,
+              "currencyCode": "GBP"
+            },
+            "retailPrice": {
+              "amountInMicros": 7990000,
+              "currencyCode": "GBP"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/The_Black_History_Book-sample-epub.acsm?id=JGs4EAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/The_Black_History_Book-sample-pdf.acsm?id=JGs4EAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=JGs4EAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Learn about the most important milestones in Black history in The Black History Book. Part of the fascinating Big Ideas series, this book tackles tricky topics and themes in a simple and easy to follow format."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "oh-5AAmboMUC",
+      "etag": "taxjAXri/gM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/oh-5AAmboMUC",
+      "volumeInfo": {
+        "title": "Russia and the Russians",
+        "subtitle": "A History",
+        "authors": [
+          "Geoffrey A. Hosking",
+          "Emeritus Professor of Russian History Geoffrey Hosking"
+        ],
+        "publisher": "Harvard University Press",
+        "publishedDate": "2001",
+        "description": "Chronicles the history of the Russian Empire from the Mongol Invasion, through the Bolshevik Revolution, to the aftereffects of the Cold War.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0674004736"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780674004733"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 776,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "averageRating": 5,
+        "ratingsCount": 2,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "4.6.6.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=oh-5AAmboMUC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=oh-5AAmboMUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=oh-5AAmboMUC&printsec=frontcover&dq=history&hl=&cd=8&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=oh-5AAmboMUC&dq=history&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Russia_and_the_Russians.html?hl=&id=oh-5AAmboMUC"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/Russia_and_the_Russians-sample-epub.acsm?id=oh-5AAmboMUC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/Russia_and_the_Russians-sample-pdf.acsm?id=oh-5AAmboMUC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=oh-5AAmboMUC&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Chronicles the history of the Russian Empire from the Mongol Invasion, through the Bolshevik Revolution, to the aftereffects of the Cold War."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "rOzUl7TCL9QC",
+      "etag": "Oac39DT+lHM",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/rOzUl7TCL9QC",
+      "volumeInfo": {
+        "title": "The Cambridge History of the Book in Britain",
+        "authors": [
+          "Former Director of the Warburg Institute and Professor Emeritus of the History of Classical Tradition J B Trapp"
+        ],
+        "publisher": "Cambridge University Press",
+        "publishedDate": "1999-12-09",
+        "description": "The history of the book from 1400 to 1557: the transition from manuscripts to printed books.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0521573467"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780521573467"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 846,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "averageRating": 1,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.7.8.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=rOzUl7TCL9QC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=rOzUl7TCL9QC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=rOzUl7TCL9QC&printsec=frontcover&dq=history&hl=&cd=9&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=rOzUl7TCL9QC&dq=history&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/The_Cambridge_History_of_the_Book_in_Bri.html?hl=&id=rOzUl7TCL9QC"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.co.uk/books/download/The_Cambridge_History_of_the_Book_in_Bri-sample-pdf.acsm?id=rOzUl7TCL9QC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=rOzUl7TCL9QC&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The history of the book from 1400 to 1557: the transition from manuscripts to printed books."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "ZCmUeb52l3MC",
+      "etag": "GmTAf9+RNck",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/ZCmUeb52l3MC",
+      "volumeInfo": {
+        "title": "Military History",
+        "subtitle": "The Definitive Visual Guide to the Objects of Warfare",
+        "authors": [
+          "DK"
+        ],
+        "publisher": "Penguin",
+        "publishedDate": "2012-10-01",
+        "description": "The world's weaponry is showcased inside this spectacular visual guide. From the spears and swords of ancient times to the guns and grenades of modern warfare, 5,000 years of weaponry are explored and explained in unprecedented detail. Military History profiles key arms and armaments and conveys technologies and tactics across hundreds of pages of dramatic photography and accessible text. Find out how war is waged between battleships at sea, tanks on the battlefield, and fighter planes in the skies. Climb siege towers, drive chariots, enter medieval fortresses, fly unmanned drones, and detect stealth bombers. You will also experience virtual tours of iconic vehicles, including the T-34 Tank, the Lockheed F-117 Stealth Bomber, and the AH-64 Apache helicopter. And discover the leaders, battles, and weapons of war that have changed the course of history, and understand the lasting impact of global conflicts. This complete history of weaponry is essential reading for military enthusiasts of all ages.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781465411587"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1465411585"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 450,
+        "printType": "BOOK",
+        "categories": [
+          "History"
+        ],
+        "averageRating": 1,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "0.3.3.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=ZCmUeb52l3MC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=ZCmUeb52l3MC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.co.uk/books?id=ZCmUeb52l3MC&dq=history&hl=&cd=10&source=gbs_api",
+        "infoLink": "http://books.google.co.uk/books?id=ZCmUeb52l3MC&dq=history&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Military_History.html?hl=&id=ZCmUeb52l3MC"
+      },
+      "saleInfo": {
+        "country": "GB",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "GB",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=ZCmUeb52l3MC&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The world&#39;s weaponry is showcased inside this spectacular visual guide."
+      }
+    }
+  ]
+}

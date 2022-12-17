@@ -9,20 +9,16 @@ You do not have to use a private GitHub repo for this.
 
 _This application should allow you to:_
 
-- Type in a query and display a list of 5 books matching that query.
-
-- Each item in the list should include the book's author, title, and publishing
+1. Type in a query and display a list of 5 books matching that query.
+2. Each item in the list should include the book's author, title, and publishing
   company.
-
-- A user should be able to select a book from the five displayed to save to a
+3. A user should be able to select a book from the five displayed to save to a
   “Reading List” View a “Reading List” with all the books the user has selected
-  from their queries -- this is a local reading list and not tied to Google
+  from their queries 1- this is a local reading list and not tied to Google
   Books’s account features.
-
-- For programming language, choose any language you want as long as it is not
+4. For programming language, choose any language you want as long as it is not
   the same language you chose to review in the Code Review section above.
-
-- Feel free to use a library (or not) for the Google Books call or JSON parsing.
+5. Feel free to use a library (or not) for the Google Books call or JSON parsing.
 
 Please do not add any additional features.
 
@@ -79,3 +75,9 @@ describe "API call" do
   end
 end
 ```
+
+To get test data to use repeatedly in our tests, we used the following command:
+
+`curl "https://www.googleapis.com/books/v1/volumes?q=history&key=[API_KEY]" -o test_data1.json`
+
+we can then `bat` the file to see the file properly formatted.
