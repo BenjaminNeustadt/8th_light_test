@@ -52,4 +52,30 @@ Ensure that you have Ruby downloaded on your system, you can check by inputting 
 
 run `bundle install` to ensure you have all the correct dependencies of this project.
 
+I use this article to set up the google api key correctly:
 
+https://rachelaemmer.medium.com/how-to-use-the-google-books-api-in-your-application-17a0ed7fa857
+
+I went here: https://console.cloud.google.com/apis/api/books.googleapis.com/credentials?project=my-test-project-371917
+
+to enable 'Books API', when we type the following into the console we get the return of raw json data:
+
+https://www.googleapis.com/books/v1/volumes?q=history&key=AIzaSyDTsdQz7h-sK8Kf3shcnXrsLT1rWj5PYak
+
+= Testing
+
+First step will be checking if we can get a valid response:
+
+Something like:
+
+```rb
+#rspec test for connection
+
+describe "API call" do
+  it "has a valid HTTP connection" do
+    api_url="api url"
+    response = Net::HTTP.get_response(URI(api_url))
+    expect(response.is_a?(Net::HTTPSuccess)).to be true
+  end
+end
+```
