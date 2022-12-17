@@ -11,7 +11,6 @@ class BookList
   end
 
   def search(query)
-    # these are hardcoded q = search query and API key found on google console
     url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
     uri = URI(url)
     res = Net::HTTP.get_response(uri)
@@ -19,4 +18,8 @@ class BookList
     paginate(response["items"])
   end
 
+end
+
+if __FILE__ == $PROGRAM_NAME
+  puts BookList.new('history').list('title')
 end
