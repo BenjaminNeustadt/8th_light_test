@@ -6,16 +6,26 @@ class BookList
   API_KEY = "AIzaSyDTsdQz7h-sK8Kf3shcnXrsLT1rWj5PYak"
   LIMIT = 5
 
+  attr_reader :available_books, :url
+  def initialize(query)
+    #include the book's author, title, and publishing company
+    #list = [{ author:, title:, publishing company: }]
+    @url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
+    @available_books = grab_books
+  end
+
+  def grab_books
+    uri = URI(url)
+    res = Net::HTTP.get_response(uri)
+    JSON.parse(res.body)
+  end
+
   def paginate(data)
     data.take(LIMIT)
   end
 
   def search(query)
-    url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
-    uri = URI(url)
-    res = Net::HTTP.get_response(uri)
-    response = JSON.parse(res.body)
-    paginate(response["items"])
+    paginate(available_books["items"])
   end
 
 end
