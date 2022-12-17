@@ -1,0 +1,7 @@
+Attributes for building book
+
+Include the book's author, title, and publishing company
+
+Napkin idea:
+
+`list = [{ author:, title:, publishing company: }]`
