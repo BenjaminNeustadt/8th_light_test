@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 
-class Book
+class BookList
 
   API_KEY = "AIzaSyDTsdQz7h-sK8Kf3shcnXrsLT1rWj5PYak"
 

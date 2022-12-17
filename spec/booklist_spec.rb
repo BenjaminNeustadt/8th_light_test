@@ -1,9 +1,9 @@
-require_relative '../lib/book'
+require_relative '../lib/booklist'
 
-describe "API return" do
+describe "Book list query" do
 
   it "displays only the first 5 elements of a query" do
-    book = Book.new
+    book = BookList.new
     expect(book.search('history').length).to eq(5)
   end
 
