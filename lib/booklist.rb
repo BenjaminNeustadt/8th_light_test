@@ -29,6 +29,10 @@ class BookList
     paginate(available_books["items"])
   end
 
+  def add(book_data)
+    users_list << book_data
+  end
+
 end
 
 if __FILE__ == $PROGRAM_NAME

@@ -18,3 +18,15 @@ describe "Book list users book list" do
 
 end
 
+describe "Book add to users list" do
+
+  it "can have book data added" do
+    book = BookList.new('history')
+    test_data = JSON.parse(File.read('test_data.json'))
+    chosen_book = test_data["items"].first["volumeInfo"]["title"]
+    book.add(chosen_book)
+    expect((book.users_list).length).to eq 1
+  end
+
+end
+
