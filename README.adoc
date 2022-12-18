@@ -9,12 +9,12 @@ You do not have to use a private GitHub repo for this.
 
 _This application should allow you to:_
 
-1. Type in a query and display a list of 5 books matching that query.
+1. Type in a query and display a list of *5 books matching that query.*
 2. Each item in the list should include the book's author, title, and publishing
   company.
 3. A user should be able to select a book from the five displayed to save to a
   “Reading List” View a “Reading List” with all the books the user has selected
-  from their queries 
+  from their queries
   - this is a local reading list and not tied to Google
   Books’s account features.
 4. For programming language, choose any language you want as long as it is not

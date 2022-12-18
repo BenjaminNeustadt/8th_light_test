@@ -9,3 +9,12 @@ describe "Book list query" do
 
 end
 
+describe "Book list users book list" do
+
+  it "is initially empty" do
+    book = BookList.new('history')
+    expect(book.users_list).to eq []
+  end
+
+end
+

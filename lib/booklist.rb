@@ -6,12 +6,13 @@ class BookList
   API_KEY = "AIzaSyDTsdQz7h-sK8Kf3shcnXrsLT1rWj5PYak"
   LIMIT = 5
 
-  attr_reader :available_books, :url
+  attr_reader :available_books, :url, :users_list
   def initialize(query)
     #include the book's author, title, and publishing company
     #list = [{ author:, title:, publishing company: }]
     @url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
     @available_books = grab_books
+    @users_list = []
   end
 
   def grab_books
