@@ -1,19 +1,17 @@
 require 'net/http'
 require 'json'
+require_relative '../lib/storage'
 
 class BookList
 
   API_KEY = "AIzaSyDTsdQz7h-sK8Kf3shcnXrsLT1rWj5PYak"
   LIMIT = 5
 
-  attr_reader :available_books, :url, :users_list
+  attr_reader :available_books, :url
   def initialize(query)
-    #include the book's author, title, and publishing company
-    #list = [{ author:, title:, publishing company: }]
     @url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
     @available_books = grab_books
-    @users_list = []
-  end
+ end
 
   def grab_books
     uri = URI(url)
@@ -30,7 +28,8 @@ class BookList
   end
 
   def add(book_data)
-    users_list << book_data
+    storage = Storage.new
+    storage.users_list << book_data
   end
 
 end
