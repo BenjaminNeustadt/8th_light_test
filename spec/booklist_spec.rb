@@ -39,8 +39,6 @@ describe "Book add to users list" do
   end
 
   it "can have correct data added" do
-    #include the book's author, title, and publishing company
-    #list = [{ author:, title:, publishing company: }]
     book = BookList.new('history')
     chosen_book = {author: 'Benjamin', title:'Notes As We Go', publisher: 'Keeper of the Phones'}
     book.add(chosen_book)
