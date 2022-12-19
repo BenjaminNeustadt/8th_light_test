@@ -1,5 +1,5 @@
 
-class Storage
+class BookStorage
 
   attr_reader :users_list
 

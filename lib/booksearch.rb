@@ -1,8 +1,8 @@
 require 'net/http'
 require 'json'
-require_relative '../lib/storage'
+require_relative '../lib/bookstorage'
 
-class BookList
+class BookSearch
 
   LIMIT = 5
 
@@ -13,11 +13,11 @@ class BookList
 
   def initialize(query)
     @url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
-    @available_books = extract_from_raw(grab_books)
-    @storage = Storage.new
+    @available_books = extract_from_raw(data_query)
+    @storage = BookStorage.new
   end
 
-  def grab_books
+  def data_query
     uri = URI(url)
     response = Net::HTTP.get_response(uri)
     JSON.parse(response.body)
