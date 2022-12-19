@@ -23,6 +23,7 @@ class BookList
     JSON.parse(response.body)
   end
 
+
   def limit(data)
     data.take(LIMIT)
   end
@@ -30,6 +31,17 @@ class BookList
   public
 
   attr_reader :available_books, :url, :storage
+
+  def extract_from_raw(data)
+      data["items"].take(5)
+        .map { |item| item["volumeInfo"] }
+        .map { |book| {
+        title: book["title"],
+        authors: book["authors"],
+        publisher: book["publisher"]
+        }
+      }
+  end
 
   def search(query)
     limit(available_books["items"])
