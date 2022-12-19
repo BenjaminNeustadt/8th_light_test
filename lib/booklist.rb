@@ -7,11 +7,13 @@ class BookList
   API_KEY = "AIzaSyDTsdQz7h-sK8Kf3shcnXrsLT1rWj5PYak"
   LIMIT = 5
 
-  attr_reader :available_books, :url
+  attr_reader :available_books, :url, :storage
+
   def initialize(query)
     @url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
     @available_books = grab_books
- end
+    @storage = Storage.new
+  end
 
   def grab_books
     uri = URI(url)
@@ -28,8 +30,11 @@ class BookList
   end
 
   def add(book_data)
-    storage = Storage.new
     storage.users_list << book_data
+  end
+
+  def report
+    storage.users_list
   end
 
 end

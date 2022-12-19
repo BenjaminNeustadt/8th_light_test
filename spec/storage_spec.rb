@@ -1,4 +1,5 @@
 require_relative '../lib/storage'
+require_relative '../lib/storage'
 
 RSpec.describe Storage do
 
