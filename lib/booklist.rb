@@ -4,10 +4,12 @@ require_relative '../lib/storage'
 
 class BookList
 
-  API_KEY = "AIzaSyDTsdQz7h-sK8Kf3shcnXrsLT1rWj5PYak"
   LIMIT = 5
 
-  attr_reader :available_books, :url, :storage
+  API_KEY = "AIzaSyDTsdQz7h-sK8Kf3shcnXrsLT1rWj5PYak"
+  private_constant :API_KEY
+
+  private
 
   def initialize(query)
     @url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
@@ -24,6 +26,10 @@ class BookList
   def paginate(data)
     data.take(LIMIT)
   end
+
+  public
+
+  attr_reader :available_books, :url, :storage
 
   def search(query)
     paginate(available_books["items"])
