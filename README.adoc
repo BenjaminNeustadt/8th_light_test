@@ -62,6 +62,7 @@ To use this application, clone this repo to your local with the following comman
 The API key used in this project is restricted (mine) so head {url-google-api}[here] and follow the instructions to set up your own API KEY.
 A formatted environement will be included so that a user need only insert their personal API_KEY into there, manually.
 
+As a stretch goal, we could consider creating a sample environement file that gets copied for the formatting (as a template file; so that a new API_KEY can be inserted).
 Ensure that you have Ruby downloaded on your system, you can check by inputting `ruby -v` into your terminal.
 
 run `bundle install` to ensure you have all the correct dependencies of this project.
