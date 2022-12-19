@@ -7,7 +7,6 @@ class BookList
   LIMIT = 5
 
   API_KEY = JSON.parse(File.read("env.json"))["API_KEY"]
-
   private_constant :API_KEY
 
   private
@@ -20,11 +19,11 @@ class BookList
 
   def grab_books
     uri = URI(url)
-    res = Net::HTTP.get_response(uri)
-    JSON.parse(res.body)
+    response = Net::HTTP.get_response(uri)
+    JSON.parse(response.body)
   end
 
-  def paginate(data)
+  def limit(data)
     data.take(LIMIT)
   end
 
@@ -33,14 +32,14 @@ class BookList
   attr_reader :available_books, :url, :storage
 
   def search(query)
-    paginate(available_books["items"])
+    limit(available_books["items"])
   end
 
   def add(book_data)
     storage.users_list << book_data
   end
 
-  def report
+  def stored_books
     storage.users_list
   end
 

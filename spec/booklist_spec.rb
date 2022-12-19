@@ -10,13 +10,23 @@ RSpec.describe BookList do
     end
 
     it 'can hold data via Storage' do
-      book = BookList.new('tech')
+      list = BookList.new('tech')
       chosen_book = {author: 'Benjamin', title:'Notes As We Go', publisher: 'Keeper of the Phones'}
-      book.add(chosen_book)
-      expect(book.report).to eq [{author: 'Benjamin', title:'Notes As We Go', publisher: 'Keeper of the Phones'}]
+      list.add(chosen_book)
+      expect(list.stored_books).to eq [{author: 'Benjamin', title:'Notes As We Go', publisher: 'Keeper of the Phones'}]
     end
 
   end
+
+  context "grab_books" do
+
+    it "should contain things related to the query" do
+
+      @grabbed_books = JSON.parse(File.read('test_data.json'))
+
+    end
+  end
+
 
 end
 
