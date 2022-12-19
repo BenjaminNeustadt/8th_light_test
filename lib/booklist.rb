@@ -20,19 +20,19 @@ class BookList
   def grab_books
     uri = URI(url)
     response = Net::HTTP.get_response(uri)
-    extract_from_raw(JSON.parse(response.body))
+    JSON.parse(response.body)
   end
-
-  #def limit(data)
-  #  data.take(LIMIT)
-  #end
 
   public
 
   attr_reader :available_books, :url, :storage
 
-  def extract_from_raw(data)
-      data["items"].take(LIMIT)
+  def add(book_data)
+    storage.users_list << book_data
+  end
+
+  def extract_from_raw(book_data)
+      book_data["items"].take(LIMIT)
         .map { |item| item["volumeInfo"] }
         .map { |book| {
         title: book["title"],
@@ -40,14 +40,6 @@ class BookList
         publisher: book["publisher"]
         }
       }
-  end
-
-  def add(book_data)
-    storage.users_list << book_data
-  end
-
-  def stored_books
-    storage.users_list
   end
 
 end

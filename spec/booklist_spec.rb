@@ -2,36 +2,45 @@ require_relative '../lib/booklist'
 
 RSpec.describe BookList do
 
+  before :each do
+    @isolated_list = BookList.allocate
+    @test_book_data = JSON.parse(File.read('test_data.json'))
+  end
+
   context "query" do
 
     it "returns only the first 5 elements of a query" do
 
-      @grabbed_books = JSON.parse(File.read('test_data.json'))
-      list = BookList.allocate
-
-      actual = list.extract_from_raw(@grabbed_books)
+      list = @isolated_list
+      actual = list.extract_from_raw(@test_book_data)
       expected = 5
       expect(actual.length).to eq(expected)
     end
 
-    xit 'can hold data via Storage' do
-      list = BookList.new('tech')
-      chosen_book = {author: 'Benjamin', title:'Notes As We Go', publisher: 'Keeper of the Phones'}
+  end
+
+  context "stored_books" do
+
+    it 'can hold data via Storage' do
+      list = @isolated_list
+      list.instance_variable_set(:@storage, Storage.new)
+      chosen_book = {author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}
       list.add(chosen_book)
-      expect(list.stored_books).to eq [{author: 'Benjamin', title:'Notes As We Go', publisher: 'Keeper of the Phones'}]
+      expect(list.storage.users_list)
+        .to eq [{author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}]
     end
 
   end
+
 
   context "extract data" do
 
     it "should result in a limited set of attributes: author, title, publisher" do
 
-      @grabbed_books = JSON.parse(File.read('test_data.json'))
-      list = BookList.allocate
-      actual = list.extract_from_raw(@grabbed_books)
-      expected =
-        [
+      list = @isolated_list
+      actual = list.extract_from_raw(@test_book_data)
+
+      expected = [
          {:authors   => ["DK"],
           :publisher => "Dorling Kindersley Ltd",
           :title     => "The History Book"},
@@ -52,7 +61,6 @@ RSpec.describe BookList do
           :publisher => "Yale University Press",
           :title     => "A Little History of the World"}
       ]
-
       expect(actual).to eq expected
     end
 
