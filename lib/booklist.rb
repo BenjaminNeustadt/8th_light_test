@@ -13,27 +13,26 @@ class BookList
 
   def initialize(query)
     @url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
-    @available_books = grab_books
+    @available_books = extract_from_raw(grab_books)
     @storage = Storage.new
   end
 
   def grab_books
     uri = URI(url)
     response = Net::HTTP.get_response(uri)
-    JSON.parse(response.body)
+    extract_from_raw(JSON.parse(response.body))
   end
 
-
-  def limit(data)
-    data.take(LIMIT)
-  end
+  #def limit(data)
+  #  data.take(LIMIT)
+  #end
 
   public
 
   attr_reader :available_books, :url, :storage
 
   def extract_from_raw(data)
-      data["items"].take(5)
+      data["items"].take(LIMIT)
         .map { |item| item["volumeInfo"] }
         .map { |book| {
         title: book["title"],
@@ -41,10 +40,6 @@ class BookList
         publisher: book["publisher"]
         }
       }
-  end
-
-  def search(query)
-    limit(available_books["items"])
   end
 
   def add(book_data)
@@ -55,8 +50,4 @@ class BookList
     storage.users_list
   end
 
-end
-
-if __FILE__ == $PROGRAM_NAME
-  puts BookList.new('history').list('title')
 end
