@@ -12,8 +12,9 @@ class BookSearch
   private
 
   def initialize(query)
+    raise ArgumentError, "BadQueryError" if query.nil?
     @url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
-    @available_books = extract_from_raw(data_query)
+    @available_books ||= extract_from_raw(data_query)
     @storage = BookStorage.new
   end
 
@@ -32,14 +33,14 @@ class BookSearch
   end
 
   def extract_from_raw(book_data)
-      book_data["items"].take(LIMIT)
-        .map { |item| item["volumeInfo"] }
-        .map { |book| {
-        title: book["title"],
-        authors: book["authors"],
-        publisher: book["publisher"]
-        }
-      }
+    book_data["items"].take(LIMIT)
+      .map { |item| item["volumeInfo"] }
+      .map { |book| {
+      title: book["title"],
+      authors: book["authors"],
+      publisher: book["publisher"]
+    }
+    }
   end
 
 end
