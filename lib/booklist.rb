@@ -6,7 +6,8 @@ class BookList
 
   LIMIT = 5
 
-  API_KEY = "AIzaSyDTsdQz7h-sK8Kf3shcnXrsLT1rWj5PYak"
+  API_KEY = JSON.parse(File.read("env.json"))["API_KEY"]
+
   private_constant :API_KEY
 
   private

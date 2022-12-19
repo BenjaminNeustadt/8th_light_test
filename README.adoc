@@ -59,9 +59,8 @@ To use this application, clone this repo to your local with the following comman
 
 `git clone [repo]`
 
-the API key used in this project is restricted (mine) so head {url-google-api}[here] and follow the instructions to set up your own API KEY.
-
-A formatted environement will be included so that a user need only insert their personal API_KEY into there manually.
+The API key used in this project is restricted (mine) so head {url-google-api}[here] and follow the instructions to set up your own API KEY.
+A formatted environement will be included so that a user need only insert their personal API_KEY into there, manually.
 
 Ensure that you have Ruby downloaded on your system, you can check by inputting `ruby -v` into your terminal.
 
