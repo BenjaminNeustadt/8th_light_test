@@ -3,7 +3,7 @@ require_relative '../lib/booksearch'
 RSpec.describe BookSearch do
 
   before :each do
-    @isolated_list = BookSearch.allocate
+    @isolated_list = BookSearch.new('history', offline: true)
     @test_book_data = JSON.parse(File.read('test_data.json'))
   end
 
@@ -23,7 +23,6 @@ RSpec.describe BookSearch do
 
     it 'can hold data via Storage' do
       list = @isolated_list
-      list.instance_variable_set(:@storage, BookStorage.new)
       chosen_book = {author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}
       list.add(chosen_book)
       expect(list.storage.users_list)
