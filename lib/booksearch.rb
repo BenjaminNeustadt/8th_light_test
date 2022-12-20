@@ -35,7 +35,7 @@ class BookSearch
   attr_reader :available_books, :storage
 
   def add(book_data)
-    storage.users_list << book_data
+    storage.add(book_data)
   end
 
   def extract_from_raw(book_data)
