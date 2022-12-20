@@ -1,4 +1,5 @@
 require_relative '../lib/booksearch'
+require 'colorize'
 
 OFFLINE = true
 MENU = {
@@ -11,10 +12,22 @@ MENU = {
   }
 }
 
+ACTION_PROMPT = '%<option>s) %<action>s'
+
 @users_storage = BookStorage.new
 
 def reset_search
   @search_results = []
+end
+
+def list_item(book, index)
+  puts '-' * 23
+  puts "Book number %s " % index.to_s.red
+  puts "title: %s" % book[:title].blue
+  puts "author: %s" % book[:authors].to_s.blue.on_white
+  puts "publisher: %s" % book[:publisher].to_s.yellow
+  puts '-' * 23
+  puts
 end
 
 reset_search
@@ -22,8 +35,7 @@ reset_search
 loop do
 
   MENU[:ACTION].each do |option, action|
-    print "#{ option}) "
-    puts "#{ action}"
+    puts ACTION_PROMPT % {option: option.to_s.green, action: action.yellow}
   end
 
   puts "Enter a command : "
@@ -44,40 +56,26 @@ loop do
     data_query = BookSearch.new(choice, offline: OFFLINE)
     puts "AVAILABLE BOOKS: "
     data_query.available_books.each.with_index(1) do |book, index|
-      puts "Book number %d " % index
-      puts "title: %s" % book[:title]
-      puts "author: %s" % book[:authors]
-      puts "publisher: %s" % book[:publisher]
-      puts
+      list_item(book, index)
       @search_results << book
     end
 
   when 2
     @search_results.each.with_index(1) do |book, index|
-        puts '-' * 23
-        puts "Book number %d " % index
-        puts "title: %s" % book[:title]
-        puts "author: %s" % book[:authors]
-        puts "publisher: %s" % book[:publisher]
-        puts '-' * 23
-        puts
+      list_item(book, index)
     end
 
   when 3
     puts "Which of these books do you want to add to your library? Pick the respective number:"
     @search_results.each.with_index(1) do |book, index|
-      puts "Book number %d " % index
-      puts "title: %s" % book[:title]
-      puts "author: %s" % book[:authors]
-      puts "publisher: %s" % book[:publisher]
-      puts
+      list_item(book, index)
     end
     loop do
-    print "Which book would you like to add? (pick a number, 0 to quit):"
+      print "Which book would you like to add? (pick a number, 0 to quit):"
       choice = gets.to_i - 1
       break if choice == -1
       @users_storage.add(@search_results[choice]) if @search_results[choice]
-    p @users_storage
+      p @users_storage
     end
     p @users_storage
 
@@ -85,13 +83,7 @@ loop do
     puts "SELECTED BOOKS"
     puts '=' * 23
     @users_storage.users_list.each.with_index(1) do |book, index|
-      puts '-' * 23
-      puts "Book number %d " % index
-      puts "title: %s" % book[:title]
-      puts "author: %s" % book[:authors]
-      puts "publisher: %s" % book[:publisher]
-      puts '-' * 23
-      puts
+      list_item(book, index)
     end
     puts '=' * 23
     puts 'Total books selected: %i' % @users_storage.users_list.size
@@ -102,13 +94,7 @@ loop do
     puts 'SELECTED BOOKS'
     puts '+=' * 11 + '+'
     @users_storage.users_list.each.with_index(1) do |book, index|
-      puts '-' * 23
-      puts "Book number %d " % index
-      puts "title: %s" % book[:title]
-      puts "author: %s" % book[:authors]
-      puts "publisher: %s" % book[:publisher]
-      puts '-' * 23
-      puts
+      list_item(book, index)
     end
     puts '=' * 23
     puts 'Total books selected: %i' % @users_storage.users_list.size

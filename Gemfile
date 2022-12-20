@@ -5,3 +5,5 @@ source "https://rubygems.org"
 # gem "rails"
 
 gem 'json', '~> 2.3'
+
+gem 'colorize'
