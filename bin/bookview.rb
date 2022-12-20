@@ -30,6 +30,13 @@ def list_item(book, index)
   puts
 end
 
+def books_added
+  puts "You added %<number_of>i books:" % {number_of: @users_storage.users_list.size}
+  @users_storage.users_list.each do |book|
+    puts '- %s'  % book[:title]
+  end
+end
+
 reset_search
 
 loop do
@@ -75,9 +82,8 @@ loop do
       choice = gets.to_i - 1
       break if choice == -1
       @users_storage.add(@search_results[choice]) if @search_results[choice]
-      p @users_storage
     end
-    p @users_storage
+    books_added
 
   when 4
     puts "SELECTED BOOKS"
