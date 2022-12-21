@@ -1,23 +1,170 @@
 = Code Submission for 8th Light
 Benjamin b.james.neustadt@gmail.com
 :copyright: © 2022 Benjamin
-// :copyright: (C) 2022 {author}
 :doctype: article
 :icons: font
-// :sectnums:
 :toc: left
-:toclevels: 0
+:toclevels: 2
 :toc-title: Table of Contents
-:source-highlighter: highlight.js
-:highlightjsdir: highlight
+:source-highlighter: rouge
+:rouge-style: monokai
 //URLS
 :url-google-api: https://developers.google.com/books/docs/v1/using#APIKey
 :url-google-api-medium: https://rachelaemmer.medium.com/how-to-use-the-google-books-api-in-your-application-17a0ed7fa857
 :url-google-console: https://console.cloud.google.com/apis/api/books.googleapis.com/credentials?project=my-test-project-371917
-:url-crc-planning: https://echeung.me/crcmaker/?share=W3sibmFtZSI6IkJvb2tMSXN0Iiwic3VwZXJjbGFzc2VzIjoiQm9va1NlYXJjaCIsInN1YmNsYXNzZXMiOiIiLCJ0eXBlIjoxLCJyZXNwb25zaWJpbGl0aWVzIjpbImdyYWJfYm9va3MiLCJzZWFyY2giLCJhZGQgKGluc3RhbnRpYXRlcyBhbiBpbnN0YW5jZSBvZiBVc2VyX0xJc3QgdXBvbiBpbml0aWFsaXNlKSJdLCJjb2xsYWJvcmF0b3JzIjpbIiJdfSx7Im5hbWUiOiJCb29rU2VhcmNoIiwic3VwZXJjbGFzc2VzIjoiIiwic3ViY2xhc3NlcyI6IkJvb2tMaXN0IiwidHlwZSI6MSwicmVzcG9uc2liaWxpdGllcyI6WyJHaXZlIGluc3RydWN0aW9ucyB0byB1c2VyIiwiUGFzcyBpbnN0cnVjdGlvbnMgdG8gQm9va0xpc3QiLCJSZXRyaXZlIFVzZXJfTGlzdCAoc3RvcmVkIGJvb2sgZGF0YSkiXSwiY29sbGFib3JhdG9ycyI6WyJCb29rTGlzdCJdfSx7Im5hbWUiOiJVc2VyTGlzdCIsInN1cGVyY2xhc3NlcyI6IkJvb2tTZWFyY2gsIEJvb2tMaXN0Iiwic3ViY2xhc3NlcyI6IiIsInR5cGUiOjEsInJlc3BvbnNpYmlsaXRpZXMiOlsiU3RvcmUgdXNlcnMgY2hvc2VuIGJvb2tzIiwiUGFzcyB0aGUgYXJyYXkgb2YgYm9va3MgdG8gQm9va1NlYXJjaCJdLCJjb2xsYWJvcmF0b3JzIjpbIkJvb2tMaXN0IiwiQm9va1NlYXJjaCJdfV0=
 
 
-== Instructions
+= Usage
+
+1. Set up an API KEY
+2. Install Ruby
+3. Install dependencies
+4. Run the program: `ruby bin/bookview.rb`
+
+== Set-Up Instructions
+
+To use this application, clone this repo to your local with the following command:
+
+`git clone https://github.com/BenjaminNeustadt/8th_light_test.git`
+
+An *API key* is necessary to use this program,
+so head {url-google-api}[here] and follow the instructions to set up your personal key.
+Go {url-google-console}[here] to enable 'Books API'.
+There is a daily quota of 1000 queries per day,
+so it is important that you keep your key to yourself.
+
+****
+[TIP]
+====
+If you are uncertain how to set up, use {url-google-api-medium}[this article] to set up the google api key correctly.
+====
+****
+
+Once you have your key, open the `env.json` file and insert it in place:
+
+[source, json]
+----
+// env.json file
+
+{ "API_KEY" : "[YOUR API KEY]" } <1>
+----
+<1> You will only need one set of quotation marks surrounding the key.
+
+Ensure that you have Ruby downloaded on your system, you can check by inputting `ruby -v` into your terminal.
+
+Run `bundle install` to ensure you have all the correct dependencies of this project.
+
+[IMPORTANT]
+To use the program with real data this next step is essential.
+The tests will run independently of a connection to the internet, though using
+the prorgam will result in the same data be consistently returned from your
+query if you do not switch the program connection on by implementing the following step.
+
+.To search "ONLINE" open the `bookview.rb` file, and set the `OFFLINE` constant to `false`:
+[source, ruby]
+----
+# bin/bookview.rb file
+
+require_relative '../lib/booksearch'
+require 'colorize'
+
+OFFLINE = true    <---<1>
+MENU = {
+  ACTION: {
+    1 => "search",
+    2 => "view search results",
+    3 => "add",
+    4 => "view",
+    0 => "exit"
+  }
+}
+----
+<1> Change the word "true" to "false"
+
+Make sure you have updated the file.
+
+The program can now be used "online"
+
+== Using the Program
+
+From within the root directory of the program,
+in your terminal:
+
+[source, sh]
+----
+ruby bin/bookview.rb
+----
+
+Follow the prompts to search for a book query.
+You can insert any word and will be given a return of 5 books that match your query.
+Follow the prompts to add the book to a reading list.
+
+= Testing
+
+The testing framework used is Rspec.
+
+To run the tests:
+
+[source, sh]
+----
+rspec -fd
+----
+
+If the program is set to "ONLINE", by setting `OFFLINE` to `false` in the 'bookview.rb',
+one of the tests will check a valid http connection (otherwise, it will use a test_data file to validate).
+
+= Process
+
+As follows is some of the planning and side thoughts throughout.
+
+== CRC Model Planning
+
+_Class Responsibility Collaborator_
+
+_Following a Model/View/Controller design_
+
+         Front-end                                 Back-end
+ - - - - - - - - - - - - - -    - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+   Public facing interface          Operation                 Storage
+   (Command line interface)
+  ┌───────────────────────┐     ┌───────────────────────┐    ┌───────────────────────┐
+  │  BookSearch           │     │  BookList             │    │  UserList             │
+  │              BookList │     │            BookSearch │    │        BookSearch,BookList
+  ├──────────────┬────────┤     ├──────────────┬────────┤    ├──────────────┬─────────
+  │.Give         │        │     │.grab_books   │        │    │.Store users  │.BookList
+  │ instructions │.BookList     │              │        │    │ chosen books │        │
+  │ to user      │        │     │.search       │        │    │              │.BookSearch
+  │.Pass         │        │     │              │        │    │.Pass array   │        │
+  │ instructions │        │     │.add (instantiates     │    │ of books to  │        │
+  │ to BookList  │        │     │instance of UserList   │    │ BookSearch   │        │
+  │.Retrive Userlist      │     │              │        │    │              │        │
+  │ (stored book data)    │     │              │        │    │              │        │
+  │              │        │     │              │        │    │              │        │
+  └──────────────┴────────┘     └──────────────┴────────┘    └──────────────┴────────┘
+
+            VIEW                         CONTROLLER                     MODEL
+
+
+== Storage
+
+I am wondering whether to make the "storage" of books temporary to the existance of the class,
+or whether to make it persist beyond the running of the program in the terminal.
+The second option would mean having the data written to a storage file, similar to 'test_data.json'.
+
+In order for this to work, the file in question would have to be gitignored,
+so that the saved data is only accessible to the respective user,
+so that the data is not passed on were the program to be passed on.
+
+== Stretch goals
+
+As a stretch goal, we could consider creating a sample environement file that
+gets copied for the formatting (as a template file; so that a new API_KEY can
+be inserted).
+
+As a stretch goal I would like to add some test for the "front-end" (the command-line user interface).
+
+= Initial Brief
 
 Create a command line application that allows you to use the
 Google Books API to search for books and construct a reading list.
@@ -52,80 +199,3 @@ It should demonstrate external quality (for example: solves the problem,
 handles edge cases, usability), internal quality (for example:
 *decoupling*, *testing*, *readability*), as well as some idea of your process and
 approach (via your version control history and README).
-
-= Usage
-
-To use this application, clone this repo to your local with the following command:
-
-`git clone [repo]`
-
-The API key used in this project is restricted (mine) so head {url-google-api}[here] and follow the instructions to set up your own API KEY.
-A formatted environement will be included so that a user need only insert their personal API_KEY into there, manually.
-
-As a stretch goal, we could consider creating a sample environement file that gets copied for the formatting (as a template file; so that a new API_KEY can be inserted).
-Ensure that you have Ruby downloaded on your system, you can check by inputting `ruby -v` into your terminal.
-
-run `bundle install` to ensure you have all the correct dependencies of this project.
-
-I use {url-google-api-medium}[this article]to set up the google api key correctly:
-
-Go {url-google-console}[here] to enable 'Books API',
-when we type the following into the browser search we get the return of raw json data:
-
-'https://www.googleapis.com/books/v1/volumes?q=history&key=AIzaSyDTsdQz7h-sK8Kf3shcnXrsLT1rWj5PYak'
-
-(Though one of the tests will check the connection is valid for us.)
-
-= Testing
-
-== HTTP connection
-
-Although this may not be necessary in the long run,
-it is useful to know whether we are getting a vald http response from a default api call.
-
-We wrote dummy data to a file through the command line, using the following command:
-
-`curl "https://www.googleapis.com/books/v1/volumes?q=history&key=[API_KEY]" -o test_data1.json`
-
-We can then `bat` the file to see the file properly formatted.
-
-= CRC Model Planning
-
-_Class Responsibility Collaborator_
-
-
-_Following a Model/View/Controller design_
-
-
-   Public facing interface          Operation                 Storage
-   (Command line interface)
-  ┌───────────────────────┐     ┌───────────────────────┐    ┌───────────────────────┐
-  │  BookSearch           │     │  BookList             │    │  UserList             │
-  │              BookList │     │            BookSearch │    │        BookSearch,BookList
-  ├──────────────┬────────┤     ├──────────────┬────────┤    ├──────────────┬─────────
-  │.Give         │        │     │.grab_books   │        │    │.Store users  │.BookList
-  │ instructions │.BookList     │              │        │    │ chosen books │        │
-  │ to user      │        │     │.search       │        │    │              │.BookSearch
-  │.Pass         │        │     │              │        │    │.Pass array   │        │
-  │ instructions │        │     │.add (instantiates     │    │ of books to  │        │
-  │ to BookList  │        │     │instance of UserList   │    │ BookSearch   │        │
-  │.Retrive Userlist      │     │              │        │    │              │        │
-  │ (stored book data)    │     │              │        │    │              │        │
-  │              │        │     │              │        │    │              │        │
-  └──────────────┴────────┘     └──────────────┴────────┘    └──────────────┴────────┘
-
-            VIEW                         CONTROLLER                     MODEL
-
-
-A link to the CRC model planning {url-crc-planning}[here].
-
-= Storage
-
-I am wondering whether to make the "storage" of books temporary to the existance of the class,
-or whether to make it persist beyond the running of the program in the terminal.
-The second option would mean having the data written to a storage file, similar to 'test_data.json'.
-
-In order for this to work, the file in question would have to be gitignored,
-so that the saved data is only accessible to the respective user,
-so that the data is not passed on were the program to be passed on.
-
