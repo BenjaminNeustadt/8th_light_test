@@ -2,8 +2,7 @@
 
 source "https://rubygems.org"
 
-# gem "rails"
+ruby '3.0.0'
 
 gem 'json', '~> 2.3'
-
 gem 'colorize'
