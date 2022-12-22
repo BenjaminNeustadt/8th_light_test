@@ -1,7 +1,7 @@
 require_relative '../lib/booksearch'
 require 'colorize'
 
-OFFLINE = true
+OFFLINE = false
 MENU = {
   ACTION: {
     1 => "search",

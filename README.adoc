@@ -54,36 +54,6 @@ Ensure that you have Ruby downloaded on your system, you can check by inputting 
 
 Run `bundle install` to ensure you have all the correct dependencies of this project.
 
-[IMPORTANT]
-To use the program with real data this next step is essential.
-The tests will run independently of a connection to the internet, though using
-the prorgam will result in the same data be consistently returned from your
-query if you do not switch the program connection on by implementing the following step.
-
-.To search "ONLINE" open the `bookview.rb` file, and set the `OFFLINE` constant to `false`:
-[source, ruby]
-----
-# bin/bookview.rb file
-
-require_relative '../lib/booksearch'
-require 'colorize'
-
-OFFLINE = true    <---<1>
-MENU = {
-  ACTION: {
-    1 => "search",
-    2 => "view search results",
-    3 => "add",
-    4 => "view",
-    0 => "exit"
-  }
-}
-----
-<1> Change the word "true" to "false"
-
-Make sure you have updated the file.
-
-The program can now be used "online"
 
 == Using the Program
 
@@ -103,19 +73,49 @@ Follow the prompts to add the book to a reading list.
 
 The testing framework used is Rspec.
 
-To run the tests:
+[IMPORTANT]
+Open the `bookview.rb` file, and set the `OFFLINE` constant to `true`:
+The application is by default switched to "ONLINE", this means that once you insert your API KEY,
+when the tests are run, a real query will be made - this can be switched off easily, however.
+For an optimal testing environment the application should be switched to "OFFLINE".
 
+.To enable a test environement and not affect your API quota.
+[source, ruby]
+----
+# bin/bookview.rb file
+
+require_relative '../lib/booksearch'
+require 'colorize'
+
+OFFLINE = false    <---<1>
+MENU = {
+  ACTION: {
+    1 => "search",
+    2 => "view search results",
+    3 => "add",
+    4 => "view",
+    0 => "exit"
+  }
+}
+----
+<1> Change the word "false" to "true".
+Make sure you have updated/saved the file.
+
+The program can now be used "offline"
+
+.To run the tests:
 [source, sh]
 ----
 rspec -fd
 ----
 
 If the program is set to "ONLINE", by setting `OFFLINE` to `false` in the 'bookview.rb',
-one of the tests will check a valid http connection (otherwise, it will use a test_data file to validate).
+one of the tests will check a valid http connection (otherwise,
+it will use a test_data file to validate).
 
 = Process
 
-As follows is some of the planning and side thoughts throughout.
+Following is some of the planning and side thoughts throughout.
 
 == CRC Model Planning
 
@@ -158,11 +158,8 @@ so that the data is not passed on were the program to be passed on.
 
 == Stretch goals
 
-As a stretch goal, we could consider creating a sample environement file that
-gets copied for the formatting (as a template file; so that a new API_KEY can
-be inserted).
-
-As a stretch goal I would like to add some test for the "front-end" (the command-line user interface).
+As another goal I would like to add a test for the "front-end"
+(the command-line user interface).
 
 = Initial Brief
 
