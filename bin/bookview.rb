@@ -23,7 +23,7 @@ end
 def list_item(book, index)
   puts '-' * 23
   puts "Book number %s " % index.to_s.red
-  puts "title: %s" % book[:title].blue
+  puts "title: %s" % book[:title].black.on_white
   puts "author: %s" % book[:authors].to_s.blue.on_white
   puts "publisher: %s" % book[:publisher].to_s.yellow
   puts '-' * 23
@@ -97,7 +97,7 @@ loop do
     puts
 
   when 0
-    puts 'SELECTED BOOKS'
+    puts "SELECTED BOOKS"
     puts '+=' * 11 + '+'
     @users_storage.users_list.each.with_index(1) do |book, index|
       list_item(book, index)
@@ -106,7 +106,7 @@ loop do
     puts 'Total books selected: %i' % @users_storage.users_list.size
     puts '=' * 23
     puts
-    puts "Sad to see you go, thank you for the nickle!"
+    puts "Sad to see you go, until the next!"
     break
   end
 end
