@@ -61,25 +61,5 @@ describe "Backend" do
     end
   end
 
-
 end
 
-
-# test for nil, for an edge case, e
-# an empty space returns
-#
-# {
-# "error": {
-# "code": 400,
-# "message": "Missing query.",
-# "errors": [
-# {
-# "message": "Missing query.",
-# "domain": "global",
-# "reason": "queryRequired",
-# "location": "q",
-# "locationType": "parameter"
-# }
-# ]
-# }
-# }
