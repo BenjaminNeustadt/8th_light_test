@@ -14,6 +14,16 @@ class BookView
     }
   }
 
+  LIST_ITEM =
+    <<~EOS
+      -----------------------
+      Book number %<index>s
+      title: %<title>s
+      author: %<authors>s
+      publisher: %<publisher>s
+      -----------------------
+      EOS
+
   ACTION_PROMPT = "%<option>s) %<action>s\n"
 
   def initialize
@@ -42,20 +52,12 @@ class BookView
   end
 
   def list_item(book, index)
-    attributes = {
-      index:     index.to_s.red,
-      title:     book[:title].black.on_white,
-      authors:   book[:authors].to_s.blue.on_white,
-      publisher: book[:publisher].to_s.yellow
-    }
-    <<~EOS % attributes
-      -----------------------
-      Book number %<index>s
-      title: %<title>s
-      author: %<authors>s
-      publisher: %<publisher>s
-      -----------------------
-      EOS
+    LIST_ITEM % {
+        index:     index,
+        title:     book[:title],
+        authors:   book[:authors],
+        publisher: book[:publisher]
+      }
   end
 
   def books_added

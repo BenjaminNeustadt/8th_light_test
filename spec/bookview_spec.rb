@@ -23,8 +23,7 @@ RSpec.describe BookView do
   end
 
   context "list options for user" do
-
-    it "displays 5 options:search, add, view,view search, exit" do
+    it "displays 5 options" do
       bookview = BookView.new
       expected =
         <<~MENU
@@ -35,6 +34,42 @@ RSpec.describe BookView do
           0) exit
         MENU
        actual = bookview.menu
+      expect(actual).to eq(expected)
+    end
+  end
+
+  context "list single item" do
+    it "displays book data in correct format" do
+      bookview = BookView.new
+      book = @isolated_list.available_books.first
+      expected =
+        <<~ITEM % book
+        -----------------------
+        Book number 1
+        title: %<title>s
+        author: %<authors>s
+        publisher: %<publisher>s
+        -----------------------
+        ITEM
+       actual = bookview.list_item(book, 1)
+      expect(actual).to eq(expected)
+    end
+  end
+
+  context "list single item" do
+    it "displays correct book data" do
+      bookview = BookView.new
+      book = @isolated_list.available_books.first
+      expected =
+        <<~ITEM % book
+        -----------------------
+        Book number 1
+        title: The History Book
+        author: ["DK"]
+        publisher: Dorling Kindersley Ltd
+        -----------------------
+        ITEM
+       actual = bookview.list_item(book, 1)
       expect(actual).to eq(expected)
     end
   end
