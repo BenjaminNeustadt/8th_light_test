@@ -21,11 +21,12 @@ def reset_search
   @search_results = []
 end
 
-def output
-  puts '=' * 23
-  puts 'Total books selected: %i' % @users_storage.container.size
-  puts '=' * 23
-  puts
+def total_books_selected
+  <<~EOS % @users_storage.container.size
+    =======================
+    Total books selected: %i
+    =======================
+  EOS
 end
 
 def list_item(book, index)
@@ -99,14 +100,14 @@ loop do
     @users_storage.container.each.with_index(1) do |book, index|
       list_item(book, index)
     end
-output
+    puts total_books_selected
   when 0
     puts "SELECTED BOOKS"
     puts '+=' * 11 + '+'
     @users_storage.container.each.with_index(1) do |book, index|
       list_item(book, index)
     end
-    output
+    puts total_books_selected
     puts "Sad to see you go, until the next!"
     break
   end
