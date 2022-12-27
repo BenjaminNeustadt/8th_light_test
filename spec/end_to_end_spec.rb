@@ -17,7 +17,7 @@ describe "Backend" do
       booksearch.add(chosen_book)
 
       expect(booksearch.storage).to be_truthy
-      expect((booksearch.storage.users_list).length).to eq 1
+      expect((booksearch.storage.container).length).to eq 1
     end
 
     it "allowing a book to be added to storage after one has already been added" do
@@ -26,13 +26,13 @@ describe "Backend" do
       # We choose to add the first book
       booksearch.add(retrieved_books.first)
 
-      actual = (booksearch.storage.users_list).length
+      actual = (booksearch.storage.container).length
       expected = 1
       expect(actual).to eq expected
 
       # We choose to add another book
       booksearch.add(retrieved_books.last)
-      actual = (booksearch.storage.users_list).length
+      actual = (booksearch.storage.container).length
       expected = 2
       expect(actual).to eq expected
     end
@@ -41,7 +41,7 @@ describe "Backend" do
       booksearch = BookSearch.new("tech")
       retrieved_books = booksearch.available_books
       booksearch.add(retrieved_books.first)
-      actual = (booksearch.storage.users_list)
+      actual = (booksearch.storage.container)
       expect(actual).to be_an Array
 
       actual = actual.first
