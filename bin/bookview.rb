@@ -31,8 +31,8 @@ def list_item(book, index)
 end
 
 def books_added
-  puts "You added %<number_of>i books:" % {number_of: @users_storage.users_list.size}
-  @users_storage.users_list.each do |book|
+  puts "You added %<number_of>i books:" % {number_of: @users_storage.container.size}
+  @users_storage.container.each do |book|
     puts '- %s'  % book[:title]
   end
 end
@@ -88,22 +88,22 @@ loop do
   when 4
     puts "SELECTED BOOKS"
     puts '=' * 23
-    @users_storage.users_list.each.with_index(1) do |book, index|
+    @users_storage.container.each.with_index(1) do |book, index|
       list_item(book, index)
     end
     puts '=' * 23
-    puts 'Total books selected: %i' % @users_storage.users_list.size
+    puts 'Total books selected: %i' % @users_storage.container.size
     puts '=' * 23
     puts
 
   when 0
     puts "SELECTED BOOKS"
     puts '+=' * 11 + '+'
-    @users_storage.users_list.each.with_index(1) do |book, index|
+    @users_storage.container.each.with_index(1) do |book, index|
       list_item(book, index)
     end
     puts '=' * 23
-    puts 'Total books selected: %i' % @users_storage.users_list.size
+    puts 'Total books selected: %i' % @users_storage.container.size
     puts '=' * 23
     puts
     puts "Sad to see you go, until the next!"

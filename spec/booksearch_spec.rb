@@ -25,7 +25,7 @@ RSpec.describe BookSearch do
       list = @isolated_list
       chosen_book = {author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}
       list.add(chosen_book)
-      expect(list.storage.users_list)
+      expect(list.storage.container)
         .to eq [{author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}]
     end
 

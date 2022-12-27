@@ -4,15 +4,15 @@ class BookStorage
   private
 
   def initialize
-    @users_list = []
+    @container = []
   end
 
   public
 
-  attr_reader :users_list
+  attr_reader :container
 
   def add(book_data)
-    users_list << book_data
+    container << book_data
   end
 
 end
