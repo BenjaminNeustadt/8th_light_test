@@ -30,13 +30,20 @@ def total_books_selected
 end
 
 def list_item(book, index)
-  puts '-' * 23
-  puts "Book number %s " % index.to_s.red
-  puts "title: %s" % book[:title].black.on_white
-  puts "author: %s" % book[:authors].to_s.blue.on_white
-  puts "publisher: %s" % book[:publisher].to_s.yellow
-  puts '-' * 23
-  puts
+  attributes = {
+    index:     index.to_s.red,
+    title:     book[:title].black.on_white,
+    authors:   book[:authors].to_s.blue.on_white,
+    publisher: book[:publisher].to_s.yellow
+  }
+  <<~EOS % attributes
+    -----------------------
+    Book number %<index>s
+    title: %<title>s
+    author: %<authors>s
+    publisher: %<publisher>s
+    -----------------------
+    EOS
 end
 
 def books_added
@@ -72,19 +79,19 @@ loop do
     data_query = BookSearch.new(choice, offline: OFFLINE)
     puts "AVAILABLE BOOKS: "
     data_query.available_books.each.with_index(1) do |book, index|
-      list_item(book, index)
+      puts list_item(book, index)
       @search_results << book
     end
 
   when 2
     @search_results.each.with_index(1) do |book, index|
-      list_item(book, index)
+      puts list_item(book, index)
     end
 
   when 3
     puts "Which of these books do you want to add to your library? Pick the respective number:"
     @search_results.each.with_index(1) do |book, index|
-      list_item(book, index)
+      puts list_item(book, index)
     end
     loop do
       print "Which book would you like to add? (pick a number, 0 to quit):"
@@ -98,14 +105,14 @@ loop do
     puts "SELECTED BOOKS"
     puts '=' * 23
     @users_storage.container.each.with_index(1) do |book, index|
-      list_item(book, index)
+      puts list_item(book, index)
     end
     puts total_books_selected
   when 0
     puts "SELECTED BOOKS"
     puts '+=' * 11 + '+'
     @users_storage.container.each.with_index(1) do |book, index|
-      list_item(book, index)
+      puts list_item(book, index)
     end
     puts total_books_selected
     puts "Sad to see you go, until the next!"
