@@ -4,6 +4,7 @@ require 'colorize'
 class BookView
 
   OFFLINE = true
+
   MENU = {
     ACTION: {
       1 => "search",
@@ -78,9 +79,7 @@ end
 if __FILE__ == $PROGRAM_NAME
   loop do
 
-    MENU[:ACTION].each do |option, action|
-      puts ACTION_PROMPT % {option: option.to_s.green, action: action.yellow}
-    end
+    puts BookView.new.menu
 
     puts "Enter a command : "
     choice =  gets.to_i
@@ -120,7 +119,7 @@ if __FILE__ == $PROGRAM_NAME
         break if choice == -1
         @users_storage.add(@search_results[choice]) if @search_results[choice]
       end
-      books_added
+      puts report_books_added
 
     when 4
       puts "SELECTED BOOKS"
