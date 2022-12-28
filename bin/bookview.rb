@@ -60,13 +60,20 @@ class BookView
       }
   end
 
+  #this is a report method for now
+
   def books_added
-    puts "You added %<number_of>i books:" % {number_of: @users_storage.container.size}
+    list = []
     @users_storage.container.each do |book|
-      puts '- %s' % book[:title]
+      list << "- #{book[:title]}"
+    end
+
+    if list.size == 1
+      "You added 1 book:\n#{list.first}"
+    else
+      "You added #{list.size} books:\n#{list.join("\n")}"
     end
   end
-
 end
 
 

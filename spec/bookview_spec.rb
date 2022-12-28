@@ -76,12 +76,26 @@ RSpec.describe BookView do
 
   context "books added" do
 
+    it "reports a book added by user" do
+
+      bookview = BookView.new
+      book = @isolated_list.available_books.first
+      bookview.users_storage.add(book)
+      actual = bookview.books_added
+      expected = "You added 1 book:\n- The History Book"
+      expect(actual).to eq(expected)
+
+    end
+
     it "reports the books added by user" do
 
       bookview = BookView.new
-      bookview.users_storage.add(@isolated_list.available_books.first)
+      books =  @isolated_list.available_books.take(3)
+      books.each do |book|
+        bookview.users_storage.add(book)
+      end
       actual = bookview.books_added
-      expected = [{:authors=>["DK"], :publisher=>"Dorling Kindersley Ltd", :title=>"The History Book"}]
+      expected = "You added 3 books:\n- The History Book\n- A Short History of the World\n- The History Book"
       expect(actual).to eq(expected)
 
     end
