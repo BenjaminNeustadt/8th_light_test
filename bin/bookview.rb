@@ -63,7 +63,7 @@ class BookView
   def books_added
     puts "You added %<number_of>i books:" % {number_of: @users_storage.container.size}
     @users_storage.container.each do |book|
-      puts '- %s'  % book[:title]
+      puts '- %s' % book[:title]
     end
   end
 
