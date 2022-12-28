@@ -196,3 +196,76 @@ It should demonstrate external quality (for example: solves the problem,
 handles edge cases, usability), internal quality (for example:
 *decoupling*, *testing*, *readability*), as well as some idea of your process and
 approach (via your version control history and README).
+
+= Damon_review
+
+== Positive
+
+* Text-based user interfaces can be overwhelming. I appreciated your use of color to help discriminate different text that you presented.
+
+* You handled all of the edge cases common to these types of submissions, such as multiple authors, no publisher, empty search, etc.
+
+* In command-line applications, it is common to use gets and puts throughout the application,
+  which makes it hard to have a unified channel to send and receive information to the user.
+  I liked that you only used gets and puts in a single module/file here.
+
+* You included specs, and they are all passing!
+
+== Opportunities for Improvement
+
+=== API Key
+
+Keeping secrets like API keys out of version control is good practice.
+I noticed that the env.json contained a preconfigured API key.
+I am not sure if that is a valid API key or if it is intended as a placeholder,
+but I wanted to provide that feedback for completeness.
+
+At any rate, an API key is not required to satisfy the requirements of this application.
+(See related feedback below about the README.)
+
+=== Outdated README
+
+I attempted to follow the steps provided in the README, but I found that some of them no longer applied, such as:
+
+* Creating and configuring an API key. I did not need to complete this to use and run the application.
+* Enabling/disabling the integration test with the Google Books API.
+* There is a command to run the tests, but I had to update the Gemfile to run them because rspec was omitted.
+* There are instructions for installing colorizor but it is included in the Gemfile.
+
+=== Unused Code
+
+I noticed a few areas where there is code that is not used.
+
+* The add method in the BookSearch is only exercised by its spec
+* The connection_spec is only enabled when $DEBUG is true, but that flag is never enabled, and there doesn’t seem to be a mechanism to enable it.
+  The result is that the test is never executed.
+
+=== Fuzzy Boundaries
+
+I like that you encapsulated the Google Books API interaction inside the BookSearch class.
+I also like that you included a way to toggle the integration on and off!
+
+However, is it the responsibility of BookSearch to know how to read test_data.json and how to make an HTTP request to the API?
+
+Additionally, you have two spec files that each test one of these responsibilities.
+`bookstorage_spec` tests the _offline_ flow, and `end_to_end_spec` tests the _online_ flow.
+This bifurcation of tests indicates multiple responsibilities because neither test tests all of the paths of execution.
+
+How might you refactor so that the `BookSearch` only has a single responsibility?
+There are multiple ways to achieve this, but one way that I like is the *strategy pattern*,
+which likely means introducing additional classes.
+
+Let me know if you have any questions or if there is anything I clarify here.
+
+=== Questions
+
+Please take the time to reply to the questions below,
+but note that no implementation, updates, or refactoring are required for these questions.
+I am merely interested in your response!
+
+With the Single Responsibility Principle in mind,
+what are all of the responsibilities of the bin/bookview.rb script in its current form?
+Given the time, how might you refactor so that the script has a single responsibility?
+
+Please consider my notes and take the opportunity to refactor your code to complete this step in your interview process.
+This second and final submission is needed on or before Wednesday of next week (01/04).
