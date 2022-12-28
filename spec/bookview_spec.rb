@@ -81,7 +81,7 @@ RSpec.describe BookView do
       bookview = BookView.new
       book = @isolated_list.available_books.first
       bookview.users_storage.add(book)
-      actual = bookview.books_added
+      actual = bookview.report_books_added
       expected = "You added 1 book:\n- The History Book"
       expect(actual).to eq(expected)
 
@@ -94,7 +94,7 @@ RSpec.describe BookView do
       books.each do |book|
         bookview.users_storage.add(book)
       end
-      actual = bookview.books_added
+      actual = bookview.report_books_added
       expected = "You added 3 books:\n- The History Book\n- A Short History of the World\n- The History Book"
       expect(actual).to eq(expected)
 
