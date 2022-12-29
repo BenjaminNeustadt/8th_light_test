@@ -24,7 +24,7 @@ RSpec.describe BookSearch do
     it 'can hold data via Storage' do
       list = @isolated_list
       chosen_book = {author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}
-      list.add(chosen_book)
+      list.storage.add(chosen_book)
       expect(list.storage.container)
         .to eq [{author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}]
     end

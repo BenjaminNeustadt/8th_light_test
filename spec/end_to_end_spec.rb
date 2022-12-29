@@ -14,7 +14,7 @@ describe "Backend" do
       retrieved_data = booksearch.available_books
       # We choose to add the first book
       chosen_book = retrieved_data[0]
-      booksearch.add(chosen_book)
+      booksearch.storage.add(chosen_book)
 
       expect(booksearch.storage).to be_truthy
       expect((booksearch.storage.container).length).to eq 1
@@ -24,14 +24,14 @@ describe "Backend" do
       booksearch = BookSearch.new("tech")
       retrieved_books = booksearch.available_books
       # We choose to add the first book
-      booksearch.add(retrieved_books.first)
+      booksearch.storage.add(retrieved_books.first)
 
       actual = (booksearch.storage.container).length
       expected = 1
       expect(actual).to eq expected
 
       # We choose to add another book
-      booksearch.add(retrieved_books.last)
+      booksearch.storage.add(retrieved_books.last)
       actual = (booksearch.storage.container).length
       expected = 2
       expect(actual).to eq expected
@@ -40,7 +40,7 @@ describe "Backend" do
     it "storing authors, title, and publisher" do
       booksearch = BookSearch.new("tech")
       retrieved_books = booksearch.available_books
-      booksearch.add(retrieved_books.first)
+      booksearch.storage.add(retrieved_books.first)
       actual = (booksearch.storage.container)
       expect(actual).to be_an Array
 
