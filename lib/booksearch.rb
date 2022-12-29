@@ -7,16 +7,8 @@ class BookSearch
 
   LIMIT = 5
 
-  API_KEY = JSON.parse(File.read("env.json"))["API_KEY"]
-  private_constant :API_KEY
-
-  private
-
-  attr_reader :url, :offline
-
-  def initialize(query, offline: true)
+  def initialize(query)
     raise ArgumentError, "BadQueryError" if query.nil?
-    @offline = offline
     @data = BookData.new(query).data_query
     @available_books = extract_from_raw(data_query)
     @storage = BookStorage.new

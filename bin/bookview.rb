@@ -60,7 +60,7 @@ loop do
       print " What are you looking for? "
       choice = gets.chomp
     end
-    data_query = BookSearch.new(choice, offline: OFFLINE)
+    data_query = BookSearch.new(choice)
     puts "AVAILABLE BOOKS: "
     data_query.available_books.each.with_index(1) do |book, index|
       list_item(book, index)
