@@ -1,4 +1,5 @@
 require_relative '../lib/booksearch'
+require_relative '../lib/bookdata'
 
 RSpec.describe BookSearch do
 
@@ -10,7 +11,6 @@ RSpec.describe BookSearch do
   context "query" do
 
     it "returns only the first 5 elements of a query" do
-
       list = @isolated_list
       actual = list.extract_from_raw(@test_book_data)
       expected = 5
@@ -30,7 +30,6 @@ RSpec.describe BookSearch do
     end
 
   end
-
 
   context "extract data" do
 
@@ -63,6 +62,15 @@ RSpec.describe BookSearch do
       expect(actual).to eq expected
     end
 
+  end
+
+  context "data query" do
+    it "reads data from the test file" do
+      booksearch= BookSearch.new('history')
+      expected = @test_book_data
+      actual = booksearch.data
+      expect(actual).to eq(expected)
+    end
   end
 
 end

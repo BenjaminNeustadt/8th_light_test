@@ -1,6 +1,7 @@
 require 'net/http'
 require 'json'
 require_relative '../lib/bookstorage'
+require_relative '../lib/bookdata'
 
 class BookSearch
 
@@ -13,26 +14,21 @@ class BookSearch
 
   attr_reader :url, :offline
 
-  def initialize(query, offline: false)
+  def initialize(query, offline: true)
     raise ArgumentError, "BadQueryError" if query.nil?
     @offline = offline
-    @url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
+    @data = BookData.new(query).data_query
     @available_books = extract_from_raw(data_query)
     @storage = BookStorage.new
   end
 
   def data_query
-    if offline
-      return JSON.parse(File.read('test_data.json'))
-    end
-    uri = URI(url)
-    response = Net::HTTP.get_response(uri)
-    JSON.parse(response.body)
+    data
   end
 
   public
 
-  attr_reader :available_books, :storage
+  attr_reader :available_books, :storage, :data
 
   def extract_from_raw(book_data)
     book_data["items"].take(LIMIT)
