@@ -73,13 +73,30 @@ class BookView
       {size: list.size, plural: plural, list:list.join("\n")}
   end
 
+  def retrieve_books(search_query)
+    search = BookSearch.new(search_query, offline: OFFLINE)
+    search.available_books.each.with_index(1) do |book, index|
+      list_item(book, index)
+      @search_results << book
+    end
+  end
+
+  def report_retrieved_books
+    "AVAILABLE BOOKS:\n" << @search_results
+      .each.with_index(1)
+      .with_object("") do |(book, index), report|
+      report << list_item(book, index)
+    end
+  end
+
 end
 
 
 if __FILE__ == $PROGRAM_NAME
   loop do
 
-    puts BookView.new.menu
+    session = BookView.new
+    puts session.menu
 
     puts "Enter a command : "
     choice =  gets.to_i
@@ -88,6 +105,33 @@ if __FILE__ == $PROGRAM_NAME
 
     when 1
       reset_search
+
+=begin
+
+Some thoughts on creating a prompt method to automate the puts and gets pattern
+
+      NAGS:
+      {
+        missing: "Missing search query, go ahead and enter something...",
+       sniff_bye: "Sad to see you go, until the next!"
+      }
+
+      PROMPTS:
+       {
+        1: " What are you looking for? ",
+        3: "Which of these books do you want to add to your library? Pick the respective number:",
+       }
+
+       answer to prompt 1:
+         def report_search_results
+            data_query = BookSearch.new(choice, offline: OFFLINE)
+            puts "AVAILABLE BOOKS: "
+            data_query.available_books.each.with_index(1) do |book, index|
+              puts list_item(book, index)
+              @search_results << book
+         end
+
+=end
 
       print " What are you looking for? "
       choice = gets.chomp

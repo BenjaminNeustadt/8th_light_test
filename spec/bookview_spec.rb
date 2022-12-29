@@ -101,5 +101,52 @@ RSpec.describe BookView do
     end
   end
 
+  context "search" do
+
+    it " reports the retrieved books" do
+
+      bookview = BookView.new
+      retrived_books = @isolated_list.available_books
+      bookview.retrieve_books('happy')
+      actual = bookview.report_retrieved_books
+      expected =
+        <<~SEARCH_REPORT
+          AVAILABLE BOOKS:
+          -----------------------
+          Book number 1
+          title: The History Book
+          author: ["DK"]
+          publisher: Dorling Kindersley Ltd
+          -----------------------
+          -----------------------
+          Book number 2
+          title: A Short History of the World
+          author: ["John Morris Roberts"]
+          publisher: Oxford University Press, USA
+          -----------------------
+          -----------------------
+          Book number 3
+          title: The History Book
+          author: ["Dorling Kindersley"]
+          publisher:\ 
+          -----------------------
+          -----------------------
+          Book number 4
+          title: The Oxford Illustrated History of the Book
+          author: ["James Raven"]
+          publisher: Oxford University Press, USA
+          -----------------------
+          -----------------------
+          Book number 5
+          title: A Little History of the World
+          author: ["E. H. Gombrich"]
+          publisher: Yale University Press
+          -----------------------
+        SEARCH_REPORT
+      expect(actual).to eq(expected)
+
+    end
+  end
+
 end
 
