@@ -27,21 +27,18 @@ To use this application, clone this repo to your local with the following comman
 
 `git clone https://github.com/BenjaminNeustadt/8th_light_test.git`
 
-An *API key* is necessary to use this program,
-so head {url-google-api}[here] and follow the instructions to set up your personal key.
-Go {url-google-console}[here] to enable 'Books API'.
-There is a daily quota of 1000 queries per day,
-so it is important that you keep your key to yourself.
+
+Ensure that you have Ruby downloaded on your system, you can check by inputting `ruby -v` into your terminal.
+
+Run `bundle install` to ensure you have all the correct dependencies of this project.
 
 ****
-[TIP]
+[NOTE]
 ====
-If you are uncertain how to set up, use {url-google-api-medium}[this article] to set up the google api key correctly.
-====
-****
+To run this program "online", you will need to set up your own API key via google api.
+With that done you can make a 'env.json'.
 
-Once you have your key, open the `env.json` file and insert it in place:
-
+.The following snippet is the correct template to use:
 [source, json]
 ----
 // env.json file
@@ -49,11 +46,32 @@ Once you have your key, open the `env.json` file and insert it in place:
 { "API_KEY" : "[YOUR API KEY]" } <1>
 ----
 <1> You will only need one set of quotation marks surrounding the key.
+====
+****
 
-Ensure that you have Ruby downloaded on your system, you can check by inputting `ruby -v` into your terminal.
+.To enable a true connection to online environement and get real data return
+[source, ruby]
+----
+# bin/bookview.rb file
 
-Run `bundle install` to ensure you have all the correct dependencies of this project.
+require_relative '../lib/booksearch'
+require 'colorize'
 
+OFFLINE = true    <---<1>
+MENU = {
+  ACTION: {
+    1 => "search",
+    2 => "view search results",
+    3 => "add",
+    4 => "view",
+    0 => "exit"
+  }
+}
+----
+<1> Change the word "true" to "false".
+Make sure you have updated/saved the file.
+
+The program can now be used "online"
 
 == Using the Program
 
@@ -74,34 +92,10 @@ Follow the prompts to add the book to a reading list.
 The testing framework used is Rspec.
 
 [IMPORTANT]
-Open the `bookview.rb` file, and set the `OFFLINE` constant to `true`:
-The application is by default switched to "ONLINE", this means that once you insert your API KEY,
-when the tests are run, a real query will be made - this can be switched off easily, however.
-For an optimal testing environment the application should be switched to "OFFLINE".
-
-.To enable a test environement and not affect your API quota.
-[source, ruby]
-----
-# bin/bookview.rb file
-
-require_relative '../lib/booksearch'
-require 'colorize'
-
-OFFLINE = false    <---<1>
-MENU = {
-  ACTION: {
-    1 => "search",
-    2 => "view search results",
-    3 => "add",
-    4 => "view",
-    0 => "exit"
-  }
-}
-----
-<1> Change the word "false" to "true".
-Make sure you have updated/saved the file.
-
-The program can now be used "offline"
+The application is by default switched to "ONLINE" with `OFFLINE = true`,
+this means that the data used to run the app will always be dummy data.
+This is done to ensure optimal testing grounds for the test environement,
+and to adher to the brief.
 
 .To run the tests:
 [source, sh]
@@ -227,10 +221,10 @@ At any rate, an API key is not required to satisfy the requirements of this appl
 
 I attempted to follow the steps provided in the README, but I found that some of them no longer applied, such as:
 
-* Creating and configuring an API key. I did not need to complete this to use and run the application.
-* Enabling/disabling the integration test with the Google Books API.
-* There is a command to run the tests, but I had to update the Gemfile to run them because rspec was omitted.
-* There are instructions for installing colorizor but it is included in the Gemfile.
+* Creating and configuring an API key. I did not need to complete this to use and run the application.[x]
+* Enabling/disabling the integration test with the Google Books API.[ ]
+* There is a command to run the tests, but I had to update the Gemfile to run them because rspec was omitted. [x]
+* There are instructions for installing colorizor but it is included in the Gemfile.[x]
 
 === Unused Code
 
