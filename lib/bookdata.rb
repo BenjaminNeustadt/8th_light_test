@@ -28,8 +28,3 @@ class BookData
 
 end
 
-# Ideally we would set an environement with
-# ENV['DEVELOPMENT']
-# If you'd like to run this application in test mode offline, then you would do this command.
-# TEST=true bin/bookview.rb in the command line
-
