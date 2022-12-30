@@ -232,21 +232,23 @@ I noticed a few areas where there is code that is not used.
 
 * The connection_spec is only enabled when $DEBUG is true, but that flag is never enabled, and there doesn’t seem to be a mechanism to enable it.[x]
 * The add method in the BookSearch is only exercised by its spec [x]
-  The result is that the test is never executed.[ ]
+  The result is that the test is never executed.[x]
 
 === Fuzzy Boundaries
 
 I like that you encapsulated the Google Books API interaction inside the BookSearch class.
 I also like that you included a way to toggle the integration on and off!
 
-However, is it the responsibility of BookSearch to know how to read test_data.json and how to make an HTTP request to the API?
+However, is it the responsibility of BookSearch to know how to read test_data.json and how to make an HTTP request to the API? -> UPDATES
 
 Additionally, you have two spec files that each test one of these responsibilities.
+
 `bookstorage_spec` tests the _offline_ flow, and `end_to_end_spec` tests the _online_ flow.
+
 This bifurcation of tests indicates multiple responsibilities because neither test tests all of the paths of execution.
 
 How might you refactor so that the `BookSearch` only has a single responsibility?
-There are multiple ways to achieve this, but one way that I like is the *strategy pattern*,
+There are multiple ways to achieve this, but one way that I like is the *strategy pattern*, UPDATES (i think)
 which likely means introducing additional classes.
 
 Let me know if you have any questions or if there is anything I clarify here.
