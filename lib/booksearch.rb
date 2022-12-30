@@ -5,7 +5,7 @@ require_relative '../lib/bookdata'
 
 class BookSearch
 
-  LIMIT = 5
+  BOOK_LIMIT = 5
 
   private
 
@@ -24,7 +24,7 @@ class BookSearch
   attr_reader :available_books, :storage, :data
 
   def extract_from_raw(book_data)
-    book_data["items"].take(LIMIT)
+    book_data["items"].take(BOOK_LIMIT)
       .map { |item| item["volumeInfo"] }
       .map { |book| {
       title:     book["title"],
