@@ -53,33 +53,5 @@ describe "Backend" do
 
   end
 
-  context "returns the error message if a bad query is made" do
-
-    it "informs of a bad query for empty string" do
-
-      expect {BookSearch.new(nil)}.to raise_error(ArgumentError)
-    end
-  end
-
-
 end
 
-
-# test for nil, for an edge case, e
-# an empty space returns
-#
-# {
-# "error": {
-# "code": 400,
-# "message": "Missing query.",
-# "errors": [
-# {
-# "message": "Missing query.",
-# "domain": "global",
-# "reason": "queryRequired",
-# "location": "q",
-# "locationType": "parameter"
-# }
-# ]
-# }
-# }

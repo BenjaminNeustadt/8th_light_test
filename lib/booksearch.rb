@@ -10,7 +10,6 @@ class BookSearch
   private
 
   def initialize(query)
-    raise ArgumentError, "BadQueryError" if query.nil?
     @data = BookData.new(query).data_query
     @available_books = extract_from_raw(data_query)
     @storage = BookStorage.new
