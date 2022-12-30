@@ -101,13 +101,13 @@ RSpec.describe BookView do
     end
   end
 
-  context "search" do
+  context "report retrieved"  do
 
     it " reports the retrieved books" do
 
       bookview = BookView.new
       retrived_books = @isolated_list.available_books
-      bookview.retrieve_books('happy')
+      bookview.lookup_books('happy')
       actual = bookview.report_retrieved_books
       expected =
         <<~SEARCH_REPORT
