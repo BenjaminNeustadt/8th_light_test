@@ -7,17 +7,22 @@ class BookSearch
 
   LIMIT = 5
 
+  private
+
   def initialize(query)
     raise ArgumentError, "BadQueryError" if query.nil?
     @data = BookData.new(query).data_query
-    @data_query = data
     @available_books = extract_from_raw(data_query)
     @storage = BookStorage.new
   end
 
+  def data_query
+    data
+  end
+
   public
 
-  attr_reader :available_books, :storage, :data, :data_query
+  attr_reader :available_books, :storage, :data
 
   def extract_from_raw(book_data)
     book_data["items"].take(LIMIT)
