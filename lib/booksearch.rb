@@ -28,8 +28,8 @@ class BookSearch
     book_data["items"].take(LIMIT)
       .map { |item| item["volumeInfo"] }
       .map { |book| {
-      title: book["title"],
-      authors: book["authors"],
+      title:     book["title"],
+      authors:   book["authors"],
       publisher: book["publisher"]
     }
     }
