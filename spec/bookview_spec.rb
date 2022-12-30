@@ -1,4 +1,4 @@
-require_relative '../bin/bookview'
+require_relative '../lib/bookview'
 
 RSpec.describe BookView do
 
