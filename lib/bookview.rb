@@ -1,44 +1,11 @@
 require_relative '../lib/booksearch'
+require_relative '../lib/bookreport'
 require 'colorize'
+
 
 class BookView
 
-  OFFLINE = true
-
-  MENU = {
-    ACTION: {
-      1 => "search",
-      2 => "view search results",
-      3 => "add",
-      4 => "view",
-      0 => "exit"
-    }
-  }
-
-  LIST_ITEM =
-    <<~EOS
-      -----------------------
-      Book number %<index>s
-      title: %<title>s
-      author: %<authors>s
-      publisher: %<publisher>s
-      -----------------------
-      EOS
-
-  ACTION_PROMPT = "%<option>s) %<action>s\n"
-
-	LINE_STYLE = {
-		default: '=======================',
-		special: '+=+=+=+=+=+=+=+=+=+=+=+'
-	}
-
-	REPORT =
-    <<~REPORT
-      %<title>15s
-      %<border>s
-      %<booklist>s
-      %<border>s
-    REPORT
+include Reportable
 
 	def report_booklist
     @users_storage
