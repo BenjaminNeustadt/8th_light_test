@@ -74,9 +74,9 @@ RSpec.describe BookView do
     end
   end
 
-  context "books added" do
+  context "report books added" do
 
-    it "reports a book added by user" do
+    it "displays a book added by user" do
 
       bookview = BookView.new
       book = @isolated_list.available_books.first
@@ -87,7 +87,7 @@ RSpec.describe BookView do
 
     end
 
-    it "reports the books added by user" do
+    it "displays books added by user" do
 
       bookview = BookView.new
       books =  @isolated_list.available_books.take(3)
@@ -101,13 +101,13 @@ RSpec.describe BookView do
     end
   end
 
-  context "report retrieved"  do
+  context "lookup books"  do
 
-    it " reports the retrieved books" do
+    it " displays the books matching the query" do
 
       bookview = BookView.new
       retrived_books = @isolated_list.available_books
-      bookview.lookup_books('happy')
+      bookview.lookup_books('history')
       actual = bookview.report_retrieved_books
       expected =
         <<~SEARCH_REPORT
@@ -145,6 +145,65 @@ RSpec.describe BookView do
         SEARCH_REPORT
       expect(actual).to eq(expected)
 
+    end
+  end
+
+  context " report booklist"  do
+
+    it " displays a book added to book list" do
+
+      bookview = BookView.new
+      bookview.lookup_books('history')
+      bookview.add_user_book(1)
+      expected =
+      <<~EOS
+               BOOKLIST
+        +=+=+=+=+=+=+=+=+=+=+=+
+        -----------------------
+        Book number 1
+        title: A Short History of the World
+        author: ["John Morris Roberts"]
+        publisher: Oxford University Press, USA
+        -----------------------
+
+        +=+=+=+=+=+=+=+=+=+=+=+
+       EOS
+
+      actual = bookview.report_booklist
+      expect(actual).to eq(expected)
+    end
+  end
+
+  context " report booklist"  do
+
+    it " displays multiple books added to book list" do
+
+      bookview = BookView.new
+      bookview.lookup_books('history')
+      bookview.add_user_book(1)
+      bookview.add_user_book(2)
+      expected =
+      <<~EOS
+              BOOKLIST
+       +=+=+=+=+=+=+=+=+=+=+=+
+       -----------------------
+       Book number 1
+       title: A Short History of the World
+       author: ["John Morris Roberts"]
+       publisher: Oxford University Press, USA
+       -----------------------
+       -----------------------
+       Book number 2
+       title: The History Book
+       author: ["Dorling Kindersley"]
+       publisher:\ 
+       -----------------------
+
+       +=+=+=+=+=+=+=+=+=+=+=+
+       EOS
+
+      actual = bookview.report_booklist
+      expect(actual).to eq(expected)
     end
   end
 
