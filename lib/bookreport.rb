@@ -1,28 +1,9 @@
-module Formatter
+module Report
 
 # :TODO: extract from here
   OFFLINE = true
 
-  MENU = {
-    ACTION: {
-      1 => "search",
-      2 => "view search results",
-      3 => "add",
-      4 => "view",
-      0 => "exit"
-    }
-  }
-
-  def menu
-    MENU[:ACTION].each_with_object("") do |(option, action), menu|
-      menu << ACTION_PROMPT % {option: option, action: action}
-    end
-  end
-
-  ACTION_PROMPT = "%<option>s) %<action>s\n"
-
-
-  LIST_ITEM =
+  ITEM =
     <<~EOS
       -----------------------
       Book number %<index>s
@@ -37,9 +18,6 @@ module Formatter
 		special: '+=+=+=+=+=+=+=+=+=+=+=+'
 	}
 
-# :TODO: methods for reporting to user
-# These should probably be extracted to a Report class
-
 	REPORT =
     <<~REPORT
       %<title>15s
@@ -48,11 +26,21 @@ module Formatter
       %<border>s
     REPORT
 
+  def item(book, index)
+    ITEM % {
+      index:     index,
+      title:     book[:title],
+      authors:   book[:authors],
+      publisher: book[:publisher]
+    }
+  end
+
+
   def report_retrieved_books
     "AVAILABLE BOOKS:\n" << @search_results
       .each.with_index(1)
       .with_object("") do |(book, index), report|
-      report << list_item(book, index)
+      report << item(book, index)
     end
   end
 
@@ -72,19 +60,10 @@ module Formatter
     @users_storage
       .container.each.with_index(1)
       .with_object(booklist = "") do |(book, index)|
-        booklist << list_item(book, index)
+        booklist << item(book, index)
       end
 
     REPORT % {booklist: booklist, border: LINE_STYLE[:special], title: 'BOOKLIST'}
-  end
-
-  def list_item(book, index)
-    LIST_ITEM % {
-      index:     index,
-      title:     book[:title],
-      authors:   book[:authors],
-      publisher: book[:publisher]
-    }
   end
 
   def report_total_number_books_added

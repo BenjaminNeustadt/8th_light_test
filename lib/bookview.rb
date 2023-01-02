@@ -3,7 +3,7 @@ require_relative '../lib/bookreport'
 
 class BookView
 
-	include Formatter
+	include Report
 
   def initialize
     @search_results = []
@@ -22,7 +22,7 @@ class BookView
     @search_results = []
     search = BookSearch.new(search_query, offline: OFFLINE)
     search.available_books.each.with_index(1) do |book, index|
-      list_item(book, index)
+      item(book, index)
       @search_results << book
     end
   end

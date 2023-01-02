@@ -51,7 +51,7 @@ RSpec.describe BookView do
         publisher: %<publisher>s
         -----------------------
         ITEM
-       actual = bookview.list_item(book, 1)
+       actual = bookview.item(book, 1)
       expect(actual).to eq(expected)
     end
   end
@@ -69,7 +69,7 @@ RSpec.describe BookView do
         publisher: Dorling Kindersley Ltd
         -----------------------
         ITEM
-       actual = bookview.list_item(book, 1)
+       actual = bookview.item(book, 1)
       expect(actual).to eq(expected)
     end
   end
