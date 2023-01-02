@@ -1,9 +1,11 @@
 require_relative '../lib/booksearch'
 require_relative '../lib/bookreport'
+require_relative '../lib/prompt'
 
 class BookView
 
 	include Report
+	include Prompt
 
   def initialize
     @search_results = []
