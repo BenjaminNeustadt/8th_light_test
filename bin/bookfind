@@ -3,11 +3,12 @@
 require_relative '../lib/bookview'
 require 'colorize'
 
-	loop do
 
 		session = BookView.new
-		puts session.menu
 
+	loop do
+
+		puts session.menu.red
 		puts "Enter a command : "
 		choice =  gets.to_i
 
@@ -24,12 +25,14 @@ require 'colorize'
 				choice = gets.chomp
 			end
 			session.lookup_books(choice)
-			puts session.report_retrieved_books
+      puts session.report_retrieved_books
+
 		when 2
-			puts session.report_search_results
+      puts session.report_retrieved_books
+
 		when 3
 			puts "Which of these books do you want to add to your library? Pick the respective number:"
-			puts session.report_search_results
+			puts session.report_retrieved_books
 			loop do
 				print "Which book would you like to add? (pick a number, 0 to quit):"
 				choice = gets.to_i - 1
@@ -39,19 +42,12 @@ require 'colorize'
 			puts session.report_books_added
 
 		when 4
-			puts "SELECTED BOOKS"
-			puts '=' * 23
-			@users_storage.container.each.with_index(1) do |book, index|
-				puts list_item(book, index)
-			end
-			puts total_books_selected
+      puts session.report_booklist
+      puts session.report_total_number_books_added
+
 		when 0
-			puts "SELECTED BOOKS"
-			puts '+=' * 11 + '+'
-			@users_storage.container.each.with_index(1) do |book, index|
-				puts list_item(book, index)
-			end
-			puts total_books_selected
+      puts session.report_booklist
+      puts session.report_total_number_books_added
 			puts "Sad to see you go, until the next!"
 			break
 		end
