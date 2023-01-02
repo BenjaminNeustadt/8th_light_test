@@ -1,0 +1,874 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 986,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "oCIgEAAAQBAJ",
+      "etag": "bHpQ10ybYrs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/oCIgEAAAQBAJ",
+      "volumeInfo": {
+        "title": "FISH - édition 20ème anniversaire",
+        "authors": [
+          "Stephen c Lundin",
+          "Harry Paul",
+          "John Christensen"
+        ],
+        "publisher": "Un monde different",
+        "publishedDate": "2021-03-04",
+        "description": "Découvrez la méthode qui vous permettra d'optimiser l'épanouissement au travail ! Imaginez un milieu de travail où tous choisiraient d'insuffler énergie, passion et attitude positive dans leurs tâches quotidiennes. Ou encore, imaginez un environnement dans lequel tous les employés entretiendraient un lien réel avec leur travail, leurs collègues et la clientèle. \"FISH ! \" démontre que l'on peut obtenir des résultats extraordinaires lorsqu'on éveille la passion naturelle des gens pour servir les autres tout en s'amusant. Remplie d'inspiration et d'une sagesse intemporelle qui saura vous rejoindre, quel que soit votre secteur d'activité ou votre niveau de carrière, \"FISH !\" est l'une des fables les plus populaires de tous les temps. Des entreprises du monde entier utilisent ses leçons pratiques afin d'améliorer le service à la clientèle, établir la confiance, stimuler le travail d'équipe, renforcer le leadership et accroître la satisfaction du personnel. Elles les utilisent également pour consolider les relations personnelles et donner un sens au travail de leurs employés.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9782924973318"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "2924973317"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 93,
+        "printType": "BOOK",
+        "categories": [
+          "Education"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=oCIgEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=oCIgEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=oCIgEAAAQBAJ&pg=PT69&dq=fish&hl=&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=oCIgEAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=oCIgEAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 10,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 10,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=oCIgEAAAQBAJ&rdid=book-oCIgEAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 10000000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 10000000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/FISH_%C3%A9dition_20%C3%A8me_anniversaire-sample-epub.acsm?id=oCIgEAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/FISH_%C3%A9dition_20%C3%A8me_anniversaire-sample-pdf.acsm?id=oCIgEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=oCIgEAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Quelques mois après la tenue des ateliers, les agents \u003cb\u003eFISH\u003c/b\u003e! ont créé deux cours de maître afin de maintenir la dynamique et de renforcer l&#39;apprentissage et la terminologie associée à la philosophie \u003cb\u003eFISH\u003c/b\u003e! Les cours ont fait état de&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "Sfsnl2LoTRwC",
+      "etag": "5WTfitUuIyk",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Sfsnl2LoTRwC",
+      "volumeInfo": {
+        "title": "Computer programs for fish stock assessment. Suppl. 3. ANACO: logiciel d'analyse des données de capture par classes d'âge sur IBM PC et compatibles",
+        "authors": [
+          "B. Mesnil"
+        ],
+        "publisher": "Food & Agriculture Org.",
+        "publishedDate": "1988",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "9252027041"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9789252027041"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 92,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.5.6.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Sfsnl2LoTRwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Sfsnl2LoTRwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=Sfsnl2LoTRwC&pg=PA78&dq=fish&hl=&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=Sfsnl2LoTRwC&dq=fish&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Computer_programs_for_fish_stock_assessm.html?hl=&id=Sfsnl2LoTRwC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Computer_programs_for_fish_stock_assessm-sample-pdf.acsm?id=Sfsnl2LoTRwC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Sfsnl2LoTRwC&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "78 ANNEXE D Liste des manuels , programmes et logiciels déjà diffusés par le Département des Pêches de la FAO Abramson , N.J. , Computer programs for \u003cb\u003efish\u003c/b\u003e stock assessment FAO \u003cb\u003eFish\u003c/b\u003e.Tech . 1971 Pap . , ( 101 ) : 148 p ."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "y3mviA24A70C",
+      "etag": "X2nGsTyZ3P4",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/y3mviA24A70C",
+      "volumeInfo": {
+        "title": "Conservation of Threatened Freshwater Fish in Europe",
+        "authors": [
+          "Peter S. Maitland"
+        ],
+        "publisher": "Council of Europe",
+        "publishedDate": "1992-01-01",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "9287118868"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9789287118868"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 76,
+        "printType": "BOOK",
+        "categories": [
+          "Political Science"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.4.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=y3mviA24A70C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=y3mviA24A70C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=y3mviA24A70C&pg=PA69&dq=fish&hl=&cd=3&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=y3mviA24A70C&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=y3mviA24A70C"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 5.28,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 5.28,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=y3mviA24A70C&rdid=book-y3mviA24A70C&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 5280000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 5280000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=y3mviA24A70C&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Conservation of the genetic resources of \u003cb\u003efish\u003c/b\u003e : problems and recommendations . Rome : FAO . FAO . 1982. Allocation of fishery resources . Rome : FAO . HOLCIK , J. &amp; HENSEL , K. 1974. A new species of Gymnocephalus ( Pisces : Percidae )&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "salYAgAAQBAJ",
+      "etag": "SnApqYZvLfg",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/salYAgAAQBAJ",
+      "volumeInfo": {
+        "title": "Bob Fish",
+        "authors": [
+          "Chaland"
+        ],
+        "publisher": "Les Humanoïdes Associés",
+        "publishedDate": "2014-03-19",
+        "description": "Une aventure parodique et grinçante qui vous tiendra hors d'haleine. 1 VOLUME PARU - HISTOIRES INDÉPENDANTES \"Un introuvable de Chaland de nouveau disponible.\" Le fils d’un richissime homme d’affaires ayant été enlevé par des malfaiteurs, l’affaire est confiée au détective Bob Fish. Séduisant, téméraire et aussi un poil macho, celui-ci est un adepte des méthodes musclées. Au cours de son enquête, il croise la route d’Albert, un garnement bruxellois qui détient de précieuses informations sur l’enlèvement... Entre parodie grinçante et hommage malicieux aux pulps des années 50, cette enquête de Bob Fish revisite les codes de la BD de genre. Yves Chaland joue avec les clichés et les archétypes des histoires de détective, qu’il pousse à leur paroxysme. Le résultat est totalement jubilatoire, et graphiquement époustouflant.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9782731681093"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "2731681098"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 48,
+        "printType": "BOOK",
+        "categories": [
+          "Comics & Graphic Novels"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.1.1.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=salYAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=salYAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=salYAgAAQBAJ&pg=PT1&dq=fish&hl=&cd=4&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=salYAgAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=salYAgAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 5.99,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 5.99,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=salYAgAAQBAJ&rdid=book-salYAgAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 5990000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 5990000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Bob_Fish-sample-epub.acsm?id=salYAgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Bob_Fish-sample-pdf.acsm?id=salYAgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=salYAgAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "PLUS D&#39;INFOS Scénario : Chaland Dessin : Chaland Bob \u003cb\u003eFish\u003c/b\u003e AVENTURE 1 VOLUME PARU Retrouvez nos BD dans l&#39;application Humano Vous aimerez aussi... Une lecture optimisée pour tablettes, des BD gratuites en permanence, des bonus exclusifs,&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "0EjiDwAAQBAJ",
+      "etag": "j9L/eYxSvcQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/0EjiDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Report of the Seventeenth Session of the Sub-Committee on Fish Trade of the Committee on Fisheries. Vigo, Spain, 25–29 November 2019/ Rapport de la dix-septième session du Sous-Comité du Commerce du Poisson, Vigo, Espagne, 25-29 novembre 2019/ Informe de la 17.a reunión del Subcomité de Comercio Pesquero, Vigo (España), 25-29 de noviembre de 2019",
+        "authors": [
+          "Food and Agriculture Organization of the United Nations "
+        ],
+        "publisher": "Food & Agriculture Org.",
+        "publishedDate": "2020-04-01",
+        "description": "This Session of the Sub-Committee took note of the market outlook of international trade of fish and fishery products, particularly involving current global themes, the work of FAO with other international organizations, market access issues (including quality and safety, small-scale fisheries, product legality, transparency, biodiversity conservation, trade agreements, traceability), within the overall framework of international trade as an important tool to achieve the Sustainable Development Goals (SDGs). Cette session du Sous-Comité a pris note des perspectives des marchés concernant le commerce international du poisson et des produits de la pêche, en particulier sur les enjeux mondiaux actuels, la collaboration de la FAO avec d'autres organisations internationales et les questions liées à l'accès aux marchés (qualité et sécurité sanitaire, pêche artisanale, légalité des produits et transparence, préservation de la diversité biologique, accords commerciaux et traçabilité, notamment), dans le cadre général du commerce international en tant que domaine important pour concrétiser les objectifs de développement durable (ODD). Esta reunión del Subcomité tomó nota de las perspectivas de los mercados respecto del comercio internacional de pescado y productos pesqueros, en particular con los temas de actualidad en el mundo, la labor de la FAO con otras organizaciones internacionales, las cuestiones relativas al acceso los mercados (como la calidad y la inocuidad, la pesca artesanal, la legalidad de los productos y la transparencia, la conservación de la biodiversidad, los acuerdos comerciales y la rastreabilidad), en el marco general del comercio internacional en cuanto instrumento importante para alcanzar los Objetivos de Desarrollo Sostenible (ODS).",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9789251324257"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "9251324255"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 68,
+        "printType": "BOOK",
+        "categories": [
+          "Technology & Engineering"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=0EjiDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=0EjiDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=0EjiDwAAQBAJ&pg=PA3&dq=fish&hl=&cd=5&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=0EjiDwAAQBAJ&dq=fish&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Report_of_the_Seventeenth_Session_of_the.html?hl=&id=0EjiDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=0EjiDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The Sub-Committee commended the work conducted by GLOBEFISH and the \u003cb\u003eFISH\u003c/b\u003e INFONetwork in providing up-to-date and ... including regulations of international \u003cb\u003efish\u003c/b\u003e trade, and future work related to WTO “specific trade concerns” and a&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "d9XICQAAQBAJ",
+      "etag": "Sz3MO8bK3cU",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/d9XICQAAQBAJ",
+      "volumeInfo": {
+        "title": "Fish & chips",
+        "authors": [
+          "Catherine Moreau"
+        ],
+        "publisher": "Hachette Pratique",
+        "publishedDate": "2012-02-15",
+        "description": "Ce classique incontournable de la cuisine britannique est ici revu dans de délicieuses recettes de poissons panés et de chips de légumes. Retrouvez les 50 meilleures recettes de fish and chips et vivez à l'heure anglaise !",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9782012306189"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "2012306187"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 72,
+        "printType": "BOOK",
+        "categories": [
+          "Cooking"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.2.2.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=d9XICQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=d9XICQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=d9XICQAAQBAJ&pg=PT67&dq=fish&hl=&cd=6&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=d9XICQAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=d9XICQAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 4.99,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 4.99,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=d9XICQAAQBAJ&rdid=book-d9XICQAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 4990000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 4990000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Fish_chips-sample-epub.acsm?id=d9XICQAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Fish_chips-sample-pdf.acsm?id=d9XICQAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=d9XICQAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "\u003cb\u003eFISH\u003c/b\u003e &amp; CHIPS les meilleures recettes ! Toutes les indications pour les réussir : temps de préparation, temps de cuisson, coût, difficulté. Ce classique incontournable de la cuisine britannique sert de point de départ à de délicieuses&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "QyoLCwAAQBAJ",
+      "etag": "55QF4R23inY",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/QyoLCwAAQBAJ",
+      "volumeInfo": {
+        "title": "L'errance d'un Fish !",
+        "authors": [
+          "Nehmoksis"
+        ],
+        "publisher": "",
+        "publishedDate": "2013-08-05",
+        "description": "Dans L’errance d’un Fish !, vous aurez l’occasion de découvrir les expériences et les ressentis d’un jeune homme plein d’espoir et de tristesse, dévoilant à cœur ouvert les vicissitudes et les scènes tumultueuses d’une partie de sa vie. Du premier poème jusqu’au dernier, il s’est écoulé environ sept années. On peut donc se rendre compte d’une certaine évolution de Fish tout au long du livre. Cette œuvre nous permet de découvrir un parcours singulier, qui cherche à trouver sa place parmi tant d’autres. Mais, elle nous offre aussi la possibilité de se rapprocher de sentiers empruntés par le personnage, dans lesquels nous pouvons nous retrouver. Ainsi, grâce à cet ouvrage, laissez-vous emporter par la magie...",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9782332585981"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "2332585982"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 56,
+        "printType": "BOOK",
+        "categories": [
+          "Poetry"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=QyoLCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=QyoLCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=QyoLCwAAQBAJ&pg=PA56&dq=fish&hl=&cd=7&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=QyoLCwAAQBAJ&dq=fish&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/L_errance_d_un_Fish.html?hl=&id=QyoLCwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=QyoLCwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Dans L&#39;errance d&#39;un \u003cb\u003eFish\u003c/b\u003e !, vous aurez l&#39;occasion de découvrir les expériences et les ressentis d&#39;un jeune homme plein d&#39;espoir et de tristesse, dévoilant à cœur ouvert les vicissitudes et les scènes tumultueuses d&#39;une partie de sa vie."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "ZfvvDwAAQBAJ",
+      "etag": "Z1YjALw04XQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/ZfvvDwAAQBAJ",
+      "volumeInfo": {
+        "title": "Vendredi, c'est fish stick",
+        "subtitle": "Half Moon Bay, T1",
+        "authors": [
+          "Rhys Ford"
+        ],
+        "publisher": "MxM Bookmark",
+        "publishedDate": "2022-10-26",
+        "description": "Deacon Reid est pourri jusqu’à l’os. Il est né comme ça et n’a aucune intention de changer. Vivre sur le fil du rasoir, à contourner la loi, lui convient parfaitement ! En tout cas, cela lui convenait jusqu’à ce que sa petite sœur meure et qu’il devienne le tuteur légal de sa fille, Zig. Déterminé à offrir une vie meilleure à sa nièce, Deacon trace un trait sur son passé chaotique et vend tout ce qu’il possède pour quitter le quartier dangereux où il habite. Il achète un garage à Half Moon où il espère que Zig aura l’enfance heureuse et saine qu’il n’a jamais eue. Lang Harris est stupéfait lorsqu'une petite fille en rangers et tutu violet débarque dans sa librairie. Plus encore, il reste sans voix quand son oncle arrive en force sur ses talons. Lang a pour habitude de jouer la sécurité, c’est pourquoi il aimerait ignorer cet homme qui semble porter le poids du monde sur ses épaules. Cet homme diablement attirant qui le tente... qui le tente tant qu’il pourrait franchir la ligne. Mais même si Deacon a voulu laissé son passé derrière lui, il n'est jamais très loin. Un homme décidé à se venger de lui pourrait bien faire de Zig et Lang des cibles idéales. #Suspens #Changerdevie #Secondechance #MM",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9791038109384"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 273,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.8.7.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=ZfvvDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=ZfvvDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=ZfvvDwAAQBAJ&pg=PT2&dq=fish&hl=&cd=8&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=ZfvvDwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=ZfvvDwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 6.99,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 6.99,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=ZfvvDwAAQBAJ&rdid=book-ZfvvDwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 6990000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 6990000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Vendredi_c_est_fish_stick-sample-epub.acsm?id=ZfvvDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Vendredi_c_est_fish_stick-sample-pdf.acsm?id=ZfvvDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=ZfvvDwAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Cet ouvrage a été publié sous le titre original : \u003cb\u003eFish\u003c/b\u003e Stick Fridays (Half Moon Bay 1) MxM Bookmark © 2022, Tous droits réservés MxM Bookmark est un label appartenant aux éditions Bookmark. Copyright © Rhys Ford 2015 Illustration de&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "3t4iAQAAIAAJ",
+      "etag": "SB+FjFmGch0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/3t4iAQAAIAAJ",
+      "volumeInfo": {
+        "title": "Fish and Fish Products; Service Bulletin",
+        "subtitle": "Poisson Et Produits Du Poisson; Bulletin de Service",
+        "authors": [
+          "Statistics Canada. Manufacturing and Primary Industries Division"
+        ],
+        "publishedDate": "1973",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UCSD:31822009709510"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 256,
+        "printType": "BOOK",
+        "categories": [
+          "Fisheries"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.3.2.0.preview.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=3t4iAQAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=3t4iAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=3t4iAQAAIAAJ&q=fish&dq=fish&hl=&cd=9&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=3t4iAQAAIAAJ&dq=fish&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Fish_and_Fish_Products_Service_Bulletin.html?hl=&id=3t4iAQAAIAAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=3t4iAQAAIAAJ&hl=&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "gOdFZqogvMQC",
+      "etag": "aQ6J0wCuxbA",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/gOdFZqogvMQC",
+      "volumeInfo": {
+        "title": "Bacterial Fish Pathogens",
+        "subtitle": "Disease of Farmed and Wild Fish",
+        "authors": [
+          "B. Austin",
+          "D.A. Austin"
+        ],
+        "publisher": "Springer Science & Business Media",
+        "publishedDate": "2007-11-25",
+        "description": "This revised edition fills the need for an up-to-date comprehensive book on the biological aspects of the bacterial taxa which cause disease in fish. Since the 3rd edition was published in 1999, much has changed in the control of disease of farmed and wild fish. This book analyses all the new information, including that on new pathogens and new developments on long established diseases, such as furunculosis and vibriosis. Consideration is given to all of the bacterial taxa which have at some time been reported as fish pathogens, whether they are secondary invaders of already damaged tissue or serious, primary pathogens.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781402060694"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1402060696"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 552,
+        "printType": "BOOK",
+        "categories": [
+          "Science"
+        ],
+        "averageRating": 5,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "3.6.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=gOdFZqogvMQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=gOdFZqogvMQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=gOdFZqogvMQC&pg=PA469&dq=fish&hl=&cd=10&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=gOdFZqogvMQC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=gOdFZqogvMQC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 283.8,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 198.66,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=gOdFZqogvMQC&rdid=book-gOdFZqogvMQC&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 283800000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 198660000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Bacterial_Fish_Pathogens-sample-pdf.acsm?id=gOdFZqogvMQC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=gOdFZqogvMQC&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Journal of \u003cb\u003eFish\u003c/b\u003e Diseases 25, 633–642. Irianto, A. and Austin, B. (2003) Use of dead probiotic cells to control furunculosis in rainbow trout, Oncorhynchus mykiss (Walbaum). Journal of \u003cb\u003eFish\u003c/b\u003e Diseases 26, 59–62."
+      }
+    }
+  ]
+}

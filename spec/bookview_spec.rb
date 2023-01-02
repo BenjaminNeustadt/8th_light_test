@@ -5,11 +5,18 @@ RSpec.describe BookView do
 
   before :each do
     @isolated_list = BookSearch.new('history', offline: true)
-    @test_book_data = JSON.parse(File.read('test_data.json'))
+    @test_book_data = JSON.parse(File.read('spec/test_data/data.json'))
   end
 
-  context "reset_search" do
+  context "search results" do
     it "is initially an empty array" do
+      bookview = BookView.new
+      expect(bookview.search_results).to eq([])
+    end
+  end
+
+  context "search results"  do
+    it "is populated after a lookup" do
       bookview = BookView.new
       expect(bookview.search_results).to eq([])
     end

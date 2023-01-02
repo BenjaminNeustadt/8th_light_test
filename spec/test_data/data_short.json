@@ -1,0 +1,277 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 986,
+  "items": [
+    {
+      "kind": "books#volume",
+      "id": "oCIgEAAAQBAJ",
+      "etag": "FJufTeRHl4M",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/oCIgEAAAQBAJ",
+      "volumeInfo": {
+        "title": "FISH - édition 20ème anniversaire",
+        "authors": [
+          "Stephen c Lundin",
+          "Harry Paul",
+          "John Christensen"
+        ],
+        "publisher": "Un monde different",
+        "publishedDate": "2021-03-04",
+        "description": "Découvrez la méthode qui vous permettra d'optimiser l'épanouissement au travail ! Imaginez un milieu de travail où tous choisiraient d'insuffler énergie, passion et attitude positive dans leurs tâches quotidiennes. Ou encore, imaginez un environnement dans lequel tous les employés entretiendraient un lien réel avec leur travail, leurs collègues et la clientèle. \"FISH ! \" démontre que l'on peut obtenir des résultats extraordinaires lorsqu'on éveille la passion naturelle des gens pour servir les autres tout en s'amusant. Remplie d'inspiration et d'une sagesse intemporelle qui saura vous rejoindre, quel que soit votre secteur d'activité ou votre niveau de carrière, \"FISH !\" est l'une des fables les plus populaires de tous les temps. Des entreprises du monde entier utilisent ses leçons pratiques afin d'améliorer le service à la clientèle, établir la confiance, stimuler le travail d'équipe, renforcer le leadership et accroître la satisfaction du personnel. Elles les utilisent également pour consolider les relations personnelles et donner un sens au travail de leurs employés.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9782924973318"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "2924973317"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 93,
+        "printType": "BOOK",
+        "categories": [
+          "Education"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=oCIgEAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=oCIgEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=oCIgEAAAQBAJ&pg=PT69&dq=fish&hl=&cd=1&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=oCIgEAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=oCIgEAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 10,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 10,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=oCIgEAAAQBAJ&rdid=book-oCIgEAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 10000000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 10000000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/FISH_%C3%A9dition_20%C3%A8me_anniversaire-sample-epub.acsm?id=oCIgEAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/FISH_%C3%A9dition_20%C3%A8me_anniversaire-sample-pdf.acsm?id=oCIgEAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=oCIgEAAAQBAJ&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Quelques mois après la tenue des ateliers, les agents \u003cb\u003eFISH\u003c/b\u003e! ont créé deux cours de maître afin de maintenir la dynamique et de renforcer l&#39;apprentissage et la terminologie associée à la philosophie \u003cb\u003eFISH\u003c/b\u003e! Les cours ont fait état de&nbsp;..."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "Sfsnl2LoTRwC",
+      "etag": "JDtIuGjPrv0",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/Sfsnl2LoTRwC",
+      "volumeInfo": {
+        "title": "Computer programs for fish stock assessment. Suppl. 3. ANACO: logiciel d'analyse des données de capture par classes d'âge sur IBM PC et compatibles",
+        "authors": [
+          "B. Mesnil"
+        ],
+        "publisher": "Food & Agriculture Org.",
+        "publishedDate": "1988",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "9252027041"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9789252027041"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 92,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.5.6.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=Sfsnl2LoTRwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=Sfsnl2LoTRwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "fr",
+        "previewLink": "http://books.google.fr/books?id=Sfsnl2LoTRwC&pg=PA78&dq=fish&hl=&cd=2&source=gbs_api",
+        "infoLink": "http://books.google.fr/books?id=Sfsnl2LoTRwC&dq=fish&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/Computer_programs_for_fish_stock_assessm.html?hl=&id=Sfsnl2LoTRwC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Computer_programs_for_fish_stock_assessm-sample-pdf.acsm?id=Sfsnl2LoTRwC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=Sfsnl2LoTRwC&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "78 ANNEXE D Liste des manuels , programmes et logiciels déjà diffusés par le Département des Pêches de la FAO Abramson , N.J. , Computer programs for \u003cb\u003efish\u003c/b\u003e stock assessment FAO \u003cb\u003eFish\u003c/b\u003e.Tech . 1971 Pap . , ( 101 ) : 148 p ."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "gOdFZqogvMQC",
+      "etag": "XPeMGjI0RPY",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/gOdFZqogvMQC",
+      "volumeInfo": {
+        "title": "Bacterial Fish Pathogens",
+        "subtitle": "Disease of Farmed and Wild Fish",
+        "authors": [
+          "B. Austin",
+          "D.A. Austin"
+        ],
+        "publisher": "Springer Science & Business Media",
+        "publishedDate": "2007-11-25",
+        "description": "This revised edition fills the need for an up-to-date comprehensive book on the biological aspects of the bacterial taxa which cause disease in fish. Since the 3rd edition was published in 1999, much has changed in the control of disease of farmed and wild fish. This book analyses all the new information, including that on new pathogens and new developments on long established diseases, such as furunculosis and vibriosis. Consideration is given to all of the bacterial taxa which have at some time been reported as fish pathogens, whether they are secondary invaders of already damaged tissue or serious, primary pathogens.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781402060694"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1402060696"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 552,
+        "printType": "BOOK",
+        "categories": [
+          "Science"
+        ],
+        "averageRating": 5,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "3.6.1.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=gOdFZqogvMQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=gOdFZqogvMQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.fr/books?id=gOdFZqogvMQC&pg=PA469&dq=fish&hl=&cd=10&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=gOdFZqogvMQC&source=gbs_api",
+        "canonicalVolumeLink": "https://play.google.com/store/books/details?id=gOdFZqogvMQC"
+      },
+      "saleInfo": {
+        "country": "FR",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 283.8,
+          "currencyCode": "EUR"
+        },
+        "retailPrice": {
+          "amount": 198.66,
+          "currencyCode": "EUR"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=gOdFZqogvMQC&rdid=book-gOdFZqogvMQC&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 283800000,
+              "currencyCode": "EUR"
+            },
+            "retailPrice": {
+              "amountInMicros": 198660000,
+              "currencyCode": "EUR"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "FR",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.fr/books/download/Bacterial_Fish_Pathogens-sample-pdf.acsm?id=gOdFZqogvMQC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=gOdFZqogvMQC&hl=&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Journal of \u003cb\u003eFish\u003c/b\u003e Diseases 25, 633–642. Irianto, A. and Austin, B. (2003) Use of dead probiotic cells to control furunculosis in rainbow trout, Oncorhynchus mykiss (Walbaum). Journal of \u003cb\u003eFish\u003c/b\u003e Diseases 26, 59–62."
+      }
+    }
+  ]
+}

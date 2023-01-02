@@ -4,7 +4,7 @@ RSpec.describe BookSearch do
 
   before :each do
     @isolated_list = BookSearch.new('history', offline: true)
-    @test_book_data = JSON.parse(File.read('test_data.json'))
+    @test_book_data = JSON.parse(File.read('spec/test_data/data.json'))
   end
 
   context "query" do

@@ -23,7 +23,7 @@ class BookSearch
 
   def data_query
     if offline
-      return JSON.parse(File.read('test_data.json'))
+      return JSON.parse(File.read('spec/test_data/data.json'))
     end
     uri = URI(url)
     response = Net::HTTP.get_response(uri)
