@@ -42,11 +42,11 @@ require 'colorize'
 			puts session.report_books_added
 
 		when 4
-      puts session.report_booklist
+      puts session.report_booklist(Decorators::BORDER[:special])
       puts session.report_total_number_books_added
 
 		when 0
-      puts session.report_booklist
+      puts session.report_booklist(Decorators::BORDER[:special])
       puts session.report_total_number_books_added
 			puts "Sad to see you go, until the next!"
 			break
