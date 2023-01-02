@@ -8,9 +8,9 @@ RSpec.describe BookData do
 
   context "connection" do
     it "reads data from the test file" do
-      bookdata = BookData.new('history')
+      books = BookData.new('history')
       expected = @test_book_data
-      actual = bookdata.data_query
+      actual = books.data
       expect(actual).to eq(expected)
     end
   end

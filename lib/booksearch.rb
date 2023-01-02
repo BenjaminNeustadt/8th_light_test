@@ -10,12 +10,12 @@ class BookSearch
   private
 
   def initialize(query)
-    @data = BookData.new(query).data_query
-    @available_books = extract(data_query)
+    @data = BookData.new(query).data
+    @available_books = extract(data)
     @storage = BookStorage.new
   end
 
-  def data_query
+  def data
     data
   end
 

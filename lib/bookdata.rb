@@ -18,7 +18,7 @@ class BookData
 
   public
 
-  def data_query
+  def data
     if environment
       return JSON.parse(File.read('test_data.json'))
     end
