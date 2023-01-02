@@ -11,7 +11,7 @@ class BookSearch
 
   def initialize(query)
     @data = BookData.new(query).data_query
-    @available_books = extract_from_raw(data_query)
+    @available_books = extract(data_query)
     @storage = BookStorage.new
   end
 
@@ -23,7 +23,7 @@ class BookSearch
 
   attr_reader :available_books, :storage, :data
 
-  def extract_from_raw(book_data)
+  def extract(book_data)
     book_data["items"].take(BOOK_LIMIT)
       .map { |item| item["volumeInfo"] }
       .map { |book| {

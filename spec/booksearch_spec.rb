@@ -12,7 +12,7 @@ RSpec.describe BookSearch do
 
     it "returns only the first 5 elements of a query" do
       list = @isolated_list
-      actual = list.extract_from_raw(@test_book_data)
+      actual = list.extract(@test_book_data)
       expected = 5
       expect(actual.length).to eq(expected)
     end
@@ -36,7 +36,7 @@ RSpec.describe BookSearch do
     it "should result in a limited set of attributes: author, title, publisher" do
 
       list = @isolated_list
-      actual = list.extract_from_raw(@test_book_data)
+      actual = list.extract(@test_book_data)
 
       expected = [
          {:authors   => ["DK"],
