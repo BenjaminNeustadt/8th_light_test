@@ -1,4 +1,11 @@
+require_relative '../lib/decorators'
+
 module Report
+
+  include Decorators
+
+  # Should the modules be inside a folder other than lib? Should they be inside
+  # a folder called modules, to easily identify where they would be?
 
 # :TODO: extract from here
   OFFLINE = true
@@ -12,11 +19,6 @@ module Report
       publisher: %<publisher>s
       -----------------------
       EOS
-
-	LINE_STYLE = {
-		default: '=======================',
-		special: '+=+=+=+=+=+=+=+=+=+=+=+'
-	}
 
 	REPORT =
     <<~REPORT
@@ -56,14 +58,14 @@ module Report
       {size: list.size, plural: plural, list:list.join("\n")}
   end
 
-	def report_booklist
+	def report_booklist(line_style)
     @users_storage
       .container.each.with_index(1)
       .with_object(booklist = "") do |(book, index)|
         booklist << item(book, index)
       end
 
-    REPORT % {booklist: booklist, border: LINE_STYLE[:special], title: 'BOOKLIST'}
+    REPORT % {booklist: booklist, border: line_style , title: 'BOOKLIST'}
   end
 
   def report_total_number_books_added

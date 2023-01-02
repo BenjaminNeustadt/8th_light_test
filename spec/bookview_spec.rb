@@ -1,4 +1,5 @@
 require_relative '../lib/bookview'
+require_relative '../lib/decorators'
 
 RSpec.describe BookView do
 
@@ -169,7 +170,7 @@ RSpec.describe BookView do
         +=+=+=+=+=+=+=+=+=+=+=+
        EOS
 
-      actual = bookview.report_booklist
+      actual = bookview.report_booklist(Decorators::BORDER[:special])
       expect(actual).to eq(expected)
     end
   end
@@ -202,7 +203,7 @@ RSpec.describe BookView do
        +=+=+=+=+=+=+=+=+=+=+=+
        EOS
 
-      actual = bookview.report_booklist
+      actual = bookview.report_booklist(Decorators::BORDER[:special])
       expect(actual).to eq(expected)
     end
   end
