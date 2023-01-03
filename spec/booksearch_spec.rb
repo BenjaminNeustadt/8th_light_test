@@ -8,7 +8,7 @@ RSpec.describe BookSearch do
     @isolated_list = BookSearch.new('history', @test_book_data)
   end
 
-  context "query" do
+  context "extract" do
 
     it "returns only the first 5 elements of a query" do
       list = @isolated_list
@@ -16,22 +16,6 @@ RSpec.describe BookSearch do
       expected = 5
       expect(actual.length).to eq(expected)
     end
-
-  end
-
-  context "stored_books" do
-
-    it 'can hold data via Storage' do
-      list = @isolated_list
-      chosen_book = {author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}
-      list.storage.add(chosen_book)
-      expect(list.storage.container)
-        .to eq [{author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}]
-    end
-
-  end
-
-  context "extract data" do
 
     it "should result in a limited set of attributes: author, title, publisher" do
 
@@ -64,8 +48,20 @@ RSpec.describe BookSearch do
 
   end
 
-  context "data query" do
-    it "reads data from the test file" do
+  context "storage" do
+
+    it 'can hold data via BookStorage' do
+      list = @isolated_list
+      chosen_book = {author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}
+      list.storage.add(chosen_book)
+      expect(list.storage.container)
+        .to eq [{author: "Benjamin", title: "Notes As We Go", publisher: "Keeper of the Phones"}]
+    end
+
+  end
+
+  context "data" do
+    it "reads data from a data object " do
       booksearch= BookSearch.new('history', @test_book_data)
       expected = @test_book_data
       actual = booksearch.data
