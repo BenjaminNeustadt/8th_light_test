@@ -9,17 +9,14 @@ Benjamin b.james.neustadt@gmail.com
 :source-highlighter: rouge
 :rouge-style: monokai
 //URLS
-:url-google-api: https://developers.google.com/books/docs/v1/using#APIKey
 :url-google-api-medium: https://rachelaemmer.medium.com/how-to-use-the-google-books-api-in-your-application-17a0ed7fa857
-:url-google-console: https://console.cloud.google.com/apis/api/books.googleapis.com/credentials?project=my-test-project-371917
 
 
 = Usage
 
-1. Set up an API KEY
-2. Install Ruby
-3. Install dependencies
-4. Run the program: `ruby bin/bookview.rb`
+1. Install Ruby
+2. Install dependencies
+3. Run the program: `ruby bin/bookview.rb`
 
 == Set-Up Instructions
 
@@ -27,51 +24,33 @@ To use this application, clone this repo to your local with the following comman
 
 `git clone https://github.com/BenjaminNeustadt/8th_light_test.git`
 
-
 Ensure that you have Ruby downloaded on your system, you can check by inputting `ruby -v` into your terminal.
 
 Run `bundle install` to ensure you have all the correct dependencies of this project.
 
+== To use this program live
+
 ****
 [NOTE]
 ====
-To run this program "online", you will need to set up your own API key via google api.
-With that done you can make a 'env.json'.
 
-.The following snippet is the correct template to use:
+If you would like to use this program online, the steps will be as follows:
+
+1. Setup your own google Books API_KEY,{url-google-api-medium}[this article] is very helpful.
+2. create a '.env' file in the root directory using the following layout:
+
 [source, json]
 ----
-// env.json file
-
-{ "API_KEY" : "[YOUR API KEY]" } <1>
+#.env file
+{ "API_KEY" : "[YOUR_API_KEY_HERE]" } <1>
 ----
 <1> You will only need one set of quotation marks surrounding the key.
+
+3. In the executable file ('bin/bookview.rb'), comment out line 64, and uncomment the corresponding line below(line 66).
+In short, `BookSearch.new` should be given an argument of `BookData.new(query).parse`.
+4. You can now use the program live.
 ====
 ****
-
-.To enable a true connection to online environement and get real data return
-[source, ruby]
-----
-# bin/bookview.rb file
-
-require_relative '../lib/booksearch'
-require 'colorize'
-
-OFFLINE = true    <---<1>
-MENU = {
-  ACTION: {
-    1 => "search",
-    2 => "view search results",
-    3 => "add",
-    4 => "view",
-    0 => "exit"
-  }
-}
-----
-<1> Change the word "true" to "false".
-Make sure you have updated/saved the file.
-
-The program can now be used "online"
 
 == Using the Program
 
@@ -84,18 +63,18 @@ ruby bin/bookview.rb
 ----
 
 Follow the prompts to search for a book query.
-You can insert any word and will be given a return of 5 books that match your query.
+Insert any word to get a return of 5 books that match your query.
 Follow the prompts to add the book to a reading list.
+
+
+[IMPORTANT]
+(Please note, the queries will only be matched via the Google Books API
+if you set the program to online, else it will use persistent test data.)
 
 = Testing
 
 The testing framework used is Rspec.
-
-[IMPORTANT]
-The application is by default switched to "ONLINE" with `OFFLINE = true`,
-this means that the data used to run the app will always be dummy data.
-This is done to ensure optimal testing grounds for the test environement,
-and to adher to the brief.
+Code coverage is around 96%.
 
 .To run the tests:
 [source, sh]
@@ -103,15 +82,14 @@ and to adher to the brief.
 rspec -fd
 ----
 
-If the program is set to "ONLINE", by setting `OFFLINE` to `false` in the 'bookview.rb',
-one of the tests will check a valid http connection (otherwise,
-it will use a test_data file to validate).
-
 = Process
 
-Following is some of the planning and side thoughts throughout.
+Following is some of the initial planning,
+followed by some revisoinary CRC modelling post review.
 
 == CRC Model Planning
+
+=== Initially the following design was considered.
 
 _Class Responsibility Collaborator_
 
@@ -140,25 +118,82 @@ _Following a Model/View/Controller design_
             VIEW                         CONTROLLER                     MODEL
 
 
-== Storage
+=== Post review
 
-I am wondering whether to make the "storage" of books temporary to the existance of the class,
-or whether to make it persist beyond the running of the program in the terminal.
-The second option would mean having the data written to a storage file, similar to 'test_data.json'.
+[NOTE]
+Not all of these constants have been implemented (specifically the 3 modules);
+and BookView has not been refactored accordingly.
+However, this is a design that feels like it would adher more correctly to the Single Responsibility Principle,
+and other SOLID priniciples.
 
-In order for this to work, the file in question would have to be gitignored,
-so that the saved data is only accessible to the respective user,
-so that the data is not passed on were the program to be passed on.
 
-== Stretch goals
+          ┌───────┬───────────┐   ┌────────┬───────┐    ┌────────┬───────┐
+          │ module│decorators │   │ module │Prompt │    │ module │Report │
+          ├───────┴───────────┤   ├────────┴───────┤    ├────────┴───────┤
+          │                   │   │                │    │                │
+          │ .Holds border     │   │ .Holds MENU    │    │ .Holds all     │
+          │  decorators/      │   │  constant      │    │  report methods│
+          │  styling          │   │                │    │                │
+          │                   │   │ .menu method   │    │ .Holds REPORT  │
+          │                   │   │  for presenting│    │  constant      │
+          │                   │   │  to user       │    │  for string    │
+          │                   │   │                │    │  layouts       │
+          │                   │   │                │    │                │
+          │                   │   │                │    │                │
+          └───────────────────┘   └────────────────┘    └────────────────┘
 
-As another goal I would like to add a test for the "front-end"
-(the command-line user interface).
+                    Modules for conataing constants and methods
+         ---------------------------------------------------------------------
+
+
+
+          PUBLIC FACING INTERFACE
+       ┌─┬────────────────────────┬─┐
+       │ ├────────────────────────┤ │             ┌───────────────────────┐     ┌───────────────────────┐
+       │ │  BookView              │ │             │  BookSearch           │     │  BookStorage          │
+       │ │                        │ │             │                       │     │            BookSearch │
+       │ ├───────────────┬────────┘ │             ├────────────┬──────────┘     ├──────────────┬────────┤
+       │ │               │BookStorage             │ .After     │ BookStorage    │.Store users  │        │
+       │ │ .look_up_books│BookSearch│             │  receiving │ TestData │     │ chosen books │        │
+       │ │               │        │ │             │  data      │ BookData │     │              │        │
+       │ │ .add_book     │        │ │             │  extract   │          │     │ .Can add     │        │
+       │ │               │        │ │             │  attributes│          │     │  book        │        │
+       │ │ .includes 3   │        │ │             │            │          │     │              │        │
+       │ │  modules:     │        │ │             │            │          │     │              │        │
+       │ │  Report       │        │ │             │            │          │     │              │        │
+       │ │  Prompt       │        │ │             │            │          │     │              │        │
+       │ │               │        │ │             └────────────┴──────────┘     └──────────────┴────────┘
+       │ ├───────────────┼────────┤ │
+       └─┴────────────────────────┴─┘                         ▲      ▲
+                                                              │      │
+                    │                                ┌────────┘      └──────────┐
+                    │                                │                          │
+                    │                                │                          │
+                    ▼                                │                          │
+          |---------------------|         ┌──────────┴────────────┐   ┌─────────┴─────────────┐
+          |.Give                |         │ TestData              │   │ BookData              │
+          | instructions        |         │            BookSearch │   │            BookSearch │
+          | to user             |         ├──────────────┬────────┤   ├──────────────┬────────┤
+          |.Pass                |         │.Connection   │        │   │.HTTP request │        │
+          | instructions        |         │ to test_data │        │   │ to the       │        │
+          | to BookSearch       |         │ upon         │        │   │ API with     │        │
+          |.Retrieve books      |         │ initialize   │        │   │ parse method │        │
+          | (from BookStorage)  |         │              │        │   │              │        │
+          |---------------------|         │              │        │   │.Holds:       │        │
+                                          │              │        │   │ URL          │        │
+                                          │              │        │   │ constant     │        │
+                                          │              │        │   │ API_key connector     │
+                                          └──────────────┴────────┘   └───────────────────────┘
+
+                                           (Passed as argument            (Passed as argument
+                                           when in a dev environment)     when going live)
+
+
 
 = Initial Brief
 
 Create a command line application that allows you to use the
-Google Books API to search for books and construct a reading list.
+Google Books AP search for books and construct a reading list.
 
 You do not have to use a private GitHub repo for this.
 
@@ -191,91 +226,37 @@ handles edge cases, usability), internal quality (for example:
 *decoupling*, *testing*, *readability*), as well as some idea of your process and
 approach (via your version control history and README).
 
-= Damon_review
+= Post review stretch goals
 
-== Positive
+_Question_
+With the Single Responsibility Principle in mind, what are all of the
+responsibilities of the bin/bookview.rb script in its current form? Given the
+time, how might you refactor so that the script has a single responsibility?
 
-* Text-based user interfaces can be overwhelming. I appreciated your use of color to help discriminate different text that you presented.
 
-* You handled all of the edge cases common to these types of submissions, such as multiple authors, no publisher, empty search, etc.
+Currently the responsibilities of bin/bookview.rb are numerous:
+* running the script/loop
+* holding two constants for later use within this file
+* instantiating an instance of the 'BookStorage' class
+* contains methods used within this method
 
-* In command-line applications, it is common to use gets and puts throughout the application,
-  which makes it hard to have a unified channel to send and receive information to the user.
-  I liked that you only used gets and puts in a single module/file here.
+Initially when writing this I followed a sort of procedural programming style of writing the code.
+However, I would definitely like to improve this.
 
-* You included specs, and they are all passing!
+In light of SRP I would ideally do the following, in approximately this order:
+* create a 'class BookView'
+** in its initialize method I would like to instantiate an instance of 'BookStorage'
+** It could hold two main methods:
+*** 'look_up_books(query)'
+*** 'add_book' which would store it inside the instance of 'BookStorage'
+** I would like to refactor much of the code inside the actual loop, as I feel that the script should only really instantiate a public interface object once (i.e. `session = BookView.new`)
+*** I would first consider extracting a 'menu' method from the loop (lines 45-47)
+*** I would at first leave this inside the 'BookView class'
 
-== Opportunities for Improvement
+Within each when case of the loop, there is business logic for reporting the
+instances of `@search_results` and `@users_storage`, and I feel this would be
+great opportunity to extract these into report methods
+I can envision a :
+`report_search_results`
+`report_search_results`
 
-=== API Key
-
-Keeping secrets like API keys out of version control is good practice.
-I noticed that the env.json contained a preconfigured API key.
-I am not sure if that is a valid API key or if it is intended as a placeholder,
-but I wanted to provide that feedback for completeness.
-
-At any rate, an API key is not required to satisfy the requirements of this application.
-(See related feedback below about the README.)
-
-=== Outdated README
-
-I attempted to follow the steps provided in the README, but I found that some of them no longer applied, such as:
-
-* Creating and configuring an API key. I did not need to complete this to use and run the application.[x]
-* Enabling/disabling the integration test with the Google Books API.[x]
-* There is a command to run the tests, but I had to update the Gemfile to run them because rspec was omitted. [x]
-* There are instructions for installing colorizor but it is included in the Gemfile.[x]
-
-=== Unused Code
-
-I noticed a few areas where there is code that is not used.
-
-* The connection_spec is only enabled when $DEBUG is true, but that flag is never enabled, and there doesn’t seem to be a mechanism to enable it.[x]
-* The add method in the BookSearch is only exercised by its spec [x]
-  The result is that the test is never executed.[x]
-
-=== Fuzzy Boundaries
-
-I like that you encapsulated the Google Books API interaction inside the BookSearch class.
-I also like that you included a way to toggle the integration on and off!
-
-However, is it the responsibility of BookSearch to know how to read test_data.json and how to make an HTTP request to the API? -> UPDATES
-
-Additionally, you have two spec files that each test one of these responsibilities.
-
-`bookstorage_spec` tests the _offline_ flow, and `end_to_end_spec` tests the _online_ flow.
-
-This bifurcation of tests indicates multiple responsibilities because neither test tests all of the paths of execution.
-
-How might you refactor so that the `BookSearch` only has a single responsibility?
-There are multiple ways to achieve this, but one way that I like is the *strategy pattern*, UPDATES (i think)
-which likely means introducing additional classes.
-
-Let me know if you have any questions or if there is anything I clarify here.
-
-=== Questions
-
-Please take the time to reply to the questions below,
-but note that no implementation, updates, or refactoring are required for these questions.
-I am merely interested in your response!
-
-With the Single Responsibility Principle in mind,
-what are all of the responsibilities of the bin/bookview.rb script in its current form?
-Given the time, how might you refactor so that the script has a single responsibility?
-
-Please consider my notes and take the opportunity to refactor your code to complete this step in your interview process.
-This second and final submission is needed on or before Wednesday of next week (01/04).
-
-== To use this program live
-
-Although not required for this exercise, if you would like to use this program online, the steps will be as follows:
-
-1. Setup your own google Books API_KEY,{url-google-api-medium}[this article] is very helpful.
-2. create a '.env' file in the root directory and use the following layout:
-----
-#.env file
-{ "API_KEY" : "[YOUR_API_KEY_HERE]" }
-----
-3. In the executable file, instead of passing in `TestData.new.parse` (on line 63) please put:
-`BookData.new(query).parse` on line 63.
-4. You can now use the program live.
