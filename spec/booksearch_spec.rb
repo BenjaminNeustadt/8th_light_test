@@ -4,7 +4,7 @@ require_relative '../lib/strategy/bookdata'
 RSpec.describe BookSearch do
 
   before :each do
-    @test_book_data = JSON.parse(File.read('test_data.json'))
+    @test_book_data = JSON.parse(File.read('spec/test_data.json'))
     @isolated_list = BookSearch.new('history', @test_book_data)
   end
 
