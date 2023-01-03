@@ -7,6 +7,8 @@ class BookView
 	include Report
 	include Prompt
 
+  OFFLINE = true
+
   def initialize
     @search_results = []
     @users_storage  = BookStorage.new
