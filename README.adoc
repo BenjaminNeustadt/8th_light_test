@@ -265,3 +265,17 @@ Given the time, how might you refactor so that the script has a single responsib
 
 Please consider my notes and take the opportunity to refactor your code to complete this step in your interview process.
 This second and final submission is needed on or before Wednesday of next week (01/04).
+
+== To use this program live
+
+Although not required for this exercise, if you would like to use this program online, the steps will be as follows:
+
+1. Setup your own google Books API_KEY,{url-google-api-medium}[this article] is very helpful.
+2. create a '.env' file in the root directory and use the following layout:
+----
+#.env file
+{ "API_KEY" : "[YOUR_API_KEY_HERE]" }
+----
+3. In the executable file, instead of passing in `TestData.new.parse` (on line 63) please put:
+`BookData.new(query).parse` on line 63.
+4. You can now use the program live.
