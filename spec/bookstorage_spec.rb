@@ -2,7 +2,7 @@ require_relative '../lib/bookstorage'
 
 RSpec.describe BookStorage do
 
-  it 'must contain an empty Array upon instantiation' do
+  it 'contains an empty Array upon instantiation' do
     storage = BookStorage.new
     expect(storage.container).to be_a Array
     expect(storage.container).to eq []
