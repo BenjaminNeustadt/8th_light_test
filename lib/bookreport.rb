@@ -4,12 +4,6 @@ module Report
 
   include Decorators
 
-  # Should the modules be inside a folder other than lib? Should they be inside
-  # a folder called modules, to easily identify where they would be?
-
-# :TODO: extract from here
-  OFFLINE = true
-
   ITEM =
     <<~EOS
       -----------------------

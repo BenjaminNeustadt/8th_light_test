@@ -31,9 +31,5 @@ class BookView
     end
   end
 
-  # :TODO: this should actually be inside the lookup_books method, it reset the search
-  def reset_search
-    @search_results = []
-  end
 end
 
