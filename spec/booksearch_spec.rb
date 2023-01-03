@@ -1,11 +1,11 @@
 require_relative '../lib/booksearch'
-require_relative '../lib/bookdata'
+require_relative '../lib/strategy/bookdata'
 
 RSpec.describe BookSearch do
 
   before :each do
-    @isolated_list = BookSearch.new('history')
     @test_book_data = JSON.parse(File.read('test_data.json'))
+    @isolated_list = BookSearch.new('history', @test_book_data)
   end
 
   context "query" do
@@ -66,7 +66,7 @@ RSpec.describe BookSearch do
 
   context "data query" do
     it "reads data from the test file" do
-      booksearch= BookSearch.new('history')
+      booksearch= BookSearch.new('history', @test_book_data)
       expected = @test_book_data
       actual = booksearch.data
       expect(actual).to eq(expected)

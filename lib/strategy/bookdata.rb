@@ -1,5 +1,4 @@
 require 'net/http'
-require_relative 'connectors'
 require 'json'
 
 class BookData

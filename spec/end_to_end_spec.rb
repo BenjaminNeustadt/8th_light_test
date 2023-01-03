@@ -1,16 +1,17 @@
 require_relative '../lib/booksearch'
+require_relative '../lib/strategy/testdata'
 
 describe "Backend" do
 
   context "allows user to search for books" do
 
     it "returning 5 books from the search for a given word" do
-      booksearch = BookSearch.new("tech")
+      booksearch = BookSearch.new("tech", TestData.new.parse)
       expect((booksearch.available_books).length).to eq 5
     end
 
     it "allowing a book to be added to storage" do
-      booksearch = BookSearch.new("tech")
+      booksearch = BookSearch.new("tech", TestData.new.parse)
       retrieved_data = booksearch.available_books
       # We choose to add the first book
       chosen_book = retrieved_data[0]
@@ -21,7 +22,7 @@ describe "Backend" do
     end
 
     it "allowing a book to be added to storage after one has already been added" do
-      booksearch = BookSearch.new("tech")
+      booksearch = BookSearch.new("tech", TestData.new.parse)
       retrieved_books = booksearch.available_books
       # We choose to add the first book
       booksearch.storage.add(retrieved_books.first)
@@ -38,7 +39,7 @@ describe "Backend" do
     end
 
     it "storing authors, title, and publisher" do
-      booksearch = BookSearch.new("tech")
+      booksearch = BookSearch.new("tech", TestData.new.parse)
       retrieved_books = booksearch.available_books
       booksearch.storage.add(retrieved_books.first)
       actual = (booksearch.storage.container)

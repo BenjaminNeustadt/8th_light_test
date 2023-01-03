@@ -1,3 +1,5 @@
+require 'json'
+
 class TestData
 
   def initialize
