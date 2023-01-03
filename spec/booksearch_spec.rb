@@ -1,5 +1,5 @@
 require_relative '../lib/booksearch'
-require_relative '../lib/strategy/bookdata'
+require_relative '../lib/strategy/testdata'
 
 RSpec.describe BookSearch do
 
