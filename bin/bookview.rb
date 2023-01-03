@@ -1,4 +1,6 @@
 require_relative '../lib/booksearch'
+require_relative '../lib/strategy/testdata'
+require_relative '../lib/strategy/bookdata'
 require 'colorize'
 
 MENU = {
@@ -59,7 +61,9 @@ loop do
       print " What are you looking for? "
       choice = gets.chomp
     end
-    data_query = BookSearch.new(choice)
+    data_query = BookSearch.new(choice, TestData.new.parse)
+    # To connect to the live Google API, uncomment the line below, and remove the line above
+    # data_query = BookSearch.new(choice, BookData.new(choice).parse)
     puts "AVAILABLE BOOKS: "
     data_query.available_books.each.with_index(1) do |book, index|
       list_item(book, index)

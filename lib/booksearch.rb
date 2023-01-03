@@ -1,7 +1,6 @@
-require 'net/http'
-require 'json'
 require_relative '../lib/bookstorage'
 require_relative '../lib/bookdata'
+require 'json'
 
 class BookSearch
 
@@ -9,14 +8,10 @@ class BookSearch
 
   private
 
-  def initialize(query)
-    @data = BookData.new(query).data
+  def initialize(query, data)
+    @data = data
     @available_books = extract(data)
     @storage = BookStorage.new
-  end
-
-  def data
-    data
   end
 
   public

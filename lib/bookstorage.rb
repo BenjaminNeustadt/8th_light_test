@@ -16,13 +16,4 @@ class BookStorage
     self
   end
 
-  def to_a
-    container
-  end
-
-  def +(other)
-    container << other
-    self
-  end
-
 end
