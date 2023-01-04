@@ -1,7 +1,9 @@
+require 'dotenv'
+Dotenv.load
 require_relative '../lib/booksearch'
 require_relative '../lib/strategy/testdata'
 # When choosing to go live, replace the line above with the one below
-# require_relative '../lib/strategy/bookdata'
+require_relative '../lib/strategy/bookdata'
 require 'colorize'
 
 MENU = {
@@ -41,6 +43,7 @@ end
 
 reset_search
 
+
 loop do
 
   MENU[:ACTION].each do |option, action|
@@ -62,7 +65,8 @@ loop do
       print " What are you looking for? "
       choice = gets.chomp
     end
-    data_query = BookSearch.new(TestData.new.parse)
+    connection = ENV['API_KEY'] ? BookData.new(choice).parse : TestData.new.parse
+    data_query = BookSearch.new(connection)
     # To connect to the live Google API, uncomment the line below, and remove the line above
     # data_query = BookSearch.new(BookData.new(data).parse)
     puts "AVAILABLE BOOKS: "

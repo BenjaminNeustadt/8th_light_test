@@ -3,7 +3,7 @@ require 'json'
 
 class BookData
 
-  API_KEY = JSON.parse(File.read(".env"))["API_KEY"]
+  API_KEY = ENV['API_KEY']
   GOOGLE_URL = "https://www.googleapis.com/books/v1/volumes?q=%<query>s&key=#{API_KEY}"
 
    attr_reader :url
