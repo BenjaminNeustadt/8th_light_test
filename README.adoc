@@ -10,6 +10,8 @@ Benjamin b.james.neustadt@gmail.com
 :rouge-style: monokai
 //URLS
 :url-google-api-medium: https://rachelaemmer.medium.com/how-to-use-the-google-books-api-in-your-application-17a0ed7fa857
+:url-config: https://12factor.net/config
+:url-dotenv: https://github.com/bkeepers/dotenv
 
 
 = Usage
@@ -74,7 +76,7 @@ if you set the program to online, else it will use persistent test data.)
 = Testing
 
 The testing framework used is Rspec.
-Code coverage is around 96%.
+Code coverage is reported when running the tests.
 
 .To run the tests:
 [source, sh]
@@ -245,18 +247,140 @@ However, I would definitely like to improve this.
 
 In light of SRP I would ideally do the following, in approximately this order:
 * create a 'class BookView'
+
 ** in its initialize method I would like to instantiate an instance of 'BookStorage'
+
 ** It could hold two main methods:
+
 *** 'look_up_books(query)'
 *** 'add_book' which would store it inside the instance of 'BookStorage'
-** I would like to refactor much of the code inside the actual loop, as I feel that the script should only really instantiate a public interface object once (i.e. `session = BookView.new`)
-*** I would first consider extracting a 'menu' method from the loop (lines 45-47)
-*** I would at first leave this inside the 'BookView class'
 
-Within each when case of the loop, there is business logic for reporting the
-instances of `@search_results` and `@users_storage`, and I feel this would be
-great opportunity to extract these into report methods
-I can envision a :
-`report_search_results`
-`report_search_results`
+* I would like to refactor much of the code inside the actual loop, as I feel
+that the script should only really instantiate a public interface object once
+(i.e. `session = BookView.new`)
+
+I would like refactor the loop
+*** I would consider extracting a 'menu' method from the loop (lines 45-47);
+this can go inside a Prompt module, along with  the corresponding `MENU` constant.
+and the `ACTION_PROMPT`
+
+Within each `when` `case` of the loop, there is business logic for reporting the
+instances of `@search_results` and `@users_storage`:
+I feel this would be a great opportunity to extract these into report methods,
+thereby assiging the return values of these methods to what we currently have
+in place, and in the process DRYing the code.
+
+Following what we currently have in place, I feel we could envision:
+
+* `report_retrieved_books` -> this could report on books stored in the search results
+It could comprise lines 67-71 including the "header" of 'AVAILABLE BOOKS'
+
+* `report_amount_books_added` -> We can refactor the below
+[source, ruby]
+----
+# bin/bookview.rb file
+puts 'Total books selected: %i' % @users_storage.container.size
+----
+
+* We could also report on things like the `total_books_added_to_user_list`:
+[source, ruby]
+----
+# bin/bookview.rb file
+puts 'Total books selected: %i' % @users_storage.container.size
+----
+
+* `report_booklist` -> for reporting the user's booklist. Currently we notice that the code below is repeated multiple times
+[source, ruby]
+----
+# bin/bookview.rb file
+@users_storage.container.each.with_index(1) do |book, index|
+  list_item(book, index)
+end
+----
+
+If we consider the above and what `when 4` and `when 0` return,
+it looks like we can actually refactor the whole return of those cases into one method report_booklist.
+The only difference we can really notice between these two cases is the pattern of the border used in each;
+`puts "=" * 23` vs `puts "+=" * 11 + '+'`,
+
+What this makes me think is that we can allow an argument to be passed to some of the reporing methods, such that,
+we can vary the style that we choose for a given report.
+We could store these styles inside a constant (i.e. 'Decorators' in the CRC model above), and call the corresponding style with its respective symbol.
+By doing this we begin to make these report methods "customisable".
+I think this would also allow us to add new styles easily.
+
+== Encourging better readabilty whilst promoting modularity
+We can encourage this whilst maintaining readabilty, if we use heredocs and
+annotations to compose our strings as we get the appropriate attributes for
+them.
+
+It might be a good idea for instance to refactor the `list_item` method to something like:
+
+[source, ruby]
+----
+  ITEM =
+   <<~EOS
+     -----------------------
+     Book number %<index>s
+     title: %<title>s
+     author: %<authors>s
+     publisher: %<publisher>s
+     -----------------------
+     EOS
+
+def item(book, index)
+		ITEM % {
+			index:     index,
+			title:     book[:title],
+			authors:   book[:authors],
+			publisher: book[:publisher]
+		}<1>
+end
+----
+<1>By doing this we would then only need to 'puts' once when calling the method, since we would have already built our string.
+
+We could then extract constants such as the above, perhaps with their methods to modules if we deem it necessary.
+
+The main trade off I can think of at this point is in DRYing the code in this
+way, it becomes harder for us to implement things on specific elements of the
+string we are building without making things unreadable, so in terms of the
+colorization that we currently have, this would be dropped.
+Instead we would only be able to colorize the entire output,
+and not individiaul lines on the string.
+
+== Setting up an environement file
+
+Currently I have tried to adher to the Open/Close principle by using the strategy pattern that was encouraged in the code review.
+Initially, what I had done was include an `if else` statement in 'BookData',
+the class was therefore initially responsible for checking whether the `OFFLINE` constant was set to `true` or `false`.
+
+However, I thought it would be beneficial to extract these even further into separate classes, and pass them in as arguments to 'BookSearch',
+my reasoning was:
+
+Ideally, a degree of automation in regards the "connection" to test-data or live data could be adopted by using a config file,
+in order to minimize time and cost for new developers joining the project;
+and to offer maximum portability between execution environements.
+
+I hesitated on this point, though decided that the functioanlity of the `OFFLINE'
+constant (to toggle the integration on and off) could be achieved in another way.
+I used {url-config}[The Twelve-Factor App III.Config] to partly inform this decision, as well as the open/close principle.
+
+I therefore created two separate classes ('TestData', and 'BookData').
+
+Ideally, I think that using {url-dotenv}['dotenv'] would be a suitable compromise.
+In so doing, we could set the "connection" configuration in the top of the script file 'bin/bookview.rb'
+(that would at this point in the refactor be 'bin/bookfind').
+
+We should then be able to load our ENV variables upon loading the script, and would be able
+to switch out the argument value given to 'BookSearch' (line 64 in
+bin/bookview.rb) according to whether development is set to 'true' or not.
+
+
+== Notes on my own code review in javascript
+
+When copying the brief from the email to my local I accidentally ommitted a line stating that it was not required to propose a refactor of any kind.
+Having gone through this review process I've taken on board a few things that I would ideally implement in an ammended code review.
+Were I to do it again I would focus slightly less on encouraging syntax and layout,
+and would focus more on suggesting adhering to SOLID principles.
+I'd also want to revise how I communicate some suggestions (i.e. I feel it was perhaps too mechanic, and the refactor might not have helped).
 
