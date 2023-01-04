@@ -6,7 +6,7 @@ RSpec.describe BookSearch do
   before :each do
     @test_book_data = TestData.new.parse
     # @test_book_data = JSON.parse(File.read('spec/test_data.json'))
-    @isolated_list = BookSearch.new('history', @test_book_data)
+    @isolated_list = BookSearch.new(@test_book_data)
   end
 
   context "extract" do
@@ -51,7 +51,7 @@ RSpec.describe BookSearch do
 
     context 'available books' do
       it "returns 5 books from the search for a given word" do
-        booksearch = BookSearch.new("tech", @test_book_data)
+        booksearch = BookSearch.new(@test_book_data)
         expect((booksearch.available_books).length).to eq 5
       end
     end
@@ -59,7 +59,7 @@ RSpec.describe BookSearch do
   context "storage" do
 
     it " can hold data" do
-      booksearch = BookSearch.new("tech", @test_book_data)
+      booksearch = BookSearch.new(@test_book_data)
       retrieved_data = booksearch.available_books
       # We choose to add the first book
       chosen_book = retrieved_data[0]
@@ -78,7 +78,7 @@ RSpec.describe BookSearch do
     end
 
     it "can have a book added after one has already been added" do
-      booksearch = BookSearch.new("tech", @test_book_data)
+      booksearch = BookSearch.new(@test_book_data)
       retrieved_books = booksearch.available_books
       # We choose to add the first book
       booksearch.storage.add(retrieved_books.first)
@@ -95,7 +95,7 @@ RSpec.describe BookSearch do
     end
 
     it "stores authors, title, and publisher" do
-      booksearch = BookSearch.new("tech", @test_book_data)
+      booksearch = BookSearch.new(@test_book_data)
       retrieved_books = booksearch.available_books
       booksearch.storage.add(retrieved_books.first)
       actual = (booksearch.storage.container)
@@ -112,7 +112,7 @@ RSpec.describe BookSearch do
 
   context "data" do
     it "reads data from a data object " do
-      booksearch= BookSearch.new('history', @test_book_data)
+      booksearch= BookSearch.new(@test_book_data)
       expected = @test_book_data
       actual = booksearch.data
       expect(actual).to eq(expected)
