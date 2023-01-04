@@ -2,9 +2,11 @@ require 'dotenv'
 Dotenv.load
 require_relative '../lib/booksearch'
 require_relative '../lib/strategy/testdata'
-# When choosing to go live, replace the line above with the one below
 require_relative '../lib/strategy/bookdata'
+require './lib/datapicker'
 require 'colorize'
+
+include DataPicker
 
 MENU = {
   ACTION: {
@@ -65,10 +67,14 @@ loop do
       print " What are you looking for? "
       choice = gets.chomp
     end
+<<<<<<< HEAD
     connection = ENV['API_KEY'] ? BookData.new(choice).parse : TestData.new.parse
     data_query = BookSearch.new(connection)
     # To connect to the live Google API, uncomment the line below, and remove the line above
     # data_query = BookSearch.new(BookData.new(data).parse)
+=======
+    data_query = BookSearch.new(SOURCE[choice])
+>>>>>>> d429d62 (Refactor automated connection BookData/TestData)
     puts "AVAILABLE BOOKS: "
     data_query.available_books.each.with_index(1) do |book, index|
       list_item(book, index)
