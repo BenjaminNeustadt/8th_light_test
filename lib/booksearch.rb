@@ -7,7 +7,7 @@ class BookSearch
 
   private
 
-  def initialize(query, data)
+  def initialize(data)
     @data = data
     @available_books = extract(data)
     @storage = BookStorage.new
