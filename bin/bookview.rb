@@ -1,6 +1,7 @@
 require_relative '../lib/booksearch'
 require_relative '../lib/strategy/testdata'
-require_relative '../lib/strategy/bookdata'
+# When choosing to go live, replace the line above with the one below
+# require_relative '../lib/strategy/bookdata'
 require 'colorize'
 
 MENU = {
