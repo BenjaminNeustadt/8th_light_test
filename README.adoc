@@ -13,12 +13,12 @@ Benjamin b.james.neustadt@gmail.com
 :url-config: https://12factor.net/config
 :url-dotenv: https://github.com/bkeepers/dotenv
 
-
 == Usage
 
-1. Install Ruby
-2. Install dependencies: `bundle install`
-3. Run the program: `ruby bin/bookview.rb`
+1. Install Ruby ( Ruby version 3.0 and greater )
+2. Install bundler: `gem install bundler`
+3. Install dependencies: `bundle install`
+4. Run the program: `bin/bookview`
 
 == Set-Up Instructions
 
@@ -37,7 +37,14 @@ in your terminal:
 
 [source, sh]
 ----
-ruby bin/bookview.rb
+bin/bookview
+----
+
+OR
+
+[source, sh]
+----
+ruby bin/bookview
 ----
 
 Follow the prompts to search for a book query.
@@ -54,7 +61,7 @@ NOTE: If you would like to use this program online, the steps will be as follows
 
 1. Setup your own google Books *API key*, {url-google-api-medium}[this article] is very helpful
 2. create a '.env' file in the root directory with `touch .env` and insert your API key (example below)
-4. You can now use the program live
+3. You can now use the program live
 
 .Example `.env`
 [source, .env]
@@ -185,9 +192,9 @@ and other SOLID priniciples.
 
 *_Question_*
 ****
-With the Single Responsibility Principle in mind, what are all of the
-responsibilities of the bin/bookview.rb script in its current form? Given the
-time, how might you refactor so that the script has a single responsibility?
+With the Single Responsibility Principle in mind,
+what are all of the responsibilities of the bin/bookview.rb script in its current form?
+Given the time, how might you refactor so that the script has a single responsibility?
 ****
 
 Currently the responsibilities of bin/bookview.rb are numerous:
@@ -203,9 +210,6 @@ Initially when writing this script I followed a sort of procedural programming p
 However, I would definitely like to improve this.
 
 I have diagramed what I feel would be my ideal finished program (revised CRC above).
-I would change the permissions so that the script executable is
-`bin/bookfind` instead of `ruby bin/bookview.rb`, and give an instruction in
-the README for the next dev to implement this command in their terminal.
 
 The script would comprise calling an instance of `BookView.new`, called 'session',
 and then use methods on that instance to output the respective 'reports' within each `when` conditional inside the loop;
@@ -218,33 +222,30 @@ Case 4 and 0 would both use the same method, though could be given an argument d
 these styles would be stored inside a module I called "Decorators" (in revised CRC model). I like this approach as then the borders become customisable,
 and we can easily add a new style to these borders later on.
 
-I would favour using heredocs to build the strings inside of these reports, as
-then I feel the string format would be easier to modify from within
-constants containing the string format. In this way I think we could more
-easily adhere to SRP and have modularity, as we every module would and class
-would only hold methods that serve a specific type of functionality.
+I would favour using heredocs to build the strings inside of these reports,
+as then I feel the string format would be easier to modify from within constants containing the string format.
+In this way I think we could more easily adhere to SRP and have modularity,
+as we every module would and class would only hold methods that serve a specific type of functionality.
 
-I also think that heredocs would promote better readability for the next dev
-joining the project.
+I also think that heredocs would promote better readability for the next dev joining the project.
 
-The trade-off I can imagine having to face is the colorization of specific
-lines for these reports; we would only be able to colorize the string in its
-entirety.
+The trade-off I can imagine having to face is the colorization of specific lines for these reports;
+we would only be able to colorize the string in its entirety.
 
 Ultimately, the refactor would comprise of:
 
-* class BookView
-* module Report
-* module Decorators
-* module Prompt
-* bin/bookfind script
+* *class* BookView
+* *module* Report
+* *module* Decorators
+* *module* Prompt
+* *script* bin/bookfind
 
 BookView would have access to all the report methods on the Report module.
 I believe it only needs be a module, as we do not need to create state for it.
 
-== Automating the environement outside of the code
+== Automating the environment outside of the code
 
-Currently the environement (test or live data) is set by choosing which class object to instantiate when using 'BookSearch' from within the loop.
+Currently the environment (test or live data) is set by choosing which class object to instantiate when using 'BookSearch' from within the loop.
 
 _My reasoning for this change:_
 
@@ -257,7 +258,7 @@ and I know you alluded to this also in the beginning of the review.
 
 Ideally, a degree of automation in regards the "connection" to test-data or live data could be achieved by using a config file,
 in order to minimize time and cost for new developers joining the project;
-and to offer maximum portability between execution environements.
+and to offer maximum portability between execution environments.
 
 Currently I have tried to adher to the Open/Close principle by using the strategy pattern that was encouraged in the code review.
 Initially, what I had done was include an `if else` statement in 'BookData',
@@ -266,16 +267,16 @@ the class was therefore initially responsible for checking whether the `OFFLINE`
 However, following the recommendation to use the strategy pattern in the review,
 I thought it would be beneficial to extract these even further into separate classes, and pass them in as an argument to 'BookSearch',
 
-I think that using {url-dotenv}['dotenv'] would be a suitable compromise.
-In so doing, we could set the "connection" configuration in the top of the script file 'bin/bookview.rb'
+I think that using {url-dotenv}['dotenv'] is a suitable compromise.
+In so doing, we set the "connection" configuration in the top of the script file 'bin/bookview'
 (that would at this point in the refactor be 'bin/bookfind').
 We could then choose which object to create (and thereby which data to retrieve, live or test)
 depending on whether the ENV is existant in the '.env' file.
-If an API_KEY is exitant the program is connected automatically, if the developer wants to work in a test environement,
+If an API_KEY is exitant the program is connected automatically, if the developer wants to work in a test environment,
 then they can simply comment it out. The '.env' is therefore the only file that switches the program's environment.
 
 In order to not stray from SRP we could then extract this "connection" configuration into its own file as a simple method,
-and then call it from within the script (i.e. `data = connection_environement`):
+and then call it from within the script (i.e. `data = connection_environment`):
 this would then pass in the appropriate argument to `BookSearch.new(data)`.
 
 In regards to readability and understanding, I feel that even if some of the classes are doing the correct thing,

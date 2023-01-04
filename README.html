@@ -680,6 +680,7 @@ pre.rouge {
 </ul>
 </li>
 <li><a href="#_automating_the_environement_outside_of_the_code">Automating the environement outside of the code</a></li>
+<li><a href="#_reappropriate_tests_to_booksearch_spec_rb">Reappropriate tests to <code>booksearch_spec.rb</code></a></li>
 </ul>
 </div>
 </div>
@@ -690,13 +691,16 @@ pre.rouge {
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Install Ruby</p>
+<p>Install Ruby ( Ruby version 3.0 and greater )</p>
+</li>
+<li>
+<p>Install bundler: <code>gem install bundler</code></p>
 </li>
 <li>
 <p>Install dependencies: <code>bundle install</code></p>
 </li>
 <li>
-<p>Run the program: <code>ruby bin/bookview.rb</code></p>
+<p>Run the program: <code>bin/bookview</code></p>
 </li>
 </ol>
 </div>
@@ -728,7 +732,15 @@ in your terminal:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="sh">ruby bin/bookview.rb</code></pre>
+<pre class="rouge highlight"><code data-lang="sh">bin/bookview</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>OR</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sh">ruby bin/bookview</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -772,11 +784,7 @@ If you would like to use this program online, the steps will be as follows:
 <p>Setup your own google Books <strong>API key</strong>, <a href="https://rachelaemmer.medium.com/how-to-use-the-google-books-api-in-your-application-17a0ed7fa857">this article</a> is very helpful</p>
 </li>
 <li>
-<p>create a '.env' file in the root directory with <code>touch .env</code> and use the example layout given below</p>
-</li>
-<li>
-<p>In the executable file ('bin/bookview.rb'), comment out line 64, and uncomment the corresponding line below (line 66).
-In short, <code>BookSearch.new</code> should be given an argument of <code>BookData.new(query).parse</code></p>
+<p>create a '.env' file in the root directory with <code>touch .env</code> and insert your API key (example below)</p>
 </li>
 <li>
 <p>You can now use the program live</p>
@@ -787,8 +795,11 @@ In short, <code>BookSearch.new</code> should be given an argument of <code>BookD
 <div class="title">Example <code>.env</code></div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang=".env">#.env file
-{ "API_KEY" : "[YOUR_API_KEY_HERE]" }</code></pre>
+API_KEY = [YOUR_API_KEY_HERE]<i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>&lt;1&gt;Remove your .env file from version control</p>
 </div>
 </div>
 </div>
@@ -952,9 +963,9 @@ and other SOLID priniciples.
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>With the Single Responsibility Principle in mind, what are all of the
-responsibilities of the bin/bookview.rb script in its current form? Given the
-time, how might you refactor so that the script has a single responsibility?</p>
+<p>With the Single Responsibility Principle in mind,
+what are all of the responsibilities of the bin/bookview.rb script in its current form?
+Given the time, how might you refactor so that the script has a single responsibility?</p>
 </div>
 </div>
 </div>
@@ -984,16 +995,14 @@ time, how might you refactor so that the script has a single responsibility?</p>
 However, I would definitely like to improve this.</p>
 </div>
 <div class="paragraph">
-<p>I have diagramed what I feel would be my ideal finished program (revised CRC above).
-I would change the permissions so that the script executable is
-<code>bin/bookfind</code> instead of <code>ruby bin/bookview.rb</code>, and give an instruction in
-the README for the next dev to implement this command in their terminal.</p>
+<p>I have diagramed what I feel would be my ideal finished program (revised CRC above).</p>
 </div>
 <div class="paragraph">
 <p>The script would comprise calling an instance of <code>BookView.new</code>, called 'session',
 and then use methods on that instance to output the respective 'reports' within each <code>when</code> conditional inside the loop;
 this way, we would only need to use <code>puts</code> once to output the return of each method. We would also DRY the code considerably.
-<code>BookView.new</code> would be placed inside the lib folder.</p>
+<code>BookView.new</code> would be placed inside the lib folder. The script&#8217;s responsibility would therefore be to execute an instance of <code>BookView</code>, getting input and passing that input
+to BookView through its methods. In a way, the script would therefore be analogous to a front end, if we follow the design analogy initially used.</p>
 </div>
 <div class="paragraph">
 <p>I would have to switch off the colorization, and use testing to match the current outputs.
@@ -1002,20 +1011,17 @@ these styles would be stored inside a module I called "Decorators" (in revised C
 and we can easily add a new style to these borders later on.</p>
 </div>
 <div class="paragraph">
-<p>I would favour using heredocs to build the strings inside of these reports, as
-then I feel the string format would be easier to modify from within
-constants containing the string format. In this way I think we could more
-easily adhere to SRP and have modularity, as we every module would and class
-would only hold methods that serve a specific type of functionality.</p>
+<p>I would favour using heredocs to build the strings inside of these reports,
+as then I feel the string format would be easier to modify from within constants containing the string format.
+In this way I think we could more easily adhere to SRP and have modularity,
+as we every module would and class would only hold methods that serve a specific type of functionality.</p>
 </div>
 <div class="paragraph">
-<p>I also think that heredocs would promote better readability for the next dev
-joining the project.</p>
+<p>I also think that heredocs would promote better readability for the next dev joining the project.</p>
 </div>
 <div class="paragraph">
-<p>The trade-off I can imagine having to face is the colorization of specific
-lines for these reports; we would only be able to colorize the string in its
-entirety.</p>
+<p>The trade-off I can imagine having to face is the colorization of specific lines for these reports;
+we would only be able to colorize the string in its entirety.</p>
 </div>
 <div class="paragraph">
 <p>Ultimately, the refactor would comprise of:</p>
@@ -1023,19 +1029,19 @@ entirety.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>class BookView</p>
+<p><strong>class</strong> BookView</p>
 </li>
 <li>
-<p>module Report</p>
+<p><strong>module</strong> Report</p>
 </li>
 <li>
-<p>module Decorators</p>
+<p><strong>module</strong> Decorators</p>
 </li>
 <li>
-<p>module Prompt</p>
+<p><strong>module</strong> Prompt</p>
 </li>
 <li>
-<p>bin/bookfind script</p>
+<p><strong>script</strong> bin/bookfind</p>
 </li>
 </ul>
 </div>
@@ -1060,7 +1066,7 @@ I believe it only needs be a module, as we do not need to create state for it.</
 constant (to toggle the integration on and off) could be achieved in another way.
 I used <a href="https://12factor.net/config">The Twelve-Factor App III.Config</a> to partly inform this decision,
 as well as the open/close principle.
-It felt like having constants that changed the environement configuration of the program inside the code was not ideal,
+It felt like having constants that changed the environment configuration of the program inside the code was not ideal,
 and I know you alluded to this also in the beginning of the review.</p>
 </div>
 <div class="paragraph">
@@ -1075,26 +1081,43 @@ the class was therefore initially responsible for checking whether the <code>OFF
 </div>
 <div class="paragraph">
 <p>However, following the recommendation to use the strategy pattern in the review,
-I thought it would be beneficial to extract these even further into separate classes, and pass them in as arguments to 'BookSearch',</p>
+I thought it would be beneficial to extract these even further into separate classes, and pass them in as an argument to 'BookSearch',</p>
 </div>
 <div class="paragraph">
-<p>So ideally, I think that using <a href="https://github.com/bkeepers/dotenv">'dotenv'</a> would be a suitable compromise.
-In so doing, we could set the "connection" configuration in the top of the script file 'bin/bookview.rb'
+<p>I think that using <a href="https://github.com/bkeepers/dotenv">'dotenv'</a> is a suitable compromise.
+In so doing, we set the "connection" configuration in the top of the script file 'bin/bookview'
 (that would at this point in the refactor be 'bin/bookfind').
 We could then choose which object to create (and thereby which data to retrieve, live or test)
-depending on whether the ENV is existant in the '.env' file.</p>
+depending on whether the ENV is existant in the '.env' file.
+If an API_KEY is exitant the program is connected automatically, if the developer wants to work in a test environement,
+then they can simply comment it out. The '.env' is therefore the only file that switches the program&#8217;s environment.</p>
 </div>
 <div class="paragraph">
 <p>In order to not stray from SRP we could then extract this "connection" configuration into its own file as a simple method,
-and then call it from within the script (i.e. <code>session.connection_environement</code>):
-this would then pass in the appropriate argument to <code>BookSearch.new(choice, connection_type)</code> (on line 64 in the script).</p>
+and then call it from within the script (i.e. <code>data = connection_environement</code>):
+this would then pass in the appropriate argument to <code>BookSearch.new(data)</code>.</p>
+</div>
+<div class="paragraph">
+<p>In regards to readability and understanding, I feel that even if some of the classes are doing the correct thing,
+the naming is not always quite right. For instance, 'BookSearch' should perhaps be named 'BookParse' -
+as that is what this class is actually doing.
+Also the parse methods inside of 'BookData', and 'TestData' should perhaps be titled as 'connection'.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reappropriate_tests_to_booksearch_spec_rb">Reappropriate tests to <code>booksearch_spec.rb</code></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As part of the post-review revision I have moved the tests previously in <code>end_to_end_spec.rb</code>,
+as the behaviours we are testing there seem to be the responsibility of <code>BookSearch</code>.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-01-04 14:37:59 +0100
+Last updated 2023-01-04 23:00:26 +0100
 </div>
 </div>
 </body>
