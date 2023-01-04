@@ -53,18 +53,16 @@ if you set the program to online - instructions below; else it will use persiste
 NOTE: If you would like to use this program online, the steps will be as follows:
 
 1. Setup your own google Books *API key*, {url-google-api-medium}[this article] is very helpful
-2. create a '.env' file in the root directory with `touch .env` and use the example layout given below
-3. In the executable file ('bin/bookview.rb'), comment out line 64, and uncomment the corresponding line below (line 66).
-In short, `BookSearch.new` should be given an argument of `BookData.new(query).parse`
+2. create a '.env' file in the root directory with `touch .env` and insert your API key (example below)
 4. You can now use the program live
 
 .Example `.env`
 [source, .env]
 ----
 #.env file
-{ "API_KEY" : "[YOUR_API_KEY_HERE]" }
+API_KEY = [YOUR_API_KEY_HERE]<1>
 ----
-
+<1>Remove your .env file from version control
 
 == Testing
 
@@ -254,7 +252,7 @@ I hesitated on this point, though decided that the functioanlity of the `OFFLINE
 constant (to toggle the integration on and off) could be achieved in another way.
 I used {url-config}[The Twelve-Factor App III.Config] to partly inform this decision,
 as well as the open/close principle.
-It felt like having constants that changed the environement configuration of the program inside the code was not ideal,
+It felt like having constants that changed the environment configuration of the program inside the code was not ideal,
 and I know you alluded to this also in the beginning of the review.
 
 Ideally, a degree of automation in regards the "connection" to test-data or live data could be achieved by using a config file,
@@ -266,19 +264,27 @@ Initially, what I had done was include an `if else` statement in 'BookData',
 the class was therefore initially responsible for checking whether the `OFFLINE` constant was set to `true` or `false`.
 
 However, following the recommendation to use the strategy pattern in the review,
-I thought it would be beneficial to extract these even further into separate classes, and pass them in as arguments to 'BookSearch',
+I thought it would be beneficial to extract these even further into separate classes, and pass them in as an argument to 'BookSearch',
 
-So ideally, I think that using {url-dotenv}['dotenv'] would be a suitable compromise.
+I think that using {url-dotenv}['dotenv'] would be a suitable compromise.
 In so doing, we could set the "connection" configuration in the top of the script file 'bin/bookview.rb'
 (that would at this point in the refactor be 'bin/bookfind').
 We could then choose which object to create (and thereby which data to retrieve, live or test)
 depending on whether the ENV is existant in the '.env' file.
+If an API_KEY is exitant the program is connected automatically, if the developer wants to work in a test environement,
+then they can simply comment it out. The '.env' is therefore the only file that switches the program's environment.
 
 In order to not stray from SRP we could then extract this "connection" configuration into its own file as a simple method,
-and then call it from within the script (i.e. `session.connection_environement`):
-this would then pass in the appropriate argument to `BookSearch.new(choice, connection_type)` (on line 64 in the script).
+and then call it from within the script (i.e. `data = connection_environement`):
+this would then pass in the appropriate argument to `BookSearch.new(data)`.
+
+In regards to readability and understanding, I feel that even if some of the classes are doing the correct thing,
+the naming is not always quite right. For instance, 'BookSearch' should perhaps be named 'BookParse' -
+as that is what this class is actually doing.
+Also the parse methods inside of 'BookData', and 'TestData' should perhaps be titled as 'connection'.
 
 == Reappropriate tests to `booksearch_spec.rb`
 
 As part of the post-review revision I have moved the tests previously in `end_to_end_spec.rb`,
 as the behaviours we are testing there seem to be the responsibility of `BookSearch`.
+
