@@ -14,10 +14,10 @@ Benjamin b.james.neustadt@gmail.com
 :url-dotenv: https://github.com/bkeepers/dotenv
 
 
-= Usage
+== Usage
 
 1. Install Ruby
-2. Install dependencies
+2. Install dependencies: `bundle install`
 3. Run the program: `ruby bin/bookview.rb`
 
 == Set-Up Instructions
@@ -29,30 +29,6 @@ To use this application, clone this repo to your local with the following comman
 Ensure that you have Ruby downloaded on your system, you can check by inputting `ruby -v` into your terminal.
 
 Run `bundle install` to ensure you have all the correct dependencies of this project.
-
-== To use this program live
-
-****
-[NOTE]
-====
-
-If you would like to use this program online, the steps will be as follows:
-
-1. Setup your own google Books API_KEY,{url-google-api-medium}[this article] is very helpful.
-2. create a '.env' file in the root directory using the following layout:
-
-[source, json]
-----
-#.env file
-{ "API_KEY" : "[YOUR_API_KEY_HERE]" } <1>
-----
-<1> You will only need one set of quotation marks surrounding the key.
-
-3. In the executable file ('bin/bookview.rb'), comment out line 64, and uncomment the corresponding line below(line 66).
-In short, `BookSearch.new` should be given an argument of `BookData.new(query).parse`.
-4. You can now use the program live.
-====
-****
 
 == Using the Program
 
@@ -68,15 +44,31 @@ Follow the prompts to search for a book query.
 Insert any word to get a return of 5 books that match your query.
 Follow the prompts to add the book to a reading list.
 
-
 [IMPORTANT]
 (Please note, the queries will only be matched via the Google Books API
-if you set the program to online, else it will use persistent test data.)
+if you set the program to online - instructions below; else it will use persistent test data.)
 
-= Testing
+== To use this program live
+
+NOTE: If you would like to use this program online, the steps will be as follows:
+
+1. Setup your own google Books *API key*, {url-google-api-medium}[this article] is very helpful
+2. create a '.env' file in the root directory with `touch .env` and use the example layout given below
+3. In the executable file ('bin/bookview.rb'), comment out line 64, and uncomment the corresponding line below (line 66).
+In short, `BookSearch.new` should be given an argument of `BookData.new(query).parse`
+4. You can now use the program live
+
+.Example `.env`
+[source, .env]
+----
+#.env file
+{ "API_KEY" : "[YOUR_API_KEY_HERE]" }
+----
+
+
+== Testing
 
 The testing framework used is Rspec.
-Code coverage is reported when running the tests.
 
 .To run the tests:
 [source, sh]
@@ -84,16 +76,16 @@ Code coverage is reported when running the tests.
 rspec -fd
 ----
 
-= Process
+Code coverage is reported when running the tests (currently 100%).
+
+== Process
 
 Following is some of the initial planning,
 followed by some revisoinary CRC modelling post review.
 
-== CRC Model Planning
+=== CRC Model Planning
 
-=== Initially the following design was considered.
-
-_Class Responsibility Collaborator_
+*Initially the following design was considered.*
 
 _Following a Model/View/Controller design_
 
@@ -120,17 +112,17 @@ _Following a Model/View/Controller design_
             VIEW                         CONTROLLER                     MODEL
 
 
-=== Post review
+*Post review revisions*
 
 [NOTE]
 Not all of these constants have been implemented (specifically the 3 modules);
 and BookView has not been refactored accordingly.
-However, this is a design that feels like it would adher more correctly to the Single Responsibility Principle,
+However, this is a design that feels like it would adhere more correctly to the Single Responsibility Principle,
 and other SOLID priniciples.
 
 
           ┌───────┬───────────┐   ┌────────┬───────┐    ┌────────┬───────┐
-          │ module│decorators │   │ module │Prompt │    │ module │Report │
+          │ module│Decorators │   │ module │Prompt │    │ module │Report │
           ├───────┴───────────┤   ├────────┴───────┤    ├────────┴───────┤
           │                   │   │                │    │                │
           │ .Holds border     │   │ .Holds MENU    │    │ .Holds all     │
@@ -144,27 +136,27 @@ and other SOLID priniciples.
           │                   │   │                │    │                │
           └───────────────────┘   └────────────────┘    └────────────────┘
 
-                    Modules for conataing constants and methods
+                    Modules for containing constants and methods
          ---------------------------------------------------------------------
 
 
 
           PUBLIC FACING INTERFACE
        ┌─┬────────────────────────┬─┐
-       │ ├────────────────────────┤ │             ┌───────────────────────┐     ┌───────────────────────┐
-       │ │  BookView              │ │             │  BookSearch           │     │  BookStorage          │
-       │ │                        │ │             │                       │     │            BookSearch │
-       │ ├───────────────┬────────┘ │             ├────────────┬──────────┘     ├──────────────┬────────┤
-       │ │               │BookStorage             │ .After     │ BookStorage    │.Store users  │        │
-       │ │ .look_up_books│BookSearch│             │  receiving │ TestData │     │ chosen books │        │
-       │ │               │        │ │             │  data      │ BookData │     │              │        │
-       │ │ .add_book     │        │ │             │  extract   │          │     │ .Can add     │        │
-       │ │               │        │ │             │  attributes│          │     │  book        │        │
-       │ │ .includes 3   │        │ │             │            │          │     │              │        │
-       │ │  modules:     │        │ │             │            │          │     │              │        │
-       │ │  Report       │        │ │             │            │          │     │              │        │
-       │ │  Prompt       │        │ │             │            │          │     │              │        │
-       │ │               │        │ │             └────────────┴──────────┘     └──────────────┴────────┘
+       │ ├────────────────────────┤ │           ┌───────────────────────┐     ┌───────────────────────┐
+       │ │  BookView              │ │           │  BookSearch           │     │  BookStorage          │
+       │ │                        │ │           │                       │     │            BookSearch │
+       │ ├───────────────┬────────┘ │           ├────────────┬──────────┘     ├──────────────┬────────┤
+       │ │               │BookStorage           │ .After     │ BookStorage    │.Store users  │        │
+       │ │ .look_up_books│BookSearch│           │  receiving │ TestData │     │ chosen books │        │
+       │ │               │        │ │           │  data      │ BookData │     │              │        │
+       │ │ .add_book     │        │ │           │  extract   │          │     │ .Can add     │        │
+       │ │               │        │ │           │  attributes│          │     │  book        │        │
+       │ │ .includes 3   │        │ │           │            │          │     │              │        │
+       │ │  modules:     │        │ │           │            │          │     │              │        │
+       │ │  Report       │        │ │           │            │          │     │              │        │
+       │ │  Prompt       │        │ │           │            │          │     │              │        │
+       │ │  Decorators   │        │ │           └────────────┴──────────┘     └──────────────┴────────┘
        │ ├───────────────┼────────┤ │
        └─┴────────────────────────┴─┘                         ▲      ▲
                                                               │      │
@@ -186,201 +178,107 @@ and other SOLID priniciples.
                                           │              │        │   │ constant     │        │
                                           │              │        │   │ API_key connector     │
                                           └──────────────┴────────┘   └───────────────────────┘
-
                                            (Passed as argument            (Passed as argument
                                            when in a dev environment)     when going live)
 
 
 
-= Initial Brief
+== Post review
 
-Create a command line application that allows you to use the
-Google Books AP search for books and construct a reading list.
-
-You do not have to use a private GitHub repo for this.
-
-_This application should allow you to:_
-
-1. Type in a query and display a list of *5 books matching that query.*
-2. Each item in the list should include the book's author, title, and publishing
-  company.
-3. A user should be able to select a book from the five displayed to save to a
-  “Reading List” View a “Reading List” with all the books the user has selected
-  from their queries
-  - this is a local reading list and not tied to Google
-  Books’s account features.
-4. For programming language, choose any language you want as long as it is not
-  the same language you chose to review in the Code Review section above.
-5. Feel free to use a library (or not) for the Google Books call or JSON parsing.
-
-Please do not add any additional features.
-
-Your submission doesn’t need to be perfect.
-
-After we receive your submission we'll review your code, respond to you with
-our feedback and suggestions, and give you an opportunity to respond to our
-feedback and make improvements to your code before you re-submit a second and
-final version.
-
-That said, we would still like to see your best work with the first version you submit.
-It should demonstrate external quality (for example: solves the problem,
-handles edge cases, usability), internal quality (for example:
-*decoupling*, *testing*, *readability*), as well as some idea of your process and
-approach (via your version control history and README).
-
-= Post review stretch goals
-
-_Question_
+*_Question_*
+****
 With the Single Responsibility Principle in mind, what are all of the
 responsibilities of the bin/bookview.rb script in its current form? Given the
 time, how might you refactor so that the script has a single responsibility?
-
+****
 
 Currently the responsibilities of bin/bookview.rb are numerous:
+
 * running the script/loop
 * holding two constants for later use within this file
 * instantiating an instance of the 'BookStorage' class
-* contains methods used within this method
+* containing methods used within script
 
-Initially when writing this I followed a sort of procedural programming style of writing the code.
+=== Extracting and Refactoring
+
+Initially when writing this script I followed a sort of procedural programming process.
 However, I would definitely like to improve this.
 
-In light of SRP I would ideally do the following, in approximately this order:
-* create a 'class BookView'
+I have diagramed what I feel would be my ideal finished program (revised CRC above).
+I would change the permissions so that the script executable is
+`bin/bookfind` instead of `ruby bin/bookview.rb`, and give an instruction in
+the README for the next dev to implement this command in their terminal.
 
-** in its initialize method I would like to instantiate an instance of 'BookStorage'
+The script would comprise calling an instance of `BookView.new`, called 'session',
+and then use methods on that instance to output the respective 'reports' within each `when` conditional inside the loop;
+this way, we would only need to use `puts` once to output the return of each method. We would also DRY the code considerably.
+`BookView.new` would be placed inside the lib folder. The script's responsibility would therefore be to execute an instance of `BookView`, getting input and passing that input
+to BookView through its methods. In a way, the script would therefore be analogous to a front end, if we follow the design analogy initially used.
 
-** It could hold two main methods:
+I would have to switch off the colorization, and use testing to match the current outputs.
+Case 4 and 0 would both use the same method, though could be given an argument defining the border "style" to be used,
+these styles would be stored inside a module I called "Decorators" (in revised CRC model). I like this approach as then the borders become customisable,
+and we can easily add a new style to these borders later on.
 
-*** 'look_up_books(query)'
-*** 'add_book' which would store it inside the instance of 'BookStorage'
+I would favour using heredocs to build the strings inside of these reports, as
+then I feel the string format would be easier to modify from within
+constants containing the string format. In this way I think we could more
+easily adhere to SRP and have modularity, as we every module would and class
+would only hold methods that serve a specific type of functionality.
 
-* I would like to refactor much of the code inside the actual loop, as I feel
-that the script should only really instantiate a public interface object once
-(i.e. `session = BookView.new`)
+I also think that heredocs would promote better readability for the next dev
+joining the project.
 
-I would like refactor the loop
-*** I would consider extracting a 'menu' method from the loop (lines 45-47);
-this can go inside a Prompt module, along with  the corresponding `MENU` constant.
-and the `ACTION_PROMPT`
+The trade-off I can imagine having to face is the colorization of specific
+lines for these reports; we would only be able to colorize the string in its
+entirety.
 
-Within each `when` `case` of the loop, there is business logic for reporting the
-instances of `@search_results` and `@users_storage`:
-I feel this would be a great opportunity to extract these into report methods,
-thereby assiging the return values of these methods to what we currently have
-in place, and in the process DRYing the code.
+Ultimately, the refactor would comprise of:
 
-Following what we currently have in place, I feel we could envision:
+* class BookView
+* module Report
+* module Decorators
+* module Prompt
+* bin/bookfind script
 
-* `report_retrieved_books` -> this could report on books stored in the search results
-It could comprise lines 67-71 including the "header" of 'AVAILABLE BOOKS'
+BookView would have access to all the report methods on the Report module.
+I believe it only needs be a module, as we do not need to create state for it.
 
-* `report_amount_books_added` -> We can refactor the below
-[source, ruby]
-----
-# bin/bookview.rb file
-puts 'Total books selected: %i' % @users_storage.container.size
-----
+== Automating the environement outside of the code
 
-* We could also report on things like the `total_books_added_to_user_list`:
-[source, ruby]
-----
-# bin/bookview.rb file
-puts 'Total books selected: %i' % @users_storage.container.size
-----
+Currently the environement (test or live data) is set by choosing which class object to instantiate when using 'BookSearch' from within the loop.
 
-* `report_booklist` -> for reporting the user's booklist. Currently we notice that the code below is repeated multiple times
-[source, ruby]
-----
-# bin/bookview.rb file
-@users_storage.container.each.with_index(1) do |book, index|
-  list_item(book, index)
-end
-----
+_My reasoning for this change:_
 
-If we consider the above and what `when 4` and `when 0` return,
-it looks like we can actually refactor the whole return of those cases into one method report_booklist.
-The only difference we can really notice between these two cases is the pattern of the border used in each;
-`puts "=" * 23` vs `puts "+=" * 11 + '+'`,
+I hesitated on this point, though decided that the functioanlity of the `OFFLINE'
+constant (to toggle the integration on and off) could be achieved in another way.
+I used {url-config}[The Twelve-Factor App III.Config] to partly inform this decision,
+as well as the open/close principle.
+It felt like having constants that changed the environement configuration of the program inside the code was not ideal,
+and I know you alluded to this also in the beginning of the review.
 
-What this makes me think is that we can allow an argument to be passed to some of the reporing methods, such that,
-we can vary the style that we choose for a given report.
-We could store these styles inside a constant (i.e. 'Decorators' in the CRC model above), and call the corresponding style with its respective symbol.
-By doing this we begin to make these report methods "customisable".
-I think this would also allow us to add new styles easily.
-
-== Encourging better readabilty whilst promoting modularity
-We can encourage this whilst maintaining readabilty, if we use heredocs and
-annotations to compose our strings as we get the appropriate attributes for
-them.
-
-It might be a good idea for instance to refactor the `list_item` method to something like:
-
-[source, ruby]
-----
-  ITEM =
-   <<~EOS
-     -----------------------
-     Book number %<index>s
-     title: %<title>s
-     author: %<authors>s
-     publisher: %<publisher>s
-     -----------------------
-     EOS
-
-def item(book, index)
-		ITEM % {
-			index:     index,
-			title:     book[:title],
-			authors:   book[:authors],
-			publisher: book[:publisher]
-		}<1>
-end
-----
-<1>By doing this we would then only need to 'puts' once when calling the method, since we would have already built our string.
-
-We could then extract constants such as the above, perhaps with their methods to modules if we deem it necessary.
-
-The main trade off I can think of at this point is in DRYing the code in this
-way, it becomes harder for us to implement things on specific elements of the
-string we are building without making things unreadable, so in terms of the
-colorization that we currently have, this would be dropped.
-Instead we would only be able to colorize the entire output,
-and not individiaul lines on the string.
-
-== Setting up an environement file
+Ideally, a degree of automation in regards the "connection" to test-data or live data could be achieved by using a config file,
+in order to minimize time and cost for new developers joining the project;
+and to offer maximum portability between execution environements.
 
 Currently I have tried to adher to the Open/Close principle by using the strategy pattern that was encouraged in the code review.
 Initially, what I had done was include an `if else` statement in 'BookData',
 the class was therefore initially responsible for checking whether the `OFFLINE` constant was set to `true` or `false`.
 
-However, I thought it would be beneficial to extract these even further into separate classes, and pass them in as arguments to 'BookSearch',
-my reasoning was:
+However, following the recommendation to use the strategy pattern in the review,
+I thought it would be beneficial to extract these even further into separate classes, and pass them in as arguments to 'BookSearch',
 
-Ideally, a degree of automation in regards the "connection" to test-data or live data could be adopted by using a config file,
-in order to minimize time and cost for new developers joining the project;
-and to offer maximum portability between execution environements.
-
-I hesitated on this point, though decided that the functioanlity of the `OFFLINE'
-constant (to toggle the integration on and off) could be achieved in another way.
-I used {url-config}[The Twelve-Factor App III.Config] to partly inform this decision, as well as the open/close principle.
-
-I therefore created two separate classes ('TestData', and 'BookData').
-
-Ideally, I think that using {url-dotenv}['dotenv'] would be a suitable compromise.
+So ideally, I think that using {url-dotenv}['dotenv'] would be a suitable compromise.
 In so doing, we could set the "connection" configuration in the top of the script file 'bin/bookview.rb'
 (that would at this point in the refactor be 'bin/bookfind').
+We could then choose which object to create (and thereby which data to retrieve, live or test)
+depending on whether the ENV is existant in the '.env' file.
 
-We should then be able to load our ENV variables upon loading the script, and would be able
-to switch out the argument value given to 'BookSearch' (line 64 in
-bin/bookview.rb) according to whether development is set to 'true' or not.
+In order to not stray from SRP we could then extract this "connection" configuration into its own file as a simple method,
+and then call it from within the script (i.e. `session.connection_environement`):
+this would then pass in the appropriate argument to `BookSearch.new(choice, connection_type)` (on line 64 in the script).
 
+== Reappropriate tests to `booksearch_spec.rb`
 
-== Notes on my own code review in javascript
-
-When copying the brief from the email to my local I accidentally ommitted a line stating that it was not required to propose a refactor of any kind.
-Having gone through this review process I've taken on board a few things that I would ideally implement in an ammended code review.
-Were I to do it again I would focus slightly less on encouraging syntax and layout,
-and would focus more on suggesting adhering to SOLID principles.
-I'd also want to revise how I communicate some suggestions (i.e. I feel it was perhaps too mechanic, and the refactor might not have helped).
-
+As part of the post-review revision I have moved the tests previously in `end_to_end_spec.rb`,
+as the behaviours we are testing there seem to be the responsibility of `BookSearch`.
