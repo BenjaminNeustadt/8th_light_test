@@ -45,7 +45,6 @@ end
 
 reset_search
 
-
 loop do
 
   MENU[:ACTION].each do |option, action|
@@ -67,14 +66,7 @@ loop do
       print " What are you looking for? "
       choice = gets.chomp
     end
-<<<<<<< HEAD
-    connection = ENV['API_KEY'] ? BookData.new(choice).parse : TestData.new.parse
-    data_query = BookSearch.new(connection)
-    # To connect to the live Google API, uncomment the line below, and remove the line above
-    # data_query = BookSearch.new(BookData.new(data).parse)
-=======
     data_query = BookSearch.new(SOURCE[choice])
->>>>>>> d429d62 (Refactor automated connection BookData/TestData)
     puts "AVAILABLE BOOKS: "
     data_query.available_books.each.with_index(1) do |book, index|
       list_item(book, index)
