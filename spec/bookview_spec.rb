@@ -1,5 +1,5 @@
 require_relative '../lib/bookview'
-require_relative '../lib/decorators'
+require_relative '../lib/module/decorators'
 
 RSpec.describe BookView do
 

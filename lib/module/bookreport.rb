@@ -1,4 +1,4 @@
-require_relative '../lib/decorators'
+require_relative './decorators'
 
 module Report
 
