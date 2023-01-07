@@ -1,11 +1,12 @@
 require_relative '../lib/bookview'
 require_relative '../lib/module/decorators'
+require_relative '../lib/strategy/testdata'
 
 RSpec.describe BookView do
 
   before :each do
-    @isolated_list = BookSearch.new('history', offline: true)
-    @test_book_data = JSON.parse(File.read('spec/test_data/data.json'))
+    @test_book_data = TestData.new.parse
+    @isolated_list = BookSearch.new(@test_book_data)
   end
 
   context "search results" do
@@ -115,7 +116,7 @@ RSpec.describe BookView do
 
       bookview = BookView.new
       retrived_books = @isolated_list.available_books
-      bookview.lookup_books('history')
+      bookview.lookup_books(@test_book_data)
       actual = bookview.report_retrieved_books
       expected =
         <<~SEARCH_REPORT
@@ -161,7 +162,7 @@ RSpec.describe BookView do
     it " displays a book added to book list" do
 
       bookview = BookView.new
-      bookview.lookup_books('history')
+      bookview.lookup_books(@test_book_data)
       bookview.add_user_book(1)
       expected =
       <<~EOS
@@ -187,7 +188,7 @@ RSpec.describe BookView do
     it " displays multiple books added to book list" do
 
       bookview = BookView.new
-      bookview.lookup_books('history')
+      bookview.lookup_books(@test_book_data)
       bookview.add_user_book(1)
       bookview.add_user_book(2)
       expected =
