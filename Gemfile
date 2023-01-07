@@ -4,5 +4,11 @@ source "https://rubygems.org"
 
 ruby '3.0.0'
 
-gem 'json', '~> 2.3'
 gem 'colorize'
+gem 'json', '~> 2.3'
+gem 'rspec'
+gem 'dotenv'
+
+group :test do
+    gem 'simplecov', require: false
+end
