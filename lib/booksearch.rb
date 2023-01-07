@@ -4,42 +4,20 @@ require_relative '../lib/bookstorage'
 
 class BookSearch
 
-  LIMIT = 5
+  BOOK_LIMIT = 5
 
-  API_KEY = JSON.parse(File.read("env.json"))["API_KEY"]
-  private_constant :API_KEY
-
-  private
-
-  attr_reader :url, :offline
-
-  def initialize(query, offline: false)
-    raise ArgumentError, "BadQueryError" if query.nil?
-    @offline = offline
-    @url = "https://www.googleapis.com/books/v1/volumes?q=#{query}&key=#{API_KEY}"
-    @available_books = extract_from_raw(data_query)
+  def initialize(data)
+    @data = data
+    @available_books = extract(data)
     @storage = BookStorage.new
-  end
-
-  def data_query
-    if offline
-      return JSON.parse(File.read('spec/test_data/data.json'))
-    end
-    uri = URI(url)
-    response = Net::HTTP.get_response(uri)
-    JSON.parse(response.body)
   end
 
   public
 
-  attr_reader :available_books, :storage
+  attr_reader :available_books, :storage, :data
 
-  def add(book_data)
-    storage.add(book_data)
-  end
-
-  def extract_from_raw(book_data)
-    book_data["items"].take(LIMIT)
+  def extract(book_data)
+    book_data["items"].take(BOOK_LIMIT)
       .map { |item| item["volumeInfo"] }
       .map { |book| {
       title: book["title"],
