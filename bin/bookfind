@@ -15,7 +15,6 @@ require 'colorize'
 		case choice
 
 		when 1
-			session.reset_search
 
 			print " What are you looking for? "
 			choice = gets.chomp
