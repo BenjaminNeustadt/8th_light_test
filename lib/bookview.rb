@@ -24,9 +24,9 @@ class BookView
     @users_storage.add(@search_results[choice]) if @search_results[choice]
   end
 
-  def lookup_books(search_query)
+  def lookup_books(choice)
     @search_results = []
-    search = BookSearch.new(SOURCE[search_query])
+    search = BookSearch.new(SOURCE[choice])
     search.available_books.each.with_index(1) do |book, index|
       item(book, index)
       @search_results << book
