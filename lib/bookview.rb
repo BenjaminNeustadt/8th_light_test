@@ -1,6 +1,7 @@
 require_relative '../lib/booksearch'
 require_relative './module/bookreport'
 require_relative './module/prompt'
+require_relative './datapicker'
 
 class BookView
 
