@@ -8,7 +8,7 @@ require 'colorize'
 
 	loop do
 
-		puts session.menu.red
+		puts session.menu
 		puts "Enter a command : "
 		choice =  gets.to_i
 
