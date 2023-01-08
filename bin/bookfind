@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
-# this must be loaded first in order for the envrionement to be loaded
-require 'dotenv'
-Dotenv.load
+# 'dotenv/load' must be called first
+require 'dotenv/load'
 require_relative '../lib/bookview'
 require 'colorize'
 
