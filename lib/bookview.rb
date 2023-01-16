@@ -5,6 +5,25 @@ class BookView
 
   include Prompt
 
+  ITEM =
+    <<~EOS
+      -----------------------
+      Book number %<index>s
+      title: %<title>s
+      author: %<authors>s
+      publisher: %<publisher>s
+      -----------------------
+      EOS
+
+  def item(book, index)
+    ITEM % {
+      index: index,
+      title: book[:title],
+      authors: book[:authors],
+      publisher: book[:publisher]
+    }
+  end
+
   def initialize
     @storage = BookStorage.new.container
     @search_results = []
@@ -32,15 +51,6 @@ def reset_search
   @search_results = []
 end
 
-def list_item(book, index)
-  puts '-' * 23
-  puts "Book number %s " % index.to_s.red
-  puts "title: %s" % book[:title].black.on_white
-  puts "author: %s" % book[:authors].to_s.blue.on_white
-  puts "publisher: %s" % book[:publisher].to_s.yellow
-  puts '-' * 23
-  puts
-end
 
 def books_added
   puts "You added %<number_of>i books:" % {number_of: @users_storage.container.size}

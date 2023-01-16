@@ -2,6 +2,11 @@ require_relative '../lib/bookview'
 
 RSpec.describe BookView do
 
+  before :each do
+    @test_book_data = TestData.new.parse
+    @isolated_list = BookSearch.new(@test_book_data)
+  end
+
   context 'initialize' do
     it 'instantiates an instance of BookStorage' do
       bookview = BookView.new
@@ -27,6 +32,24 @@ RSpec.describe BookView do
         MENU
 
       expect(bookview.menu).to eq expected
+    end
+  end
+
+  context 'list single item' do
+    it 'displays book data in correct format' do
+      bookview = BookView.new
+      book = @isolated_list.available_books.first
+      expected =
+      <<~ITEM % book
+      -----------------------
+      Book number 1
+      title: %<title>s
+      author: %<authors>s
+      publisher: %<publisher>s
+      -----------------------
+      ITEM
+      actual = bookview.item(book, 1)
+      expect(actual).to eq expected
     end
   end
 
