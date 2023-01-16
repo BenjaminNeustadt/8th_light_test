@@ -5,29 +5,13 @@ class BookView
 
   include Prompt
 
-  MENU = {
-    ACTION: {
-      1 => "search",
-      2 => "view search results",
-      3 => "add",
-      4 => "view",
-      0 => "exit"
-    }
-  }
-
-  ACTION_PROMPT = "%<option>s) %<action>s\n"
-
   def initialize
     @storage = BookStorage.new.container
+    @search_results = []
   end
 
-  attr_reader :storage
+  attr_reader :storage, :search_results
 
-  def menu
-    MENU[:ACTION].each_with_object("") do |(option, action), menu|
-      menu << ACTION_PROMPT % {option: option, action: action}
-    end
-  end
 end
 
 =begin
