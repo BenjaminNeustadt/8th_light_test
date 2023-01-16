@@ -53,4 +53,22 @@ RSpec.describe BookView do
     end
   end
 
+  context 'list single item' do
+    it 'displays correct book data' do
+      bookview = BookView.new
+      book = @isolated_list.available_books.first
+      expected =
+      <<~ITEM % book
+      -----------------------
+      Book number 1
+      title: The History Book
+      author: ["DK"]
+      publisher: Dorling Kindersley Ltd
+      -----------------------
+      ITEM
+      actual = bookview.item(book, 1)
+      expect(actual).to eq expected
+    end
+  end
+
 end
