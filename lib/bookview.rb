@@ -1,6 +1,9 @@
 require_relative './bookstorage'
+require_relative './module/prompt'
 
 class BookView
+
+  include Prompt
 
   MENU = {
     ACTION: {

@@ -11,7 +11,7 @@ RSpec.describe BookView do
 
   end
 
-  context 'menu'
+  context 'menu' do
     it 'shows the game menu' do
       bookview = BookView.new
       expected =
@@ -25,6 +25,6 @@ RSpec.describe BookView do
 
       expect(bookview.menu).to eq expected
     end
-
+  end
 
 end
