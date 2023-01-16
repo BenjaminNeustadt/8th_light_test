@@ -6,7 +6,7 @@ RSpec.describe BookView do
 
     it 'instantiates an instance of BookStorage' do
       bookview = BookView.new
-      expect(bookview.storage).to eq
+      expect(bookview.storage).to eq []
     end
 
   end
