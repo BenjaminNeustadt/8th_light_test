@@ -1,35 +1,52 @@
 require_relative './bookstorage'
 require_relative './module/prompt'
+require_relative './module/report'
 
 class BookView
 
+=begin
+  when 4
+    puts "SELECTED BOOKS"
+    puts '=' * 23
+    @users_storage.container.each.with_index(1) do |book, index|
+      list_item(book, index)
+    end
+    puts '=' * 23
+    puts 'Total books selected: %i' % @users_storage.container.size
+    puts '=' * 23
+    puts
+=end
+REPORT =
+  <<~REPORT
+  %<title>15s
+  %<border>s
+  %<booklist>s
+  %<border>s
+  REPORT
+
   include Prompt
-
-  ITEM =
-    <<~EOS
-      -----------------------
-      Book number %<index>s
-      title: %<title>s
-      author: %<authors>s
-      publisher: %<publisher>s
-      -----------------------
-      EOS
-
-  def item(book, index)
-    ITEM % {
-      index: index,
-      title: book[:title],
-      authors: book[:authors],
-      publisher: book[:publisher]
-    }
-  end
+  include Report
 
   def initialize
-    @storage = BookStorage.new.container
+    @users_storage = BookStorage.new
     @search_results = []
   end
 
-  attr_reader :storage, :search_results
+def report_books_added
+  list = []
+  @users_storage.container.each do |book|
+    list << "- #{book[:title]}"
+  end
+  "You added %<number_of>i books:\n%<list>s" %
+    {number_of: list.size, list: list.join("\n")}
+end
+
+
+# def add_user_book(choice)
+#   @users_storage.add(@search_results[choice]) if @search_results[choice]
+# end
+
+  attr_reader :users_storage, :search_results
 
 end
 
@@ -52,13 +69,6 @@ def reset_search
 end
 
 
-def books_added
-  puts "You added %<number_of>i books:" % {number_of: @users_storage.container.size}
-  @users_storage.container.each do |book|
-    puts '- %s'  % book[:title]
-  end
-end
-
 reset_search
 
 loop do
@@ -80,6 +90,7 @@ loop do
       choice = gets.chomp
     end
     data_query = BookSearch.new(SOURCE[choice])
+
     puts "AVAILABLE BOOKS: "
     data_query.available_books.each.with_index(1) do |book, index|
       list_item(book, index)

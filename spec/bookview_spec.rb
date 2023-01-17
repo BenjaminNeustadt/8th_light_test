@@ -1,4 +1,6 @@
 require_relative '../lib/bookview'
+require_relative '../lib/strategy/testdata'
+require_relative '../lib/booksearch'
 
 RSpec.describe BookView do
 
@@ -10,7 +12,7 @@ RSpec.describe BookView do
   context 'initialize' do
     it 'instantiates an instance of BookStorage' do
       bookview = BookView.new
-      expect(bookview.storage).to eq []
+      expect(bookview.users_storage).to be_a BookStorage
     end
 
     it 'instantiates with an empty search results' do
@@ -71,4 +73,19 @@ RSpec.describe BookView do
     end
   end
 
+  context 'report books added' do
+
+    it 'displays books added by user' do
+
+      bookview = BookView.new
+      books = @isolated_list.available_books.take(3)
+      books.each do |book|
+         bookview.users_storage.add(book)
+      end
+      actual = bookview.report_books_added
+      expected = "You added 3 books:\n- The History Book\n- A Short History of the World\n- The History Book"
+      expect(actual).to eq(expected)
+    end
+
+  end
 end
