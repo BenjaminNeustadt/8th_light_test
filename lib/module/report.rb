@@ -1,5 +1,13 @@
 module Report
 
+  REPORT =
+    <<~REPORT
+  %<title>15s
+  %<border>s
+  %<booklist>s
+  %<border>s
+  REPORT
+
   ITEM =
     <<~EOS
       -----------------------
@@ -8,7 +16,7 @@ module Report
       author: %<authors>s
       publisher: %<publisher>s
       -----------------------
-      EOS
+  EOS
 
   def item(book, index)
     ITEM % {
@@ -17,6 +25,15 @@ module Report
       authors: book[:authors],
       publisher: book[:publisher]
     }
+  end
+
+  def report_books_added
+    list = []
+    @users_storage.container.each do |book|
+      list << "- #{book[:title]}"
+    end
+    "You added %<number_of>i books:\n%<list>s" %
+      {number_of: list.size, list: list.join("\n")}
   end
 
 end

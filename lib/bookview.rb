@@ -4,26 +4,6 @@ require_relative './module/report'
 
 class BookView
 
-=begin
-  when 4
-    puts "SELECTED BOOKS"
-    puts '=' * 23
-    @users_storage.container.each.with_index(1) do |book, index|
-      list_item(book, index)
-    end
-    puts '=' * 23
-    puts 'Total books selected: %i' % @users_storage.container.size
-    puts '=' * 23
-    puts
-=end
-REPORT =
-  <<~REPORT
-  %<title>15s
-  %<border>s
-  %<booklist>s
-  %<border>s
-  REPORT
-
   include Prompt
   include Report
 
@@ -31,20 +11,6 @@ REPORT =
     @users_storage = BookStorage.new
     @search_results = []
   end
-
-def report_books_added
-  list = []
-  @users_storage.container.each do |book|
-    list << "- #{book[:title]}"
-  end
-  "You added %<number_of>i books:\n%<list>s" %
-    {number_of: list.size, list: list.join("\n")}
-end
-
-
-# def add_user_book(choice)
-#   @users_storage.add(@search_results[choice]) if @search_results[choice]
-# end
 
   attr_reader :users_storage, :search_results
 
@@ -125,6 +91,10 @@ loop do
     puts 'Total books selected: %i' % @users_storage.container.size
     puts '=' * 23
     puts
+
+# def add_user_book(choice)
+#   @users_storage.add(@search_results[choice]) if @search_results[choice]
+# end
 
   when 0
     puts "SELECTED BOOKS"
