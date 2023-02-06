@@ -9,17 +9,19 @@ Benjamin b.james.neustadt@gmail.com
 :source-highlighter: rouge
 :rouge-style: monokai
 //URLS
-:url-google-api: https://developers.google.com/books/docs/v1/using#APIKey
 :url-google-api-medium: https://rachelaemmer.medium.com/how-to-use-the-google-books-api-in-your-application-17a0ed7fa857
-:url-google-console: https://console.cloud.google.com/apis/api/books.googleapis.com/credentials?project=my-test-project-371917
+:url-config: https://12factor.net/config
+:url-dotenv: https://github.com/bkeepers/dotenv
 
 
-= Usage
+[NOTE]: This is the ideal solution for the given brief. It is test driven. However, the client interface is not test driven, as it will involve stubbing. This solution adhers more closely to SOLID principles, specifically the single responsibility priniciple. Unlike the main branch, this version is not colorzied, the output to the terminal will be plain coloured in your terminal.
 
-1. Set up an API KEY
-2. Install Ruby
-3. Install dependencies
-4. Run the program: `ruby bin/bookview.rb`
+== Usage
+
+1. Install Ruby ( Ruby version 3.0 and greater )
+2. Install bundler: `gem install bundler`
+3. Install dependencies: `bundle install`
+4. Run the program: `bin/bookview`
 
 == Set-Up Instructions
 
@@ -27,33 +29,9 @@ To use this application, clone this repo to your local with the following comman
 
 `git clone https://github.com/BenjaminNeustadt/8th_light_test.git`
 
-An *API key* is necessary to use this program,
-so head {url-google-api}[here] and follow the instructions to set up your personal key.
-Go {url-google-console}[here] to enable 'Books API'.
-There is a daily quota of 1000 queries per day,
-so it is important that you keep your key to yourself.
-
-****
-[TIP]
-====
-If you are uncertain how to set up, use {url-google-api-medium}[this article] to set up the google api key correctly.
-====
-****
-
-Once you have your key, open the `env.json` file and insert it in place:
-
-[source, json]
-----
-// env.json file
-
-{ "API_KEY" : "[YOUR API KEY]" } <1>
-----
-<1> You will only need one set of quotation marks surrounding the key.
-
 Ensure that you have Ruby downloaded on your system, you can check by inputting `ruby -v` into your terminal.
 
 Run `bundle install` to ensure you have all the correct dependencies of this project.
-
 
 == Using the Program
 
@@ -62,46 +40,43 @@ in your terminal:
 
 [source, sh]
 ----
-ruby bin/bookview.rb
+bin/bookview
+----
+
+OR
+
+[source, sh]
+----
+ruby bin/bookview
 ----
 
 Follow the prompts to search for a book query.
-You can insert any word and will be given a return of 5 books that match your query.
+Insert any word to get a return of 5 books that match your query.
 Follow the prompts to add the book to a reading list.
 
-= Testing
+[IMPORTANT]
+(Please note, the queries will only be matched via the Google Books API
+if you set the program to online - instructions below; else it will use persistent test data.)
+
+== To use this program live
+
+NOTE: If you would like to use this program online, the steps will be as follows:
+
+1. Setup your own google Books *API key*, {url-google-api-medium}[this article] is very helpful
+2. create a '.env' file in the root directory with `touch .env` and insert your API key (example below)
+3. You can now use the program live
+
+.Example `.env`
+[source, .env]
+----
+#.env file
+API_KEY = [YOUR_API_KEY_HERE]<1>
+----
+<1>Remove your .env file from version control
+
+== Testing
 
 The testing framework used is Rspec.
-
-[IMPORTANT]
-Open the `bookview.rb` file, and set the `OFFLINE` constant to `true`:
-The application is by default switched to "ONLINE", this means that once you insert your API KEY,
-when the tests are run, a real query will be made - this can be switched off easily, however.
-For an optimal testing environment the application should be switched to "OFFLINE".
-
-.To enable a test environement and not affect your API quota.
-[source, ruby]
-----
-# bin/bookview.rb file
-
-require_relative '../lib/booksearch'
-require 'colorize'
-
-OFFLINE = false    <---<1>
-MENU = {
-  ACTION: {
-    1 => "search",
-    2 => "view search results",
-    3 => "add",
-    4 => "view",
-    0 => "exit"
-  }
-}
-----
-<1> Change the word "false" to "true".
-Make sure you have updated/saved the file.
-
-The program can now be used "offline"
 
 .To run the tests:
 [source, sh]
@@ -109,17 +84,16 @@ The program can now be used "offline"
 rspec -fd
 ----
 
-If the program is set to "ONLINE", by setting `OFFLINE` to `false` in the 'bookview.rb',
-one of the tests will check a valid http connection (otherwise,
-it will use a test_data file to validate).
+Code coverage is reported when running the tests (currently 100%).
 
-= Process
+== Process
 
-Following is some of the planning and side thoughts throughout.
+Following is some of the initial planning,
+followed by some revisoinary CRC modelling post review.
 
-== CRC Model Planning
+=== CRC Model Planning
 
-_Class Responsibility Collaborator_
+*Initially the following design was considered.*
 
 _Following a Model/View/Controller design_
 
@@ -146,53 +120,175 @@ _Following a Model/View/Controller design_
             VIEW                         CONTROLLER                     MODEL
 
 
-== Storage
+*Post review revisions*
 
-I am wondering whether to make the "storage" of books temporary to the existance of the class,
-or whether to make it persist beyond the running of the program in the terminal.
-The second option would mean having the data written to a storage file, similar to 'test_data.json'.
+[NOTE]
+Not all of these constants have been implemented (specifically the 3 modules);
+and BookView has not been refactored accordingly.
+However, this is a design that feels like it would adhere more correctly to the Single Responsibility Principle,
+and other SOLID priniciples.
 
-In order for this to work, the file in question would have to be gitignored,
-so that the saved data is only accessible to the respective user,
-so that the data is not passed on were the program to be passed on.
 
-== Stretch goals
+          ┌───────┬───────────┐   ┌────────┬───────┐    ┌────────┬───────┐
+          │ module│Decorators │   │ module │Prompt │    │ module │Report │
+          ├───────┴───────────┤   ├────────┴───────┤    ├────────┴───────┤
+          │                   │   │                │    │                │
+          │ .Holds border     │   │ .Holds MENU    │    │ .Holds all     │
+          │  decorators/      │   │  constant      │    │  report methods│
+          │  styling          │   │                │    │                │
+          │                   │   │ .menu method   │    │ .Holds REPORT  │
+          │                   │   │  for presenting│    │  constant      │
+          │                   │   │  to user       │    │  for string    │
+          │                   │   │                │    │  layouts       │
+          │                   │   │                │    │                │
+          │                   │   │                │    │                │
+          └───────────────────┘   └────────────────┘    └────────────────┘
 
-As another goal I would like to add a test for the "front-end"
-(the command-line user interface).
+                    Modules for containing constants and methods
+         ---------------------------------------------------------------------
 
-= Initial Brief
 
-Create a command line application that allows you to use the
-Google Books API to search for books and construct a reading list.
 
-You do not have to use a private GitHub repo for this.
+          PUBLIC FACING INTERFACE
+       ┌─┬────────────────────────┬─┐
+       │ ├────────────────────────┤ │           ┌───────────────────────┐     ┌───────────────────────┐
+       │ │  BookView              │ │           │  BookSearch           │     │  BookStorage          │
+       │ │                        │ │           │                       │     │            BookSearch │
+       │ ├───────────────┬────────┘ │           ├────────────┬──────────┘     ├──────────────┬────────┤
+       │ │               │BookStorage           │ .After     │ BookStorage    │.Store users  │        │
+       │ │ .look_up_books│BookSearch│           │  receiving │ TestData │     │ chosen books │        │
+       │ │               │        │ │           │  data      │ BookData │     │              │        │
+       │ │ .add_book     │        │ │           │  extract   │          │     │ .Can add     │        │
+       │ │               │        │ │           │  attributes│          │     │  book        │        │
+       │ │ .includes 3   │        │ │           │            │          │     │              │        │
+       │ │  modules:     │        │ │           │            │          │     │              │        │
+       │ │  Report       │        │ │           │            │          │     │              │        │
+       │ │  Prompt       │        │ │           │            │          │     │              │        │
+       │ │  Decorators   │        │ │           └────────────┴──────────┘     └──────────────┴────────┘
+       │ ├───────────────┼────────┤ │
+       └─┴────────────────────────┴─┘                         ▲      ▲
+                                                              │      │
+                    │                                ┌────────┘      └──────────┐
+                    │                                │                          │
+                    │                                │                          │
+                    ▼                                │                          │
+          |---------------------|         ┌──────────┴────────────┐   ┌─────────┴─────────────┐
+          |.Give                |         │ TestData              │   │ BookData              │
+          | instructions        |         │            BookSearch │   │            BookSearch │
+          | to user             |         ├──────────────┬────────┤   ├──────────────┬────────┤
+          |.Pass                |         │.Connection   │        │   │.HTTP request │        │
+          | instructions        |         │ to test_data │        │   │ to the       │        │
+          | to BookSearch       |         │ upon         │        │   │ API with     │        │
+          |.Retrieve books      |         │ initialize   │        │   │ parse method │        │
+          | (from BookStorage)  |         │              │        │   │              │        │
+          |---------------------|         │              │        │   │.Holds:       │        │
+                                          │              │        │   │ URL          │        │
+                                          │              │        │   │ constant     │        │
+                                          │              │        │   │ API_key connector     │
+                                          └──────────────┴────────┘   └───────────────────────┘
+                                           (Passed as argument            (Passed as argument
+                                           when in a dev environment)     when going live)
 
-_This application should allow you to:_
 
-1. Type in a query and display a list of *5 books matching that query.*
-2. Each item in the list should include the book's author, title, and publishing
-  company.
-3. A user should be able to select a book from the five displayed to save to a
-  “Reading List” View a “Reading List” with all the books the user has selected
-  from their queries
-  - this is a local reading list and not tied to Google
-  Books’s account features.
-4. For programming language, choose any language you want as long as it is not
-  the same language you chose to review in the Code Review section above.
-5. Feel free to use a library (or not) for the Google Books call or JSON parsing.
 
-Please do not add any additional features.
+== Post review
 
-Your submission doesn’t need to be perfect.
+*_Question_*
+****
+With the Single Responsibility Principle in mind,
+what are all of the responsibilities of the bin/bookview.rb script in its current form?
+Given the time, how might you refactor so that the script has a single responsibility?
+****
 
-After we receive your submission we'll review your code, respond to you with
-our feedback and suggestions, and give you an opportunity to respond to our
-feedback and make improvements to your code before you re-submit a second and
-final version.
+Currently the responsibilities of bin/bookview.rb are numerous:
 
-That said, we would still like to see your best work with the first version you submit.
-It should demonstrate external quality (for example: solves the problem,
-handles edge cases, usability), internal quality (for example:
-*decoupling*, *testing*, *readability*), as well as some idea of your process and
-approach (via your version control history and README).
+* running the script/loop
+* holding two constants for later use within this file
+* instantiating an instance of the 'BookStorage' class
+* containing methods used within script
+
+=== Extracting and Refactoring
+
+Initially when writing this script I followed a sort of procedural programming process.
+However, I would definitely like to improve this.
+
+I have diagramed what I feel would be my ideal finished program (revised CRC above).
+
+The script would comprise calling an instance of `BookView.new`, called 'session',
+and then use methods on that instance to output the respective 'reports' within each `when` conditional inside the loop;
+this way, we would only need to use `puts` once to output the return of each method. We would also DRY the code considerably.
+`BookView.new` would be placed inside the lib folder. The script's responsibility would therefore be to execute an instance of `BookView`, getting input and passing that input
+to BookView through its methods. In a way, the script would therefore be analogous to a front end, if we follow the design analogy initially used.
+
+I would have to switch off the colorization, and use testing to match the current outputs.
+Case 4 and 0 would both use the same method, though could be given an argument defining the border "style" to be used,
+these styles would be stored inside a module I called "Decorators" (in revised CRC model). I like this approach as then the borders become customisable,
+and we can easily add a new style to these borders later on.
+
+I would favour using heredocs to build the strings inside of these reports,
+as then I feel the string format would be easier to modify from within constants containing the string format.
+In this way I think we could more easily adhere to SRP and have modularity,
+as we every module would and class would only hold methods that serve a specific type of functionality.
+
+I also think that heredocs would promote better readability for the next dev joining the project.
+
+The trade-off I can imagine having to face is the colorization of specific lines for these reports;
+we would only be able to colorize the string in its entirety.
+
+Ultimately, the refactor would comprise of:
+
+* *class* BookView
+* *module* Report
+* *module* Decorators
+* *module* Prompt
+* *script* bin/bookfind
+
+BookView would have access to all the report methods on the Report module.
+I believe it only needs be a module, as we do not need to create state for it.
+
+== Automating the environment outside of the code
+
+Currently the environment (test or live data) is set by choosing which class object to instantiate when using 'BookSearch' from within the loop.
+
+_My reasoning for this change:_
+
+I hesitated on this point, though decided that the functioanlity of the `OFFLINE'
+constant (to toggle the integration on and off) could be achieved in another way.
+I used {url-config}[The Twelve-Factor App III.Config] to partly inform this decision,
+as well as the open/close principle.
+It felt like having constants that changed the environment configuration of the program inside the code was not ideal,
+and I know you alluded to this also in the beginning of the review.
+
+Ideally, a degree of automation in regards the "connection" to test-data or live data could be achieved by using a config file,
+in order to minimize time and cost for new developers joining the project;
+and to offer maximum portability between execution environments.
+
+Currently I have tried to adher to the Open/Close principle by using the strategy pattern that was encouraged in the code review.
+Initially, what I had done was include an `if else` statement in 'BookData',
+the class was therefore initially responsible for checking whether the `OFFLINE` constant was set to `true` or `false`.
+
+However, following the recommendation to use the strategy pattern in the review,
+I thought it would be beneficial to extract these even further into separate classes, and pass them in as an argument to 'BookSearch',
+
+I think that using {url-dotenv}['dotenv'] is a suitable compromise.
+In so doing, we set the "connection" configuration in the top of the script file 'bin/bookview'
+(that would at this point in the refactor be 'bin/bookfind').
+We could then choose which object to create (and thereby which data to retrieve, live or test)
+depending on whether the ENV is existant in the '.env' file.
+If an API_KEY is exitant the program is connected automatically, if the developer wants to work in a test environment,
+then they can simply comment it out. The '.env' is therefore the only file that switches the program's environment.
+
+In order to not stray from SRP we could then extract this "connection" configuration into its own file as a simple method,
+and then call it from within the script (i.e. `data = connection_environment`):
+this would then pass in the appropriate argument to `BookSearch.new(data)`.
+
+In regards to readability and understanding, I feel that even if some of the classes are doing the correct thing,
+the naming is not always quite right. For instance, 'BookSearch' should perhaps be named 'BookParse' -
+as that is what this class is actually doing.
+Also the parse methods inside of 'BookData', and 'TestData' should perhaps be titled as 'connection'.
+
+== Reappropriate tests to `booksearch_spec.rb`
+
+As part of the post-review revision I have moved the tests previously in `end_to_end_spec.rb`,
+as the behaviours we are testing there seem to be the responsibility of `BookSearch`.
+
